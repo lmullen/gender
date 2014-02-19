@@ -13,12 +13,19 @@ This package is based on a [Python script][] by [Cameron Blevins][] and
 
 # Installation
 
-To install this package, first install 
-[devtools](https://github.com/hadley/devtools). 
+To install this package, first install [devtools][].
 
 Then run the following command:
 
     devtools::install_github("lmullen/gender")
+
+# Data
+
+The data sets used in this package are available here:
+
+-   [Mark Kantrowitz's name corpus][]
+-   [Social Security Administration's baby names by year and state][]
+-   [Social Security Administration's baby names by year][]
 
 # License
 
@@ -27,3 +34,7 @@ MIT License <http://lmullen.mit-license.org/>
   [Python script]: https://github.com/cblevins/Gender-ID-By-Time
   [Cameron Blevins]: http://www.cameronblevins.org/
   [Bridget Baird]: http://oak.conncoll.edu/bbbai/
+  [devtools]: https://github.com/hadley/devtools
+  [Mark Kantrowitz's name corpus]: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html
+  [Social Security Administration's baby names by year and state]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-
+  [Social Security Administration's baby names by year]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data
