@@ -1,0 +1,13 @@
+Package: gender
+Type: Package
+Title: Gender: encode gender based on names and dates of birth
+Version: 1.0
+Author: Lincoln Mullen <lincoln@lincolnmullen.com>
+Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>
+Description: Encodes gender based on names and dates of birth, using the Social 
+Security Administration's data set of first names by year and state. By using 
+the SSA data instead of lists of male and female names, this package is able to 
+more accurately guess the gender of a name, and it is able to report the 
+probability that a name was male or female. Based on an algorithm first devised
+by Cameron Blevins and Bridget Baird.
+License: MIT
