@@ -11,7 +11,7 @@ encode_gender <- function(data, name_field, year = c(1970, 2012),
     }
   } else if (method == "kantrowitz") {
     if (!missing(year)) {
-      warning("The year is not taken into account with the corpus method.") 
+      warning("The year is not taken into account with the Kantrowitz method.") 
     }
     encode_gender_kantrowitz(data = data, name_field = name_field)
   } else {
