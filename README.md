@@ -9,7 +9,8 @@ this package is able to more accurately guess the gender of a name, and
 it is able to report the probability that a name was male or female.
 
 This package is based on a [Python script][] by [Cameron Blevins][] and
-[Bridget Baird][].
+[Bridget Baird][], who came up with the original idea and found the data
+set to make it possible.
 
 # Installation
 
