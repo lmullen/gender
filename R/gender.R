@@ -1,16 +1,29 @@
-encode_gender <- function(data, name_field, year = c(1970, 2012), 
-                          method = "ssa") {
+encode_gender <- function(data, name_field = "name", years = c(1970, 2012), 
+                          method = "ssa", certainty = TRUE) {
+  
+  # If data is a character vector, then convert it to a data frame. 
+  # If the data is not a character vector or a data frame, throw an error.
+  if (class(data) == "character") {
+    data <- as.data.frame(data, optional = T)
+    colnames(data) <- "name"
+  } else if (class(data) != "data.frame") {
+    stop("This function expects data to be a character vector or a data frame.")
+  }
+  
+  # Hand off the arguments to functions based on method, and do error checking
   if (method == "ssa") {
     # Check for errors in the year argument
-    if (length(year) > 2) {
+    if (length(years) == 1) years <- c(years, years)
+    if (length(years) > 2) {
       stop("Year should be a numeric vector with no more than two values.")
-    } else if (year[1] > year[2]) {
-      stop("The first value for year should be smaller than the second value.")
+    } else if (years[1] > years[2]) {
+      stop("The first value for years should be smaller than the second value.")
     } else {
-      encode_gender_ssa(data = data, name_field = name_field, year = year)
+      encode_gender_ssa(data = data, name_field = name_field, years = years,
+                        certainty = certainty)
     }
   } else if (method == "kantrowitz") {
-    if (!missing(year)) {
+    if (!missing(years)) {
       warning("The year is not taken into account with the Kantrowitz method.") 
     }
     encode_gender_kantrowitz(data = data, name_field = name_field)
