@@ -1,5 +1,16 @@
-encode_gender <- function(data, name_field, years = c(1970, 2012), 
+encode_gender <- function(data, name_field = "name", years = c(1970, 2012), 
                           method = "ssa", certainty = TRUE) {
+  
+  # If data is a character vector, then convert it to a data frame. 
+  # If the data is not a character vector or a data frame, throw an error.
+  if (class(data) == "character") {
+    data <- as.data.frame(data, optional = T)
+    colnames(data) <- "name"
+  } else if (class(data) != "data.frame") {
+    stop("This function expects data to be a character vector or a data frame.")
+  }
+  
+  # Hand off the arguments to functions based on method, and do error checking
   if (method == "ssa") {
     # Check for errors in the year argument
     if (length(years) == 1) years <- c(years, years)
