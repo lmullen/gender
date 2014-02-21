@@ -6,7 +6,7 @@ gender <- function(data, years = c(1932, 2012), method = "ssa",
   # If data is a character vector, then convert it to a data frame. 
   # If the data is not a character vector or a data frame, throw an error.
   if (class(data) == "character") {
-    data <- as.data.frame(data, optional = T)
+    data <- as.data.frame(data, optional = T, stringsAsFactors = FALSE)
     colnames(data) <- "name"
   } else if (class(data) != "data.frame") {
     stop("Data must be a character vector or a data frame.")

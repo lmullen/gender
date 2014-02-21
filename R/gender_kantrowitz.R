@@ -1,3 +1,3 @@
 gender_kantrowitz <- function(data) {
-  merge(data, gender::kantrowitz, all.x = TRUE, by = "name")
+  left_join(data, gender::kantrowitz, by = "name")
 }
