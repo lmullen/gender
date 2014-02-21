@@ -1,4 +1,5 @@
+library(devtools)
 library(testthat)
-library(mypackage)
+load_all()
 
 test_package("gender")

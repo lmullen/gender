@@ -5,4 +5,5 @@ test_that("method kantrowitz warns if years are provided", {
                             "kantrowitz"),
               gives_warning("The year is not taken into account"))
 
+  
 })
