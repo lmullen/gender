@@ -1,4 +1,4 @@
-encode_gender_ssa <- function(data, name_field, years, certainty) {
+gender_ssa <- function(data, years, certainty) {
   require(dplyr)
   
   # Calculate the male and female proportions for the given range of years
@@ -22,7 +22,7 @@ encode_gender_ssa <- function(data, name_field, years, certainty) {
   }  
     
   # Merge with user's data
-  merge(data, ssa_select, all.x = TRUE, by.x = name_field, by.y = "name")
+  merge(data, ssa_select, all.x = TRUE, by = "name")
 }
 
 # Helper function to determine whether a name is male or female in a given year
