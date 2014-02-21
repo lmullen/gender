@@ -1,5 +1,6 @@
 gender_ssa <- function(data, years, certainty) {
-  require(dplyr)
+  
+  # 
   
   # Calculate the male and female proportions for the given range of years
   ssa_select <- gender::ssa_national %.%
