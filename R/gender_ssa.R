@@ -1,4 +1,4 @@
-encode_gender_ssa <- function(data, name_field, years, certainty) {
+gender_ssa <- function(data, name_field, years, certainty) {
   require(dplyr)
   
   # Calculate the male and female proportions for the given range of years

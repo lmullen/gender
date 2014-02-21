@@ -1,4 +1,4 @@
-encode_gender <- function(data, name_field = "name", years = c(1970, 2012), 
+gender <- function(data, name_field = "name", years = c(1970, 2012), 
                           method = "ssa", certainty = TRUE) {
   
   # If data is a character vector, then convert it to a data frame. 
@@ -19,14 +19,14 @@ encode_gender <- function(data, name_field = "name", years = c(1970, 2012),
     } else if (years[1] > years[2]) {
       stop("The first value for years should be smaller than the second value.")
     } else {
-      encode_gender_ssa(data = data, name_field = name_field, years = years,
-                        certainty = certainty)
+      gender_ssa(data = data, name_field = name_field, years = years,
+                 certainty = certainty)
     }
   } else if (method == "kantrowitz") {
     if (!missing(years)) {
       warning("The year is not taken into account with the Kantrowitz method.") 
     }
-    encode_gender_kantrowitz(data = data, name_field = name_field)
+    gender_kantrowitz(data = data, name_field = name_field)
   } else {
     stop("Method ", method, " is not recognized. Try ?encode_gender for help.")
   }
