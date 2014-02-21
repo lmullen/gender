@@ -22,8 +22,8 @@ test_that("SSA method returns valid data frame", {
   expect_that(nrow(test_data), equals(nrow(results_minimal)))
   
   expect_that(colnames(results_range),
-              is_equivalent_to(c("name", "year", "proportion_male",
-                                 "proportion_female", "gender")))
+              is_equivalent_to(c("name", "year", "gender",
+                                 "proportion_male", "proportion_female")))
   expect_that(colnames(results_column),
               is_equivalent_to(c("name", "year", "proportion_male",
                                  "proportion_female", "gender")))
