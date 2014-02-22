@@ -59,19 +59,19 @@ names. If this does not match your data set, see [dplyr][] and
 function, which will add columns for gender and the certainty of that
 guess to your data frame.
 
-    gender(your_data)
+    gender(sample_names_data)
 
 Using a data frame you can specify a single year or range of years as in
 the example above. But you can also specify a column in your data set
 which contains year of birth associated with the name. For now, this
 column must be an integer vector (not a numeric vector) name `year`.
 
-    gender(your_data, years = TRUE)
+    gender(sample_names_data, years = TRUE)
 
 If you prefer to use Kantrowitz corpus of male and female names, you can
 use the `method` option.
 
-    gender(your_data, method = "kantrowitz")
+    gender(sample_names_data, method = "kantrowitz")
 
 If you prefer a more minimal output, use the option `certainty = FALSE`
 to remove the `proportion_male` and `proportion_female` output.
