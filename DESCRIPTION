@@ -19,3 +19,4 @@ Suggests:
     testthat
 LazyData: yes
 License: MIT
+Roxygen: list(wrap = FALSE)
