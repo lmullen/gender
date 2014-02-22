@@ -1,6 +1,4 @@
-library(devtools)
 library(testthat)
-load_all()
+library(gender)
 
-test_dir("inst/tests")
-# test_package(".")
+test_package("gender")
