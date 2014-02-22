@@ -10,7 +10,7 @@ can vary over time. Any data set that covers the normal span of a human
 life will require a fundamentally historical method to find gender from
 names.
 
-This package, based on collaborative work with [Cameron Blevins][]
+This package, based on collaborative work with [Cameron Blevins][],
 encodes gender based on names and dates of birth, using the Social
 Security Administration's data set of first names by year since 1880. By
 using the SSA data instead of lists of male and female names, this
