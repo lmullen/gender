@@ -1,5 +1,7 @@
 gender_ssa <- function(data, years, certainty) {
   
+  require(dplyr)
+  
   if (class(years) == "numeric") {
     
     # Calculate the male and female proportions for the given range of years
