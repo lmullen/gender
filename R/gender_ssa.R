@@ -1,6 +1,8 @@
+#' Find the gender of frst names using Social Security data
+#' 
+#' This internal function implements the \code{method = "ssa"} option of 
+#' \code{\link{gender}}. See that function for documentation.
 gender_ssa <- function(data, years, certainty) {
-  
-  require(dplyr)
   
   if (class(years) == "numeric") {
     
