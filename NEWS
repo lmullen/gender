@@ -1,0 +1,9 @@
+gender 0.1
+==========
+
+* function `gender` implements gender lookup for names and data frames
+
+* implemented finding gender by using the Kantrowitz names corpus
+
+* implemented finding gender by using the national Social Security 
+  Administration data for names and dates of birth
