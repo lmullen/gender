@@ -2,7 +2,7 @@
 \docType{data}
 \name{ssa_state}
 \alias{ssa_state}
-\title{Social Security Administration national names dataset}
+\title{Social Security Administration state names dataset}
 \format{A data frame with 5,267,234 observations and 5 variables}
 \source{
 Social Security Administration,

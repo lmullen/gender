@@ -29,7 +29,7 @@ NULL
 #' @format A data frame with 1,603,026 observations and 4 variables
 NULL
 
-#' Social Security Administration national names dataset
+#' Social Security Administration state names dataset
 #' 
 #' A data set containing the number of instances of male and female names born
 #' in each state for the years 1910 to 2012 for people who have received Social
