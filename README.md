@@ -1,4 +1,4 @@
-# Gender
+# Gender, an R package 
 
 Lincoln A. Mullen | lincoln@lincolnmullen.com | http://lincolnmullen.com
 
@@ -21,7 +21,7 @@ male or female for any given range of years.
 See also Cameron's implementation of the same concept in a [Python
 script][].
 
-# Installation
+## Installation
 
 To install this package, first install [devtools][].
 
@@ -29,13 +29,13 @@ Then run the following command:
 
     devtools::install_github("lmullen/gender")
 
-# Using the package
+## Using the package
 
 The simplest way to use this package is to pass a single name to the
 `gender()` function. You can optionally specify a year or range of years
 to the function. If you specify the years option, the function will
 calculate the proportion of male and female uses of a name for that time
-period; otherwise it will use the time period 1932--2012.
+period; otherwise it will use the time period 1932-2012.
 
     gender("madison")
     # returns
@@ -76,7 +76,7 @@ use the `method` option.
 If you prefer a more minimal output, use the option `certainty = FALSE`
 to remove the `proportion_male` and `proportion_female` output.
 
-# Data
+## Data
 
 This package includes cleaned-up versions of several data sets. To see
 the available data sets run the following command:
@@ -90,17 +90,17 @@ The raw data sets used in this package are available here:
 -   [Social Security Administration's baby names by year and state][]
 -   [Social Security Administration's baby names by year][]
 
-# License
+## License
 
 MIT License, <http://lmullen.mit-license.org/>
 
-# Citation
+## Citation
 
 Eventually Cameron and I will publish an article about this method. In
 the meantime, you can cite and link to either his [Python
 implementation][Python script] or my implementation in this R package.
 
-# Note
+## Note
 
 <a name="gender-vs-sex"></a>\* Of course in most cases the Social
 Security Administration data more approximately records the biological
