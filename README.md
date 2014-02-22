@@ -21,6 +21,8 @@ male or female for any given range of years.
 See also Cameron's implementation of the same concept in a [Python
 script][].
 
+![Twelve names that changed over time](https://raw.github.com/lmullen/gender/master/changing-names.png)
+
 ## Installation
 
 To install this package, first install [devtools][].
