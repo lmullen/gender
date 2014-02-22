@@ -18,14 +18,14 @@ test_that("error if data is not a data frame or character vector", {
 })
 
 test_that("error if years are not either boolean, range, or single year", {
-  expect_that(gender(test_data, years = c(1900, 1950, 2000)),
+  expect_that(gender(sample_names_data, years = c(1900, 1950, 2000)),
               throws_error("Year should be a numeric vector with"))
-  expect_that(gender(test_data, years = c(1950, 1900)),
+  expect_that(gender(sample_names_data, years = c(1950, 1900)),
               throws_error("The first value for years should be smaller"))
 })
 
 test_that("error if method is not recognized", {
-  expect_that(gender(test_data, method = "census"),
+  expect_that(gender(sample_names_data, method = "census"),
               throws_error("Method .+ is not recognized"))
 })
 
