@@ -51,7 +51,7 @@ period; otherwise it will use the time period 1932-2012.
     #      name proportion_female gender proportion_male
     # 1 madison            0.7863 female          0.2137
 
-In most cases, you probable have a data set with many names. For now
+You probably have a data set with many names. For now
 this package assumes that you have a data frame with a column `name`
 which is a character vector (not a factor) containing all lowercase
 names. If this does not match your data set, see [dplyr][] and
