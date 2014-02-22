@@ -4,7 +4,7 @@ Lincoln A. Mullen | lincoln@lincolnmullen.com | http://lincolnmullen.com
 
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
-gender programmatically, such as the [Natural Language Toolkit][] rely
+gender programmatically, such as the [Natural Language Toolkit][], rely
 on lists of male and female names. However, the gender[\*][] of names
 can vary over time. Any data set that covers the normal span of a human
 life will require a fundamentally historical method to find gender from
