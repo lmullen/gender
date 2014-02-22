@@ -18,5 +18,5 @@ Imports:
 Suggests:
     testthat
 LazyData: yes
-License: MIT
+License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)

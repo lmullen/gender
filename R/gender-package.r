@@ -12,6 +12,7 @@
 #' @title Gender: find gender by name and date
 #' @author \email{lincoln@@lincolnmullen.com}
 #' @keywords gender
+#' @import dplyr
 NULL
 
 #' Social Security Administration national names dataset
