@@ -1,4 +1,4 @@
-# Gender: find gender by name and date
+# Gender
 
 Lincoln A. Mullen | lincoln@lincolnmullen.com | http://lincolnmullen.com
 
