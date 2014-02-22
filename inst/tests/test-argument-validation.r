@@ -28,3 +28,8 @@ test_that("error if method is not recognized", {
   expect_that(gender(test_data, method = "census"),
               throws_error("Method .+ is not recognized"))
 })
+
+test_that("function works with a single year", {
+  expect_that(gender("madison", years = 2000)$gender,
+              equals("female"))
+})
