@@ -121,3 +121,6 @@ to researchers to interpret exactly what the encoded values mean.
   [Mark Kantrowitz's name corpus]: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html
   [Social Security Administration's baby names by year and state]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-
   [Social Security Administration's baby names by year]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data
+
+---
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
