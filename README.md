@@ -1,7 +1,5 @@
 # Gender, an R package 
 
-Lincoln A. Mullen | lincoln@lincolnmullen.com | http://lincolnmullen.com
-
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
 gender programmatically, such as the [Natural Language Toolkit][], rely
@@ -102,6 +100,8 @@ Eventually Cameron and I will publish an article about this method. In
 the meantime, you can cite and link to either his [Python
 implementation][Python script] or my implementation in this R package.
 
+By [Lincoln Mullen][] and [contributors][].
+
 ## Note
 
 <a name="gender-vs-sex"></a>\* Of course in most cases the Social
@@ -121,6 +121,8 @@ to researchers to interpret exactly what the encoded values mean.
   [Mark Kantrowitz's name corpus]: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html
   [Social Security Administration's baby names by year and state]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-
   [Social Security Administration's baby names by year]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data
+  [Lincoln Mullen]: http://lincolnmullen.com
+  [contributors]: https://github.com/ropensci/gender/graphs/contributors
 
 ---
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
