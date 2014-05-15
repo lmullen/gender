@@ -8,35 +8,29 @@
 gender(data, years = c(1932, 2012), method = "ssa", certainty = TRUE)
 }
 \arguments{
-  \item{data}{A character string of a first name or a data
-  frame with a column named \code{name} with a character
-  vector containing first names. The names must all be
-  lowercase.}
+\item{data}{A character string of a first name or a data frame with a column
+named \code{name} with a character vector containing first names. The names
+must all be lowercase.}
 
-  \item{years}{This argument can be either a single year, a
-  range of years in the form \code{c(1880, 1900)}, or the
-  value \code{TRUE}. If no value is specified, then the
-  names will be looked up for the period 1932 to 2012. If a
-  year or range of years is specified, then the names will
-  be looked up for that period. If the value is
-  \code{TRUE}, then the function will look for a column in
-  the data frame named \code{year} containing an integer
-  vector of the year of birth associated with each name.
-  This permits you to do a precise lookup for each person
-  in your data set. Dates may range from 1880 to 2012; if
-  earlier or later dates are included in a column in the
-  data frame, they will not be matched.}
+\item{years}{This argument can be either a single year, a range of years in
+the form \code{c(1880, 1900)}, or the value \code{TRUE}. If no value is
+specified, then the names will be looked up for the period 1932 to 2012. If
+a year or range of years is specified, then the names will be looked up for
+that period. If the value is \code{TRUE}, then the function will look for
+a column in the data frame named \code{year} containing an integer vector
+of the year of birth associated with each name. This permits you to do a
+precise lookup for each person in your data set. Dates may range from 1880
+to 2012; if earlier or later dates are included in a column in the data
+frame, they will not be matched.}
 
-  \item{method}{This value can be either \code{"ssa"}, in
-  which case the function will look up names based on
-  Social Security Administration name data, or
-  \code{"kantrowitz"}, in which case the function will use
-  the Kantrowitz corpus of male and female names.}
+\item{method}{This value can be either \code{"ssa"}, in which case the
+function will look up names based on Social Security Administration name
+data, or \code{"kantrowitz"}, in which case the function will use the
+Kantrowitz corpus of male and female names.}
 
-  \item{certainty}{A boolean value, which determines
-  whether or not to return the proportion of male and
-  female uses of names in addition to determining the
-  gender of names.}
+\item{certainty}{A boolean value, which determines whether or not to return
+the proportion of male and female uses of names in addition to determining
+the gender of names.}
 }
 \description{
 Gender: find gender by name and date

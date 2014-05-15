@@ -1,4 +1,4 @@
-source("../sample-data.r")
+source("sample-data.r")
 context("Kantrowitz")
 
 results <- gender(sample_names_data, method = "kantrowitz")

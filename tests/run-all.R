@@ -1,4 +1,2 @@
 library(testthat)
-library(gender)
-
-test_package("gender")
+test_check("gender")

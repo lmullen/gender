@@ -1,4 +1,4 @@
-source("../sample-data.r")
+source("sample-data.r")
 context("Social Security Administration")
 
 # Using a range of years passed as an argument

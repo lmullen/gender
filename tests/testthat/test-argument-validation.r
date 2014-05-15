@@ -1,4 +1,4 @@
-source("../sample-data.r")
+source("sample-data.r")
 context("Argument validation")
 
 test_that("warns if Kantrowitz method includes years", {
