@@ -27,7 +27,7 @@ To install this package, first install [devtools][].
 
 Then run the following command:
 
-    devtools::install_github("lmullen/gender")
+    devtools::install_github("ropensci/gender")
 
 ## Using the package
 
