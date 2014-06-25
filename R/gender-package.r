@@ -30,6 +30,21 @@ NULL
 #' @format A data frame with 1,603,026 observations and 4 variables
 NULL
 
+#' IPUMS US census national names dataset
+#' 
+#' A data set containing the number of instances of male and female names born
+#' in the years 1789 to 1940 for people counted included in the decennial IPUMS censuses
+#' Numbers. IPUMS includes 1% and 5% samples for each year: for every birth year, counts
+#' from all relevant censuses with people under 62 years old are included.
+#' Contributed by Ben Schmidt
+#' 
+#' @docType data
+#' @keywords datasets
+#' @name ipums_usa
+#' @source Steven Ruggles, J. Trent Alexander, Katie Genadek, Ronald Goeken, Matthew B. Schroeder, and Matthew Sobek. Integrated Public Use Microdata Series: Version 5.0 [Machine-readable database]. Minneapolis, MN: Minnesota Population Center [producer and distributor], 2010. 
+#' @format A data frame with c. 1.3m observations and 4 variables
+NULL
+
 #' Social Security Administration state names dataset
 #' 
 #' A data set containing the number of instances of male and female names born
