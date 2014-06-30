@@ -1,6 +1,6 @@
-#' Find the gender of first names using Social Security data
+#' Find the gender of first names using Census data
 #' 
-#' This internal function implements the \code{method = "ipums_usa"} option of 
+#' This internal function implements the \code{method = "ipums"} option of 
 #' \code{\link{gender}}. See that function for documentation.
 #' 
 #' @param data A character string of a first name or a data frame with a column 
