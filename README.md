@@ -111,9 +111,10 @@ records names given at birth. But since in most cases researchers will
 be interested in gender, I've named this package gender, leaving it up
 to researchers to interpret exactly what the encoded values mean.
 
-* * * * *
 
-[![][]][]
+---
+
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
 
   [Natural Language Toolkit]: http://www.nltk.org/
   [\*]: #gender-vs-sex
@@ -130,5 +131,3 @@ to researchers to interpret exactly what the encoded values mean.
   [IPUMS Census data]: https://usa.ipums.org/
   [Lincoln Mullen]: http://lincolnmullen.com
   [contributors]: https://github.com/ropensci/gender/graphs/contributors
-  []: http://ropensci.org/public_images/github_footer.png
-  [![][]]: http://ropensci.org
