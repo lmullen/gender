@@ -64,6 +64,16 @@ gender <- function(data, years = c(1932, 2012), method = "ssa",
       warning("The year is not taken into account with the Kantrowitz method.") 
     }
     gender_kantrowitz(data = data)
+  } else if (method == "ipums") {
+    # Check for errors in the year argument
+    if (length(years) == 1) years <- c(years, years)
+    if (length(years) > 2) {
+      stop("Year should be a numeric vector with no more than two values.")
+    } else if (years[1] > years[2]) {
+      stop("The first value for years should be smaller than the second value.")
+    } else {
+      gender_ipums_usa(data = data, years = years, certainty = certainty)
+    }
   } else {
     stop("Method ", method, " is not recognized. Try ?gender for help.")
   }
