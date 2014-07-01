@@ -1,3 +1,11 @@
+gender 0.2
+==========
+
+* implemented an `ipums` method that predicts gender before 1930 using U.S. Census
+  data from IPUMS (contributed by Benjamin Schmidt).
+
+* upgraded dependency on `dplyr` to 0.2.
+
 gender 0.1
 ==========
 

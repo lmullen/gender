@@ -1,11 +1,7 @@
 #' Gender: find gender by name and date
 #' 
-#' Encodes gender based on names and dates of birth, using the Social
-#' Security Administration's data set of first names by year and state. By
-#' using the SSA data instead of lists of male and female names, this package
-#' is able to more accurately guess the gender of a name, and it is able to
-#' report the probability that a name was male or female. Based on an technique
-#' devised by Cameron Blevins.
+#' Encodes gender based on names and dates of birth, using U.S. Census or Social
+#' Security data sets.
 #' 
 #' @name gender
 #' @docType package
@@ -33,10 +29,10 @@ NULL
 #' IPUMS US census national names dataset
 #' 
 #' A data set containing the number of instances of male and female names born
-#' in the years 1789 to 1940 for people counted included in the decennial IPUMS censuses
+#' in the years 1789 to 1940 for people included in the decennial IPUMS censuses
 #' Numbers. IPUMS includes 1% and 5% samples for each year: for every birth year, counts
 #' from all relevant censuses with people under 62 years old are included.
-#' Contributed by Ben Schmidt
+#' Contributed by Ben Schmidt.
 #' 
 #' @docType data
 #' @keywords datasets
@@ -87,4 +83,14 @@ NULL
 #' @source Mark Kantrowitz and Bill Ross,
 #'   \url{http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html}
 #' @format A data frame with 7,579 observations and 2 variables
+NULL
+
+#' Sample names
+#' 
+#' A toy data set of first names and years.
+#' 
+#' @docType data
+#' @keywords datasets
+#' @name sample_names_data
+#' @format Data frame
 NULL

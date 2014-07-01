@@ -23,13 +23,13 @@ gender_ipums_usa <- function(data, years, certainty) {
   if (class(years) == "numeric") {
     if (years[1] < 1789 || years[2] > 1930) {stop("Please provide a year range between 1789 and 1930")}
     # Calculate the male and female proportions for the given range of years
-    ipums_usa_select <- gender::ipums_usa %.%
-      filter(year >= years[1], year <= years[2]) %.%
-      group_by(name) %.%
+    ipums_usa_select <- gender::ipums_usa %>%
+      filter(year >= years[1], year <= years[2]) %>%
+      group_by(name) %>%
       summarise(female = sum(female),
-                male = sum(male)) %.%
+                male = sum(male)) %>%
       mutate(proportion_male = round((male / (male + female)), digits = 4),
-             proportion_female = round((female / (male + female)), digits = 4)) %.%
+             proportion_female = round((female / (male + female)), digits = 4)) %>%
       mutate(gender = ifelse(proportion_female == 0.5, "either",
                              ifelse(proportion_female > 0.5, "female", "male")))      
     
@@ -39,9 +39,9 @@ gender_ipums_usa <- function(data, years, certainty) {
     
     # Join the data to ipums_usa data by name and year, then calculate proportions
     results <- 
-    left_join(data, gender::ipums_usa, by = c("name", "year")) %.%
+    left_join(data, gender::ipums_usa, by = c("name", "year")) %>%
       mutate(proportion_male = round((male / (male + female)), digits = 4),
-             proportion_female = round((female / (male + female)), digits = 4)) %.%
+             proportion_female = round((female / (male + female)), digits = 4)) %>%
       mutate(gender = ifelse(proportion_female == 0.5, "either",
                              ifelse(proportion_female > 0.5, "female", "male")))  
   }

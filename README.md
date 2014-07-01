@@ -5,16 +5,15 @@ but seldom identify those names by gender. Most techniques for finding
 gender programmatically, such as the [Natural Language Toolkit][], rely
 on lists of male and female names. However, the gender[\*][] of names
 can vary over time. Any data set that covers the normal span of a human
-life will require a fundamentally historical method to find gender from
-names.
+life will require a historical method to find gender from names.
 
 This package, based on collaborative work with [Cameron Blevins][],
-encodes gender based on names and dates of birth, using the Social
-Security Administration's data set of first names by year since 1880. By
-using the SSA data instead of lists of male and female names, this
-package is able to more accurately guess the gender of a name;
-furthermore it is able to report the proportion of times that a name was
-male or female for any given range of years.
+encodes gender based on names and dates of birth, using either the Social
+Security Administration's data set of first names by year since 1880 or the U.S. 
+Census data from IPUMS for years before 1930. By using these data sets instead of
+lists of male and female names, this package is able to more accurately guess the
+gender of a name; furthermore it is able to report the proportion of times that
+a name was male or female for any given range of years.
 
 See also Cameron's implementation of the same concept in a [Python
 script][].
@@ -35,7 +34,7 @@ The simplest way to use this package is to pass a single name to the
 `gender()` function. You can optionally specify a year or range of years
 to the function. If you specify the years option, the function will
 calculate the proportion of male and female uses of a name for that time
-period; otherwise it will use the time period 1932-2012.
+period.
 
     gender("madison")
     # returns
@@ -89,6 +88,7 @@ The raw data sets used in this package are available here:
 -   [Mark Kantrowitz's name corpus][]
 -   [Social Security Administration's baby names by year and state][]
 -   [Social Security Administration's baby names by year][]
+-   [IPUMS Census data][]
 
 ## License
 
@@ -123,6 +123,7 @@ to researchers to interpret exactly what the encoded values mean.
   [Social Security Administration's baby names by year]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data
   [Lincoln Mullen]: http://lincolnmullen.com
   [contributors]: https://github.com/ropensci/gender/graphs/contributors
+  [IPUMS Census data]: https://usa.ipums.org/
 
 ---
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

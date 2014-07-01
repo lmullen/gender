@@ -24,13 +24,13 @@ gender_ssa <- function(data, years, certainty) {
   if (class(years) == "numeric") {
     
     # Calculate the male and female proportions for the given range of years
-    ssa_select <- gender::ssa_national %.%
-      filter(year >= years[1], year <= years[2]) %.%
-      group_by(name) %.%
+    ssa_select <- gender::ssa_national %>%
+      filter(year >= years[1], year <= years[2]) %>%
+      group_by(name) %>%
       summarise(female = sum(female),
-                male = sum(male)) %.%
+                male = sum(male)) %>%
       mutate(proportion_male = round((male / (male + female)), digits = 4),
-             proportion_female = round((female / (male + female)), digits = 4)) %.%
+             proportion_female = round((female / (male + female)), digits = 4)) %>%
       mutate(gender = ifelse(proportion_female == 0.5, "either",
                              ifelse(proportion_female > 0.5, "female", "male")))      
     
@@ -40,9 +40,9 @@ gender_ssa <- function(data, years, certainty) {
     
     # Join the data to SSA data by name and year, then calculate proportions
     results <- 
-    left_join(data, gender::ssa_national, by = c("name", "year")) %.%
+    left_join(data, gender::ssa_national, by = c("name", "year")) %>%
       mutate(proportion_male = round((male / (male + female)), digits = 4),
-             proportion_female = round((female / (male + female)), digits = 4)) %.%
+             proportion_female = round((female / (male + female)), digits = 4)) %>%
       mutate(gender = ifelse(proportion_female == 0.5, "either",
                              ifelse(proportion_female > 0.5, "female", "male")))  
   }
