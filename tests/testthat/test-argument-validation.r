@@ -30,6 +30,8 @@ test_that("error if method is not recognized", {
 })
 
 test_that("function works with a single year", {
-  expect_that(gender("madison", years = 2000)$gender,
+  expect_that(gender("madison", method = "ssa", years = 2000)$gender,
               equals("female"))
+  expect_that(gender("madison", method = "ipums", years = 1860)$gender,
+              equals("male"))
 })

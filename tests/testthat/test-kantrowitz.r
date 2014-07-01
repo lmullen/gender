@@ -14,8 +14,7 @@ test_that("Kantrowitz method returns valid data frame", {
               is_equivalent_to(c("name", "year", "gender")))
   
   expect_that(results$gender,
-              is_equivalent_to(c("female", "female",
-                                 "male", "male",
-                                 "either", "either", "either",
-                                 "male", "male", "male", NA)))
+              is_equivalent_to(c("female", "female", "female", "female", "male",
+                                 "male", "male","male", "either", "either", "either",
+                                 "either", "male", "male", "male", "male", NA)))
 })

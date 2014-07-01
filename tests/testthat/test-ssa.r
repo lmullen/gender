@@ -1,5 +1,5 @@
 source("sample-data.r")
-context("Social Security Administration")
+context("SSA method")
 
 # Using a range of years passed as an argument
 results_range <- gender(sample_names_data, method = "ssa",
@@ -24,9 +24,6 @@ test_that("SSA method returns valid data frame", {
   expect_that(nrow(sample_names_data), equals(nrow(results_column)))
   expect_that(nrow(sample_names_data), equals(nrow(results_minimal)))
   
-#   expect_that(colnames(results_range),
-#               is_equivalent_to(c("name", "year","proportion_male", "gender",
-#                                  "proportion_female")))
   expect_that(colnames(results_column),
               is_equivalent_to(c("name", "year", "proportion_male",
                                  "proportion_female", "gender")))
@@ -38,15 +35,24 @@ test_that("SSA method returns valid data frame", {
 test_that("SSA results vary over time", {
   
   expect_that(results_range$gender,
-              is_equivalent_to(c("female", "female",
-                                 "male", "male",
-                                 "female", "female", "female",
-                                 "female", "female", "female", NA)))
+              is_equivalent_to(c("female", "female", "female", "female", "male",
+                                 "male", "male",  "male", "female", "female", 
+                                 "female", "female", "female", "female",  "female",
+                                 "female", NA)))
   
   expect_that(results_column$gender,
-              is_equivalent_to(c("female", "female",
-                                 "male", "male",
-                                 NA, "female", NA,
-                                 "male", "male", "female", NA)))
+              is_equivalent_to(c(NA, NA, "female", "female", NA, NA, "male",
+                                 "male", NA, NA, "female", "female", NA, NA, "male",
+                                 "female", NA)))
   
+})
+
+test_that("SSA method uses default range of 1932 to 2012 if dates not provided", {
+  expect_that(gender("cameron", method = "ssa", years = c(1932, 2012)),
+              equals(gender("cameron", method = "ssa")))
+  # Be sure that changing the years changes the results
+  expect_that(isTRUE(all.equal(
+    gender("cameron", method = "ssa"),
+    gender("cameron", method = "ssa", years = c(1950,1960))
+    )), is_false())
 })

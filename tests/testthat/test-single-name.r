@@ -11,4 +11,8 @@ test_that("a single name can be encoded", {
               equals("female"))
   expect_that(gender("madison", method = "ssa", years = 2000)$proportion_female,
               equals(0.9931))
+  expect_that(gender("madison", method = "ipums", years = c(1800, 1850))$gender,
+              equals("male"))
+  expect_that(gender("madison", method = "ipums", years = c(1800, 1850))$proportion_male,
+              equals(0.9927))
 })

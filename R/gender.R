@@ -51,7 +51,8 @@ gender <- function(data, years = c(1932, 2012), method = "ssa",
   # Hand off the arguments to functions based on method, and do error checking
   if (method == "ssa") {
     # Check for errors in the year argument
-    if (length(years) == 1) years <- c(years, years)
+    if (missing(years)) { years <- c(1932, 2012) }
+    if (length(years) == 1) { years <- c(years, years) }
     if (length(years) > 2) {
       stop("Year should be a numeric vector with no more than two values.")
     } else if (years[1] > years[2]) {
@@ -66,6 +67,7 @@ gender <- function(data, years = c(1932, 2012), method = "ssa",
     gender_kantrowitz(data = data)
   } else if (method == "ipums") {
     # Check for errors in the year argument
+    if (missing(years)) {years <- c(1789, 1930)}
     if (length(years) == 1) years <- c(years, years)
     if (length(years) > 2) {
       stop("Year should be a numeric vector with no more than two values.")
