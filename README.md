@@ -1,4 +1,4 @@
-# Gender, an R package 
+# Gender, an R package
 
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
@@ -7,18 +7,19 @@ on lists of male and female names. However, the gender[\*][] of names
 can vary over time. Any data set that covers the normal span of a human
 life will require a historical method to find gender from names.
 
-This package, based on collaborative work with [Cameron Blevins][],
-encodes gender based on names and dates of birth, using either the Social
-Security Administration's data set of first names by year since 1880 or the U.S. 
-Census data from IPUMS for years before 1930. By using these data sets instead of
-lists of male and female names, this package is able to more accurately guess the
-gender of a name; furthermore it is able to report the proportion of times that
+This package encodes gender based on names and dates of birth, using
+either the Social Security Administration's data set of first names by
+year since 1880 (based on an implementation by [Cameron Blevins][]) or
+the U.S. Census data from IPUMS for years before 1930 (contributed by
+[Ben Schmidt][]). By using these data sets instead of lists of male and
+female names, this package is able to more accurately guess the gender
+of a name; furthermore it is able to report the proportion of times that
 a name was male or female for any given range of years.
 
 See also Cameron's implementation of the same concept in a [Python
 script][].
 
-![Twelve names that changed over time](https://raw.github.com/lmullen/gender/master/changing-names.png)
+![Twelve names that changed over time][]
 
 ## Installation
 
@@ -50,13 +51,12 @@ period.
     #      name proportion_female gender proportion_male
     # 1 madison            0.7863 female          0.2137
 
-You probably have a data set with many names. For now
-this package assumes that you have a data frame with a column `name`
-which is a character vector (not a factor) containing all lowercase
-names. If this does not match your data set, see [dplyr][] and
-[stringr][] for help. You can pass that data frame to the `gender()`
-function, which will add columns for gender and the certainty of that
-guess to your data frame.
+You probably have a data set with many names. For now this package
+assumes that you have a data frame with a column `name` which is a
+character vector (not a factor) containing all lowercase names. If this
+does not match your data set, see [dplyr][] and [stringr][] for help.
+You can pass that data frame to the `gender()` function, which will add
+columns for gender and the certainty of that guess to your data frame.
 
     gender(sample_names_data)
 
@@ -111,19 +111,24 @@ records names given at birth. But since in most cases researchers will
 be interested in gender, I've named this package gender, leaving it up
 to researchers to interpret exactly what the encoded values mean.
 
+* * * * *
+
+[![][]][]
+
   [Natural Language Toolkit]: http://www.nltk.org/
   [\*]: #gender-vs-sex
   [Cameron Blevins]: http://www.cameronblevins.org/
+  [Ben Schmidt]: http://benschmidt.org/
   [Python script]: https://github.com/cblevins/Gender-ID-By-Time
+  [Twelve names that changed over time]: https://raw.github.com/lmullen/gender/master/changing-names.png
   [devtools]: https://github.com/hadley/devtools
   [dplyr]: https://github.com/hadley/dplyr
   [stringr]: https://github.com/hadley/stringr
   [Mark Kantrowitz's name corpus]: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html
   [Social Security Administration's baby names by year and state]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-
   [Social Security Administration's baby names by year]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data
+  [IPUMS Census data]: https://usa.ipums.org/
   [Lincoln Mullen]: http://lincolnmullen.com
   [contributors]: https://github.com/ropensci/gender/graphs/contributors
-  [IPUMS Census data]: https://usa.ipums.org/
-
----
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+  []: http://ropensci.org/public_images/github_footer.png
+  [![][]]: http://ropensci.org
