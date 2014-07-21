@@ -56,3 +56,5 @@ test_that("SSA method uses default range of 1932 to 2012 if dates not provided",
     gender("cameron", method = "ssa", years = c(1950,1960))
     )), is_false())
 })
+
+test_that("Names affected by the skewed gender rati")

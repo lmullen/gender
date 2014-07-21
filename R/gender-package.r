@@ -84,13 +84,3 @@ NULL
 #'   \url{http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html}
 #' @format A data frame with 7,579 observations and 2 variables
 NULL
-
-#' Sample names
-#' 
-#' A toy data set of first names and years.
-#' 
-#' @docType data
-#' @keywords datasets
-#' @name sample_names_data
-#' @format Data frame
-NULL
