@@ -1,6 +1,15 @@
 source("sample-data.r")
 context("SSA method")
 
+test_that("a single name can be encoded", {
+  expect_that(gender("madison", method = "ssa", years = c(1880, 1950))$gender,
+              equals("male"))
+  expect_that(gender("madison", method = "ssa", years = c(1990, 2000))$gender,
+              equals("female"))
+  expect_that(gender("madison", method = "ssa", years = 2000)$proportion_female,
+              equals(0.9936))
+})
+
 # Using a range of years passed as an argument
 results_range <- gender(sample_names_data, method = "ssa",
                         years = c(1932, 2012))

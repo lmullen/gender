@@ -3,6 +3,11 @@ context("Kantrowitz")
 
 results <- gender(sample_names_data, method = "kantrowitz")
 
+test_that("a single name can be encoded", {
+  expect_that(gender("madison", method = "kantrowitz")$gender,
+              equals("male"))
+})
+
 test_that("Kantrowitz method returns valid data frame", {
   
   expect_that(results, is_a("data.frame"))
