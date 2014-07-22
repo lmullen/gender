@@ -4,7 +4,7 @@ context("Argument validation")
 test_that("warns if Kantrowitz method includes years", {
   expect_that(gender(data = "julie", years = c(1880,1900), method = 
                             "kantrowitz"),
-              gives_warning("The year is not taken into account"))
+              gives_warning("Kantrowitz method does not account for year."))
 })
 
 test_that("error if data is not a character vector", {

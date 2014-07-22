@@ -20,32 +20,20 @@
 #'   the proportion of male and female uses of names in addition to determining
 #'   the gender of names.
 gender_ipums_usa <- function(data, years, certainty) {
-  if (class(years) == "numeric") {
-    if (years[1] < 1789 || years[2] > 1930) {stop("Please provide a year range between 1789 and 1930")}
-    # Calculate the male and female proportions for the given range of years
-    ipums_usa_select <- gender::ipums_usa %>%
-      filter(year >= years[1], year <= years[2]) %>%
-      group_by(name) %>%
-      summarise(female = sum(female),
-                male = sum(male)) %>%
-      mutate(proportion_male = round((male / (male + female)), digits = 4),
-             proportion_female = round((female / (male + female)), digits = 4)) %>%
-      mutate(gender = ifelse(proportion_female == 0.5, "either",
-                             ifelse(proportion_female > 0.5, "female", "male")))      
-    
-    results <- left_join(data, ipums_usa_select, by = "name")
-    
-  } else if (class(years) == "logical") {
-    
-    # Join the data to ipums_usa data by name and year, then calculate proportions
-    results <- 
-    left_join(data, gender::ipums_usa, by = c("name", "year")) %>%
-      mutate(proportion_male = round((male / (male + female)), digits = 4),
-             proportion_female = round((female / (male + female)), digits = 4)) %>%
-      mutate(gender = ifelse(proportion_female == 0.5, "either",
-                             ifelse(proportion_female > 0.5, "female", "male")))  
-  }
   
+  # Calculate the male and female proportions for the given range of years
+  ipums_usa_select <- gender::ipums_usa %>%
+    filter(year >= years[1], year <= years[2]) %>%
+    group_by(name) %>%
+    summarise(female = sum(female),
+              male = sum(male)) %>%
+    mutate(proportion_male = round((male / (male + female)), digits = 4),
+           proportion_female = round((female / (male + female)), digits = 4)) %>%
+    mutate(gender = ifelse(proportion_female == 0.5, "either",
+                           ifelse(proportion_female > 0.5, "female", "male")))      
+  
+  results <- left_join(data, ipums_usa_select, by = "name")
+    
   # Delete the male and female columns since we won't report them to the user
   results$male <- NULL
   results$female <- NULL

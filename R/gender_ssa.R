@@ -31,30 +31,17 @@ gender_ssa <- function(data, years, certainty, correct_skew = TRUE) {
     correx <- c(1, 1); names(correx) <- c("female", "male")
   }
   
-  if (class(years) == "numeric") {
-    
-    # Calculate the male and female proportions for the given range of years
-    ssa_select <- gender::ssa_national %>%
-      filter(year >= years[1], year <= years[2]) %>%
-      group_by(name) %>%
-      summarise(female = sum(female) * correx['female'],
-                male = sum(male) * correx['male']) %>%
-      mutate(proportion_male = round((male / (male + female)), digits = 4),
-             proportion_female = round((female / (male + female)), digits = 4)) 
-    
-    results <- left_join(data, ssa_select, by = "name")
-    
-  } else if (class(years) == "logical") {
-    
-    # Join the data to SSA data by name and year, then calculate proportions
-    results <- left_join(data, gender::ssa_national, by = c("name", "year")) %>%
-      mutate(male_c = male * get_correction_factors(c(year, year))['male'],
-             female_c = female * get_correction_factors(c(year, year))['female']) %>%
-      mutate(proportion_male = round((male_c / (male_c + female_c)), digits = 4),
-             proportion_female = round((female_c / (male_c + female_c)), digits = 4)) #%>%
-#       select(-male_c, -female_c)
-  } 
+  # Calculate the male and female proportions for the given range of years
+  ssa_select <- gender::ssa_national %>%
+    filter(year >= years[1], year <= years[2]) %>%
+    group_by(name) %>%
+    summarise(female = sum(female) * correx['female'],
+              male = sum(male) * correx['male']) %>%
+    mutate(proportion_male = round((male / (male + female)), digits = 4),
+           proportion_female = round((female / (male + female)), digits = 4)) 
   
+  results <- left_join(data, ssa_select, by = "name")
+    
   # Now predict the gender
   results <- results %>%
     mutate(gender = ifelse(proportion_female == 0.5, "either",
