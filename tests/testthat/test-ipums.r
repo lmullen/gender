@@ -29,7 +29,6 @@ results_minimal <- gender(sample_names_data, method = "ipums",
 test_that("IPUMS method returns valid data frame", {
   
   expect_that(results_range, is_a("data.frame"))
-  expect_that(results_column, is_a("data.frame"))
   expect_that(results_minimal, is_a("data.frame"))
   
   # Don't drop any data if there aren't matches

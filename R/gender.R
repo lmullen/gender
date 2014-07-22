@@ -46,14 +46,8 @@
 gender <- function(data, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
   
-  # If data is a character vector, then convert it to a data frame for easy
-  # joining. If the data is not a character vector throw an error.
-  if ("character" %in% class(data)) {
-    data <- as.data.frame(data, optional = T, stringsAsFactors = FALSE)
-    colnames(data) <- "name"
-  } else {
-    stop("Data must be a character vector.")
-  }
+  # Check that the data is a character vector
+  if (class(data) != "character") stop("Data must be a character vector.")
   
   # Check the validity of the years argument
   if (length(years) == 1) years <- c(years, years) 

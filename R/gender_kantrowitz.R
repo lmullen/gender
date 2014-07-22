@@ -8,6 +8,7 @@
 #'   must all be lowercase. 
 gender_kantrowitz <- function(data) {
   
-  left_join(data, gender::kantrowitz, by = "name")
+  gender::kantrowitz %>% 
+    filter(name == data)
   
 }

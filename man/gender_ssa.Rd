@@ -3,7 +3,7 @@
 \alias{gender_ssa}
 \title{Find the gender of frst names using Social Security data}
 \usage{
-gender_ssa(data, years, certainty)
+gender_ssa(data, years, certainty, correct_skew = TRUE)
 }
 \arguments{
 \item{data}{A character string of a first name or a data frame with a column
@@ -14,9 +14,9 @@ must all be lowercase.}
 the form \code{c(1880, 1900)}, or the value \code{TRUE}. If no value is
 specified, then the names will be looked up for the period 1932 to 2012. If
 a year or range of years is specified, then the names will be looked up for
-that period. If the value is \code{TRUE}, then the function will look for
-a column in the data frame named \code{year} containing an integer vector
-of the year of birth associated with each name. This permits you to do a
+that period. If the value is \code{TRUE}, then the function will look for a
+column in the data frame named \code{year} containing an integer vector of
+the year of birth associated with each name. This permits you to do a
 precise lookup for each person in your data set. Dates may range from 1880
 to 2012; if earlier or later dates are included in a column in the data
 frame, they will not be matched.}
@@ -24,6 +24,10 @@ frame, they will not be matched.}
 \item{certainty}{A boolean value, which determines whether or not to return
 the proportion of male and female uses of names in addition to determining
 the gender of names.}
+
+\item{correct_skew}{A boolean value which determines whether or not to
+correct the skewed gender ratios of the SSA data. Default value is to do
+the correction.}
 }
 \description{
 This internal function implements the \code{method = "ssa"} option of

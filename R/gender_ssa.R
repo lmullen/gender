@@ -32,18 +32,15 @@ gender_ssa <- function(data, years, certainty, correct_skew = TRUE) {
   }
   
   # Calculate the male and female proportions for the given range of years
-  ssa_select <- gender::ssa_national %>%
-    filter(year >= years[1], year <= years[2]) %>%
+  results <- gender::ssa_national %>%
+    filter(name == data,
+           year >= years[1], year <= years[2]) %>%
     group_by(name) %>%
     summarise(female = sum(female) * correx['female'],
               male = sum(male) * correx['male']) %>%
     mutate(proportion_male = round((male / (male + female)), digits = 4),
-           proportion_female = round((female / (male + female)), digits = 4)) 
-  
-  results <- left_join(data, ssa_select, by = "name")
-    
-  # Now predict the gender
-  results <- results %>%
+           proportion_female = round((female / (male + female)), digits = 4)) %>%
+    # Now predict the gender
     mutate(gender = ifelse(proportion_female == 0.5, "either",
                            ifelse(proportion_female > 0.5, "female", "male")))      
   

@@ -12,7 +12,6 @@ results_minimal <- gender(sample_names_data, method = "ssa",
 test_that("SSA method returns valid data frame", {
   
   expect_that(results_range, is_a("data.frame"))
-  expect_that(results_column, is_a("data.frame"))
   expect_that(results_minimal, is_a("data.frame"))
   
   # Don't drop any data if there aren't matches

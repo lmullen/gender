@@ -22,18 +22,18 @@
 gender_ipums_usa <- function(data, years, certainty) {
   
   # Calculate the male and female proportions for the given range of years
-  ipums_usa_select <- gender::ipums_usa %>%
-    filter(year >= years[1], year <= years[2]) %>%
+  results <- gender::ipums_usa %>%
+    filter(name == data,
+           year >= years[1], year <= years[2]) %>%
     group_by(name) %>%
     summarise(female = sum(female),
               male = sum(male)) %>%
     mutate(proportion_male = round((male / (male + female)), digits = 4),
            proportion_female = round((female / (male + female)), digits = 4)) %>%
+    # Now predict the gender
     mutate(gender = ifelse(proportion_female == 0.5, "either",
                            ifelse(proportion_female > 0.5, "female", "male")))      
   
-  results <- left_join(data, ipums_usa_select, by = "name")
-    
   # Delete the male and female columns since we won't report them to the user
   results$male <- NULL
   results$female <- NULL
