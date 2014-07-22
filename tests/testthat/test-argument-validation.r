@@ -12,6 +12,8 @@ test_that("error if data is not a character vector", {
               throws_error("Data must be a character vector."))
   expect_that(gender(data = test_list),
               throws_error("Data must be a character vector."))
+  expect_that(gender(data = as.data.frame(sample_names_data)),
+              throws_error("Data must be a character vector."))
 })
 
 test_that("error if years are not either range or single year", {
