@@ -57,4 +57,11 @@ test_that("SSA method uses default range of 1932 to 2012 if dates not provided",
     )), is_false())
 })
 
-test_that("Names affected by the skewed gender rati")
+test_that("Correct predictions from skewed SSA data", {
+  expect_that(gender("merle", method = "ssa", years = 1901)$gender,
+              equals("male"))
+  expect_that(gender("merle", method = "ssa", years = c(1901, 1903))$gender,
+              equals("male"))
+  expect_that(gender(merle_test, method = "ssa", years = TRUE)$gender,
+              is_equivalent_to(c("male", "male", "male", "male", "male")))
+})
