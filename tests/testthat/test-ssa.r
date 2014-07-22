@@ -5,10 +5,6 @@ context("SSA method")
 results_range <- gender(sample_names_data, method = "ssa",
                         years = c(1932, 2012))
 
-# Using a column of years in the input data frame
-results_column <- gender(sample_names_data, method = "ssa",
-                         years = TRUE)
-
 # Removing the proportion columns from the results
 results_minimal <- gender(sample_names_data, method = "ssa",
                           certainty = FALSE)

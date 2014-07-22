@@ -22,10 +22,6 @@ test_that("IPUMS method uses default range of 1789 to 1930 if dates not provided
 results_range <- gender(sample_names_data, method = "ipums",
                         years = c(1860, 1890))
 
-# Using a column of years in the input data frame
-results_column <- gender(sample_names_data, method = "ipums",
-                         years = TRUE)
-
 # Removing the proportion columns from the results
 results_minimal <- gender(sample_names_data, method = "ipums",
                           certainty = FALSE)

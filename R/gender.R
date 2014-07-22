@@ -47,12 +47,12 @@ gender <- function(data, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
   
   # If data is a character vector, then convert it to a data frame. 
-  # If the data is not a character vector or a data frame, throw an error.
+  # If the data is not a character vector throw an error.
   if ("character" %in% class(data)) {
     data <- as.data.frame(data, optional = T, stringsAsFactors = FALSE)
     colnames(data) <- "name"
-  } else if (!("data.frame" %in% class(data))) {
-    stop("Data must be a character vector or a data frame.")
+  } else {
+    stop("Data must be a character vector.")
   }
   
   # Hand off the arguments to functions based on method, and do error checking
