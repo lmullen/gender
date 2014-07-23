@@ -6,9 +6,12 @@
 gender_kantrowitz(data)
 }
 \arguments{
-\item{data}{A character string of a first name or a data frame with a column
-named \code{name} with a character vector containing first names. The names
-must all be lowercase.}
+\item{data}{A character string of a first name or vector of character
+strings.}
+}
+\value{
+A list or (for multiple names) a list of lists containing the name
+  property and the predicted gender property.
 }
 \description{
 This internal function implements the \code{method = "kantrowitz"} option of
