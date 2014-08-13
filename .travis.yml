@@ -22,3 +22,7 @@ notifications:
   email:
     on_success: change
     on_failure: always
+
+github_packages:
+  - devtools
+  - testthat
