@@ -3,3 +3,5 @@
 .travis.yml
 ^appveyor\.yml$
 changingnames.png
+.git
+.gitignore
