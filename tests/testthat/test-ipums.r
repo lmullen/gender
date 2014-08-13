@@ -1,6 +1,13 @@
 source("sample-data.r")
 context("IPUMS method")
 
+test_that("a single name can be encoded", {
+  expect_that(gender("madison", method = "ipums", years = c(1800, 1850))$gender,
+              equals("male"))
+  expect_that(gender("madison", method = "ipums", years = c(1800, 1850))$proportion_male,
+              equals(0.9927))
+})
+
 test_that("IPUMS method checks for correct date range", {
   expect_that(gender("madison", method = "ipums", years = c(1600, 1900)),
               throws_error("Please provide a year range between 1789 and 1930"))
@@ -22,10 +29,6 @@ test_that("IPUMS method uses default range of 1789 to 1930 if dates not provided
 results_range <- gender(sample_names_data, method = "ipums",
                         years = c(1860, 1890))
 
-# Using a column of years in the input data frame
-results_column <- gender(sample_names_data, method = "ipums",
-                         years = TRUE)
-
 # Removing the proportion columns from the results
 results_minimal <- gender(sample_names_data, method = "ipums",
                           certainty = FALSE)
@@ -33,7 +36,6 @@ results_minimal <- gender(sample_names_data, method = "ipums",
 test_that("IPUMS method returns valid data frame", {
   
   expect_that(results_range, is_a("data.frame"))
-  expect_that(results_column, is_a("data.frame"))
   expect_that(results_minimal, is_a("data.frame"))
   
   # Don't drop any data if there aren't matches
