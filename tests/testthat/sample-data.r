@@ -2,9 +2,9 @@ require(dplyr)
 
 sample_names_data <- c("john", "john", "john", "john", "jane", "jane", "jane",
                        "jane", "madison", "madison", "madison", "madison", 
-                       "lindsay", "lindsay", "lindsay", "lindsay", "zzz")
-sample_years_data <- c(1790, 1870, 1950, 2010, 1790, 1870, 1950, 2010, 1790, 
-                       1870, 1950, 2010, 1790, 1870, 1950, 2010, 1600)
+                       "lindsay", "lindsay", "lindsay", "lindsay")
+sample_years_ssa  <- c(rep(c(1930,1960,1990, 2010), 4))
+                      
 
 merle_test <- data.frame(
   name = c("merle", "merle", "merle", "merle", "merle"),

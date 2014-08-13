@@ -17,7 +17,7 @@ gender_kantrowitz <- function(data) {
     # If the name isn't in the data set, return use that information rather than
     # silently dropping a row
     if (nrow(results) == 0) {
-      results <- data.frame(name = n, gender = "not in data")
+      results <- data.frame(name = n, gender = NA)
     }
     
     return(as.list(results))

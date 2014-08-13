@@ -20,44 +20,67 @@
 #'   the proportion of male and female uses of names in addition to determining 
 #'   the gender of names.
 #' @param correct_skew A boolean value which determines whether or not to 
-#'   correct the skewed gender ratios of the SSA data. Default value is to do
-#'   the correction.
+#'   correct the skewed gender ratios of the SSA data. Default is to do the
+#'   correction.
 gender_ssa <- function(data, years, certainty, correct_skew = TRUE) {
   
-  # If we're going to correct the skew, calculate the correction factors
-  if(correct_skew) {
+  # If we're going to correct the skew, calculate the correction factors;
+  # otherwise just give them a value of one.
+  if (correct_skew) {
     correx <- get_correction_factors(years)
   } else {
     correx <- c(1, 1); names(correx) <- c("female", "male")
   }
   
-  # Calculate the male and female proportions for the given range of years
-  results <- gender::ssa_national %>%
-    filter(name == data,
-           year >= years[1], year <= years[2]) %>%
-    group_by(name) %>%
-    summarise(female = sum(female) * correx['female'],
-              male = sum(male) * correx['male']) %>%
-    mutate(proportion_male = round((male / (male + female)), digits = 4),
-           proportion_female = round((female / (male + female)), digits = 4)) %>%
-    # Now predict the gender
-    mutate(gender = ifelse(proportion_female == 0.5, "either",
-                           ifelse(proportion_female > 0.5, "female", "male")))      
+  # An internal function to predict the gender of one name
+  apply_ssa <- function(n) {
+    
+    # Calculate the male and female proportions for the given range of years
+    results <- gender::ssa_national %>%
+      filter(name == n,
+             year >= years[1], year <= years[2])
+    
+    # If the name isn't in the data set, return use that information rather than
+    # silently dropping a row
+    if (nrow(results) == 0) {
+      results <- data.frame(name = n,
+                            female = NA,
+                            male = NA,
+                            proportion_male = NA,
+                            proportion_female = NA)
+    }
+
+    results <- results %>%
+      group_by(name) %>%
+      # Multiply the number of males and females by the correction factors
+      summarise(female = sum(female) * correx['female'],
+                male = sum(male) * correx['male']) %>%
+      mutate(proportion_male = round((male / (male + female)), digits = 4),
+             proportion_female = round((female / (male + female)), digits = 4)) %>%
+      # Now predict the gender
+      mutate(gender = ifelse(proportion_female == 0.5, "either",
+                             ifelse(proportion_female > 0.5, "female", "male")))      
+    
+    # Delete the male and female columns since we won't report them to the user.
+    # Under no circumstances would we want to report these values to the user: 
+    # since we have corrected them to get an even gender ratio, so they no
+    # longer represent the raw number of names for a given range of years.
+    results <- results %>% select(-male, -female)
+    
+    # Delete the certainty columns unless the user wants them
+    if(!certainty) results <- results %>% select(-proportion_male, -proportion_female)
+
+    return(as.list(results))
   
-  # Delete the male and female columns since we won't report them to the user. 
-  # Under no circumstances would we want to report these values to the user,
-  # since we have corrected them to get an even gender ratio, so they no longer
-  # represent the raw number of names for a given range of years.
-  results$male <- NULL
-  results$female <- NULL
-  
-  # Delete the certainty columns unless the user wants them
-  if(!certainty) {
-    results$proportion_male <- NULL
-    results$proportion_female <- NULL
-  }  
-  
-  return(results)
+  }
+
+  # Use the function directly if there is one name; use lapply if there are > 1.
+  # Return the results as a list or a list of lists.
+  if (length(data) == 1) {
+    return(as.list(apply_ssa(data)))
+  } else { 
+    return(as.list(lapply(data, apply_ssa)))
+  }
     
 }
 

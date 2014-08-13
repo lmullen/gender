@@ -1,7 +1,6 @@
 source("sample-data.r")
 context("Kantrowitz")
 
-
 # Test a single name
 single        <- gender("madison", method = "kantrowitz")
 
@@ -28,5 +27,5 @@ test_that("multiple names returns a list of lists", {
 })
 
 test_that("a name not in the data set is marked as such and not dropped", {
-  expect_that(missing$gender, is_equivalent_to(as.factor("not in data")))
+  expect_that(missing$gender, is_equivalent_to(NA))
 })
