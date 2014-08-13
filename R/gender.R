@@ -38,9 +38,6 @@
 #' gender("madison")
 #' gender("madison", years = c(1900, 1985))
 #' gender("madison", years = 1985)
-#' gender(sample_names_data)
-#' gender(sample_names_data, certainty = FALSE)
-#' gender(sample_names_data, method = "kantrowitz")
 gender <- function(data, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
   

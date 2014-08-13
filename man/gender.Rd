@@ -54,9 +54,6 @@ library(dplyr)
 gender("madison")
 gender("madison", years = c(1900, 1985))
 gender("madison", years = 1985)
-gender(sample_names_data)
-gender(sample_names_data, certainty = FALSE)
-gender(sample_names_data, method = "kantrowitz")
 }
 \author{
 \email{lincoln@lincolnmullen.com}

@@ -26,8 +26,8 @@ the proportion of male and female uses of names in addition to determining
 the gender of names.}
 
 \item{correct_skew}{A boolean value which determines whether or not to
-correct the skewed gender ratios of the SSA data. Default value is to do
-the correction.}
+correct the skewed gender ratios of the SSA data. Default is to do the
+correction.}
 }
 \description{
 This internal function implements the \code{method = "ssa"} option of
