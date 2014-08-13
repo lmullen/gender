@@ -6,7 +6,7 @@ Master branch:
 
 Development branch:
 [![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=develop)](https://travis-ci.org/ropensci/gender)
-[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master)](https://ci.appveyor.com/project/lmullen/gender/branch/develop)
+[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/develop)](https://ci.appveyor.com/project/lmullen/gender/branch/develop)
 
 
 Data sets, historical or otherwise, often contain a list of first names
