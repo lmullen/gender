@@ -1,5 +1,8 @@
 # Gender, an R package
 
+[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender)
+[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=develop)](https://travis-ci.org/ropensci/gender)
+
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
 gender programmatically, such as the [Natural Language Toolkit][], rely
