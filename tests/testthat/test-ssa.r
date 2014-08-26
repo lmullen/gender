@@ -5,16 +5,19 @@ context("SSA method")
 single        <- gender("madison", method = "ssa")
 
 # Test multiple names with same years
-multiple_same <- gender(sample_names_data, years = c(1980, 2000), method = "ssa")
+multiple_same <- gender(sample_names_data, years = c(1980, 2000),
+                        method = "ssa")
 
 # Test multiple names with different years
-multiple_diff <- Map(gender, sample_names_data, sample_years_ssa, method = "ssa") %>%
+multiple_diff <- Map(gender, sample_names_data, sample_years_ssa,
+                     method = "ssa") %>%
   do.call(rbind.data.frame, .)
 
 # Test a missing name
 missing       <- gender("zzzzz", method = "ssa")
 
 test_that("a single name can be encoded", {
+  # Madison was female in the SSA period
   expect_that(single$gender, equals("female"))
 })
 
@@ -31,6 +34,8 @@ test_that("the returned list has items with the correct types", {
   expect_is(single$proportion_female, "numeric")
   expect_is(single$proportion_male, "numeric")
   expect_is(single$gender, "character")
+  expect_is(single$year_min, "numeric")
+  expect_is(single$year_max, "numeric")
 })
 
 test_that("multiple names returns a list of lists", {
