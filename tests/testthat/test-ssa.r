@@ -53,22 +53,6 @@ test_that("a name not in the data set is marked as such and not dropped", {
   expect_that(missing$gender, is_equivalent_to(NA))
 })
 
-# test_that("SSA method returns valid data frame", {
-#
-#
-#   # Don't drop any data if there aren't matches
-#   expect_that(nrow(sample_names_data), equals(nrow(results_range)))
-#   expect_that(nrow(sample_names_data), equals(nrow(results_column)))
-#   expect_that(nrow(sample_names_data), equals(nrow(results_minimal)))
-#
-#   expect_that(colnames(results_column),
-#               is_equivalent_to(c("name", "year", "proportion_male",
-#                                  "proportion_female", "gender")))
-#   expect_that(colnames(results_minimal),
-#               is_equivalent_to(c("name", "year","gender")))
-#
-# })
-#
 test_that("SSA method uses default range of 1932 to 2012 if dates not provided", {
   expect_that(gender("cameron", method = "ssa", years = c(1932, 2012)),
               equals(gender("cameron", method = "ssa")))
