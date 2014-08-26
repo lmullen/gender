@@ -18,7 +18,9 @@ Imports:
     dplyr (>= 0.2)
 Suggests:
     testthat,
-    knitr
+    knitr,
+    magrittr,
+    ggplot2
 LazyData: yes
 License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
