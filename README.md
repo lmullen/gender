@@ -1,13 +1,9 @@
 # Gender, an R package
 
-Master branch:
-[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender)
-[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master)](https://ci.appveyor.com/project/lmullen/gender/branch/master)
+Master branch: [![Build Status][]][] [![Build status][]][]
 
-Development branch:
-[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=develop)](https://travis-ci.org/ropensci/gender)
-[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/develop)](https://ci.appveyor.com/project/lmullen/gender/branch/develop)
-
+Development branch: [![Build Status][1]][![Build Status][]] [![Build
+status][2]][]
 
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
@@ -24,9 +20,6 @@ the U.S. Census data from IPUMS for years before 1930 (contributed by
 female names, this package is able to more accurately guess the gender
 of a name; furthermore it is able to report the proportion of times that
 a name was male or female for any given range of years.
-
-See also Cameron's implementation of the same concept in a [Python
-script][].
 
 ![Twelve names that changed over time][]
 
@@ -47,42 +40,71 @@ calculate the proportion of male and female uses of a name for that time
 period.
 
     gender("madison")
-    # returns
-    #      name proportion_female gender proportion_male
-    # 1 madison            0.9828 female          0.0172
+    # $name
+    # [1] "madison"
+    #
+    # $proportion_male
+    # [1] 0.0162
+    #
+    # $proportion_female
+    # [1] 0.9838
+    #
+    # $gender
+    # [1] "female"
+    #
+    # $year_min
+    # [1] 1932
 
-    gender("madison", years = c(1900, 1985))
-    # returns
-    #      name proportion_female gender proportion_male
-    # 1 madison            0.0972   male          0.9028
+    # $year_max
+    # [1] 2012
 
-    gender("madison", years = 1985)
-    #      name proportion_female gender proportion_male
-    # 1 madison            0.7863 female          0.2137
+Using the Social Security data, you can predict gender for years from
+1880 to 2012. Notice that in the 1950s Madison is a male name.
 
-You probably have a data set with many names. For now this package
-assumes that you have a data frame with a column `name` which is a
-character vector (not a factor) containing all lowercase names. If this
-does not match your data set, see [dplyr][] and [stringr][] for help.
-You can pass that data frame to the `gender()` function, which will add
-columns for gender and the certainty of that guess to your data frame.
+    gender("madison", method = "ssa", years = c(1950, 1959))
+    # $name
+    # [1] "madison"
+    # 
+    # $proportion_male
+    # [1] 1
+    # 
+    # $proportion_female
+    # [1] 0
+    # 
+    # $gender
+    # [1] "male"
+    # 
+    # $year_min
+    # [1] 1950
+    # 
+    # $year_max
+    # [1] 1959
 
-    gender(sample_names_data)
+Using the IPUMS U.S. Census data, you can predict gender from years from
+1789 to 1930.
 
-Using a data frame you can specify a single year or range of years as in
-the example above. But you can also specify a column in your data set
-which contains year of birth associated with the name. For now, this
-column must be an integer vector (not a numeric vector) name `year`.
+    gender("madison", method = "ipums", years = 1820)
+    # $name
+    # [1] "madison"
+    # 
+    # $proportion_male
+    # [1] 1
+    # 
+    # $proportion_female
+    # [1] 0
+    # 
+    # $gender
+    # [1] "male"
+    # 
+    # $year_min
+    # [1] 1820
+    # 
+    # $year_max
+    # [1] 1820
 
-    gender(sample_names_data, years = TRUE)
-
-If you prefer to use Kantrowitz corpus of male and female names, you can
-use the `method` option.
-
-    gender(sample_names_data, method = "kantrowitz")
-
-If you prefer a more minimal output, use the option `certainty = FALSE`
-to remove the `proportion_male` and `proportion_female` output.
+See the function documentation for more options: `?gender`. See the
+package vignette for suggestions on how to use the function with a data
+frame: `vignette(topic = "predicting-gender", package = "gender")`
 
 ## Data
 
@@ -106,8 +128,7 @@ MIT License, <http://lmullen.mit-license.org/>
 ## Citation
 
 Eventually Cameron and I will publish an article about this method. In
-the meantime, you can cite and link to either his [Python
-implementation][Python script] or my implementation in this R package.
+the meantime, please cite this [GitHub repository][].
 
 By [Lincoln Mullen][] and [contributors][].
 
@@ -120,23 +141,29 @@ records names given at birth. But since in most cases researchers will
 be interested in gender, I've named this package gender, leaving it up
 to researchers to interpret exactly what the encoded values mean.
 
+------------------------------------------------------------------------
 
----
+[![][]][]
 
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
-
+  [Build Status]: https://travis-ci.org/ropensci/gender.svg?branch=master
+  [![Build Status][]]: https://travis-ci.org/ropensci/gender
+  [Build status]: https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master
+  [![Build status][]]: https://ci.appveyor.com/project/lmullen/gender/branch/master
+  [1]: https://travis-ci.org/ropensci/gender.svg?branch=develop
+  [2]: https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/develop
+  [![Build status][2]]: https://ci.appveyor.com/project/lmullen/gender/branch/develop
   [Natural Language Toolkit]: http://www.nltk.org/
   [\*]: #gender-vs-sex
   [Cameron Blevins]: http://www.cameronblevins.org/
   [Ben Schmidt]: http://benschmidt.org/
-  [Python script]: https://github.com/cblevins/Gender-ID-By-Time
   [Twelve names that changed over time]: https://raw.github.com/lmullen/gender/master/changing-names.png
   [devtools]: https://github.com/hadley/devtools
-  [dplyr]: https://github.com/hadley/dplyr
-  [stringr]: https://github.com/hadley/stringr
   [Mark Kantrowitz's name corpus]: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html
   [Social Security Administration's baby names by year and state]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-
   [Social Security Administration's baby names by year]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data
   [IPUMS Census data]: https://usa.ipums.org/
+  [GitHub repository]: https://github.com/ropensci/gender
   [Lincoln Mullen]: http://lincolnmullen.com
   [contributors]: https://github.com/ropensci/gender/graphs/contributors
+  []: http://ropensci.org/public_images/github_footer.png
+  [![][]]: http://ropensci.org

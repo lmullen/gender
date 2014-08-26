@@ -7,7 +7,7 @@ output: html_document
 
 <!--
 %\VignetteEngine{knitr}
-%\VignetteIndexEntry{Adding new database support to dplyr}
+%\VignetteIndexEntry{Predicting gender using historical data}
 -->
 
 A common problem for historians working with data is that they have names but not gender.
@@ -17,3 +17,4 @@ library(gender)
 gender("madison")
 ```
 
+By using the `certainty` option you can determine whether or not to return the proportion of male and female names. When predicting gender the `gender()` function assumes that any proportion above `0.5` should be male or female. If you want to be more certain about your prediction, you can use the certainty columns to make the prediction yourself.

@@ -2,17 +2,17 @@ source("sample-data.r")
 context("Argument validation")
 
 test_that("warns if Kantrowitz method includes years", {
-  expect_that(gender(data = "julie", years = c(1880,1900), method = 
+  expect_that(gender(name = "julie", years = c(1880,1900), method =
                             "kantrowitz"),
               gives_warning("Kantrowitz method does not account for year."))
 })
 
 test_that("error if data is not a character vector", {
-  expect_that(gender(data = 1900),
+  expect_that(gender(name = 1900),
               throws_error("Data must be a character vector."))
-  expect_that(gender(data = test_list),
+  expect_that(gender(name = test_list),
               throws_error("Data must be a character vector."))
-  expect_that(gender(data = as.data.frame(sample_names_data)),
+  expect_that(gender(name = as.data.frame(sample_names_data)),
               throws_error("Data must be a character vector."))
 })
 

@@ -7,16 +7,8 @@
 \source{
 Social Security Administration,
   \url{http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data}
-
-Social Security Administration,
-  \url{http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data}
 }
 \description{
-A data set containing the number of instances of male and female names born
-in the years 1880 to 2012 for people who have received Social Security
-Numbers. The SSA includes only names were used more than five times in a
-given year. The data set contains 91,320 unique names in total.
-
 A data set containing the number of instances of male and female names born
 in the years 1880 to 2012 for people who have received Social Security
 Numbers. The SSA includes only names were used more than five times in a

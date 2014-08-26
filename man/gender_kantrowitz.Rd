@@ -3,11 +3,10 @@
 \alias{gender_kantrowitz}
 \title{Find the gender of frst names using Kantrowitz names corpus}
 \usage{
-gender_kantrowitz(data)
+gender_kantrowitz(name)
 }
 \arguments{
-\item{data}{A character string of a first name or vector of character
-strings.}
+\item{data}{A character string of a first name.}
 }
 \value{
 A list or (for multiple names) a list of lists containing the name
