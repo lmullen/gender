@@ -20,8 +20,16 @@ gender("Madison", method = "ipums", years = 1850)
 gender("Madison", method = "ssa", years = 1950)
 gender("Madison", method = "ssa", years = 2000)
 
-## ----, echo=FALSE--------------------------------------------------------
-source("../tests/testthat/sample-data.r")
+## ----, echo=FALSE, results='hide'----------------------------------------
+sample_names_data <- c("john", "john", "john", "john", "jane", "jane", "jane",
+                       "jane", "madison", "madison", "madison", "madison",
+                       "lindsay", "lindsay", "lindsay", "lindsay")
+sample_years_ssa  <- c(rep(c(1930, 1960, 1990, 2010), 4))
+sample_years_ipums  <- c(rep(c(1790, 1830, 1880, 1910), 4))
+
+sample_names_df <- data.frame(names = sample_names_data,
+                              years = sample_years_ssa,
+                              stringsAsFactors = FALSE)
 
 ## ------------------------------------------------------------------------
 sample_names_df
