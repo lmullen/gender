@@ -1,3 +1,11 @@
+gender 0.3
+==========
+
+* rewrote all functions to take only character vectors, not data frames, but
+  provided instructions on how to use with data frames
+* wrote a vignette describing the data sources and explaining the historical
+  methodology behind this package
+
 gender 0.2
 ==========
 
@@ -13,5 +21,5 @@ gender 0.1
 
 * implemented finding gender by using the Kantrowitz names corpus
 
-* implemented finding gender by using the national Social Security 
+* implemented finding gender by using the national Social Security
   Administration data for names and dates of birth

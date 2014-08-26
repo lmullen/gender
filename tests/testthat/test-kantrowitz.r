@@ -1,20 +1,31 @@
 source("sample-data.r")
 context("Kantrowitz")
 
-results <- gender(sample_names_data, method = "kantrowitz")
+# Test a single name
+single        <- gender("madison", method = "kantrowitz")
 
-test_that("Kantrowitz method returns valid data frame", {
-  
-  expect_that(results, is_a("data.frame"))
-  
-  # Don't drop any data if there aren't matches
-  expect_that(nrow(sample_names_data), equals(nrow(results)))
-  
-  expect_that(colnames(results),
-              is_equivalent_to(c("name", "year", "gender")))
-  
-  expect_that(results$gender,
-              is_equivalent_to(c("female", "female", "female", "female", "male",
-                                 "male", "male","male", "either", "either", "either",
-                                 "either", "male", "male", "male", "male", NA)))
+# Test multiple names with same years
+multiple_same <- gender(sample_names_data, method = "kantrowitz")
+
+# Test a missing name
+missing       <- gender("zzzzz", method = "kantrowitz")
+
+test_that("a single name can be encoded", {
+  expect_that(single$gender, equals("male"))
+})
+
+test_that("a single name returns a list with the name and gender", {
+  expect_that(class(single), equals("list"))
+  expect_that(length(single), equals(2))
+  expect_that(names(single), equals(c("name", "gender")))
+})
+
+test_that("multiple names returns a list of lists", {
+  expect_that(class(multiple_same), equals("list"))
+  expect_that(length(multiple_same), equals(length(sample_names_data)))
+  expect_that(names(multiple_same[[1]]), equals(c("name", "gender")))
+})
+
+test_that("a name not in the data set is marked as such and not dropped", {
+  expect_that(missing$gender, is_equivalent_to(NA))
 })

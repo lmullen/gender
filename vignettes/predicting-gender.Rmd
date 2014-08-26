@@ -1,0 +1,120 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{Predicting gender using historical data}
+-->
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+library(gender)
+library(dplyr)
+library(ggplot2)
+```
+
+# Predicting Gender from Names Using Historical Data
+
+A common problem for researchers who work with data, especially historians, is that a data set has a list of people with names but does not identify the gender of the person. Since first names are often indicate gender, it should be possible to predict gender using names. Existing implementations, for example the [Natural Language Toolkit](http://www.nltk.org/) implementation based on the Kantrowitz name corpus, sometimes rely on a simple [list of names](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html) classified as male or female: John is male; Jenny is female; and so on. The problem with that implementation is twofold. First, some names are ambiguous: is Leslie a male or female name? It would be good to state in precise terms how likely it is that a name is male or female. Second, the gender of names often change over time, at the same time that they vary in popularity. To illustrate the general trend, take the name Madison. That name went from being almost exclusively male to almost exclusively female for children born in the United States after the year 1985.
+
+```{r, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}
+gender::ssa_national %>%
+  filter(name == "madison") %>%
+  mutate(proportion_female = female / (female + male)) %>%
+ggplot(aes(x = year, y = proportion_female)) +
+  geom_line() +
+  ggtitle("Proportion of female uses of Madison ") +
+  xlab(NULL) + ylab(NULL)
+```
+
+Predicting gender from names requires a fundamentally historical method. The `gender` package provides a way to calculate the proportion of male and female names given a year or range of birth years. The predictions are based on calculations from historical data sets. For now these data sets are limited to United States sources, and are drawn from Census Bureau and Social Security Administration data. 
+
+## About the data sets
+
+The Census data is provided by [IPUMS USA](https://usa.ipums.org/usa/) from the Minnesota Population Center, University of Minnesota. The IPUMS data includes 1% and 5% samples from the Census returns. The Census, taken decennially, includes respondent's birth dates and gender. With the gender package, it is possible to use this data set for years between 1789 and 1930. The data set includes approximately `r gender::ipums_usa$name %>% unique %>% length %>% format(big.mark = ',')` unique names.
+
+The Social Security Administration data was collected from applicants to Social Security. The Social Security Board was created in the New Deal in 1935. Early applicants, however, were people who were nearing retirement age not people who were being born, so the data set extends further into the past. However, the Social Security Administration did not immediately require all persons born in the United States to register for a Social Security Number. (See Shane Landrum, "The State's Big Family Bible: Birth Certificates, Personal Identity, and Citizenship in the United States, 1840--1950" [PhD dissertation, Brandeis University, 2014].) A [consequence](https://github.com/ropensci/gender/issues/9) of this---for reasons that are not entirely clear---is that for years before 1918, the SSA data set is heavily female; after about 1940 it skews slightly male. For this reason this package corrects the prediction to assume a secondary sex ratio that is evenly distributed between males and females. Also, the SSA data set only includes names that were used more than five times in a given year, so the "long tail" of names is excluded. Even so, the data set includes `r gender::ssa_national$name %>% unique %>% length  %>% format(big.mark = ',')` unique names. The SSA data set extends from 1880 to 2012, but for years before 1930 you should use the IPUMS method.
+
+## Predicting gender for single names
+
+The simplest way to predict gender from a name is to pass the name to the function.
+Notice that the capitalization of the name passed to the function does not matter.
+
+```{r}
+gender("Madison")
+```
+
+The function returns a list. The `name` is obviously the name that was encoded. `proportion_male` and `proportion_female` show the relative proportions of male and female uses in a given range of years. The values `year_min` and `year_max` report the range of years that the function is using to predict gender. Finally the `gender` value is the prediction itself. The value will be `male` or `female` if the proportion is above `0.5`; it will be "either" if the proportion is exactly `0.5`; and the value will be `NA` if the gender cannot be predicted with the given method and range of years.
+
+In practice, you are better off being explicit about the method and the range of years that you are using. The range of years can be a single value (e.g., `1890`) or a range of years in the form `c(1890, 1900)`. The years and the method can be specified with arguments to the `gender()` function. Notice the varying proportions and predictions for different years and methods. You should think carefully about the data from which you wish to predict gender and which data set is most appropriate.
+
+```{r}
+gender("Madison", method = "ipums", years = 1850)
+gender("Madison", method = "ssa", years = 1950)
+gender("Madison", method = "ssa", years = 2000)
+```
+
+## Predicting gender from data frames
+
+Most often you have a data set and you want to predict gender for multiple names. Consider this sample data set.
+
+```{r, echo=FALSE}
+source("../tests/testthat/sample-data.r")
+```
+
+```{r}
+sample_names_df
+```
+
+Here we have a data set with first names connected to years. It is important to emphasize that these years should be the years of birth. If you have years representing something else, you will have to find a way to figure out how to estimate the years of birth.
+
+If we want to use the same range of years for all of the names, we can pass the names vector to the `gender()` function and use a constant range of years (in this case, the minimum and maximum year in the data set).
+
+```{r}
+library(magrittr) # to use the %>% pipe operator
+gender(sample_names_df$names, method = "ssa", years = c(1930, 2010)) %>%
+  head()
+```
+
+The result is a list of lists. While we could deal with that data structure if we needed to, it is much easier to convert the list of lists to a data frame:
+
+```{r}
+gender(sample_names_df$names,
+       method = "ssa",
+       years = c(1930, 2010)) %>%
+  do.call(rbind.data.frame, .)
+```
+
+But in most cases you will want to associate a specific year with a specific name. This can be done using the `Map()` function.
+
+```{r}
+results <- Map(gender,
+               sample_names_df$names,
+               years = sample_names_df$years,
+               method = "ssa") %>%
+  do.call(rbind.data.frame, .)
+results
+```
+
+Now you have a separate data frame with the results from the encoding. This can be merged back into the original data frame using a join:
+
+```{r}
+joined <- merge(sample_names_df, results, 
+                by.x = c("names", "years"), by.y = c("name", "year_min"))
+joined
+```
+
+## Predicting gender for yourself
+
+By using the `certainty` option you can determine whether or not to return the proportion of male and female names. When predicting gender the `gender()` function assumes that any proportion above `0.5` should be male or female. If you want to be more certain about your prediction, you can use the values in the proportion columns and decide that you are certain about your prediction only at a threshold, for instance, of `0.7`.
+
+## Accessing the data sets
+
+The data sets which are a part of this package can be viewed by running the following command.
+
+```{r, eval = FALSE}
+data(package = "gender")
+```
+
+You can then load any of those data sets and work with them directly.
+
+```{r}
+data(ssa_national)
+ssa_national
+```

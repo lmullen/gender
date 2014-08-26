@@ -1,5 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-.travis.yml
+^\.travis\.yml$
 ^appveyor\.yml$
-changingnames.png
+^changingnames\.png$
+^\.git$
+^\.gitignore$

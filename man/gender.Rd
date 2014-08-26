@@ -3,62 +3,72 @@
 \name{gender}
 \alias{gender}
 \alias{gender-package}
-\title{Gender: find gender by name and date}
+\title{Gender: predict gender by name from historical data}
 \usage{
-gender(data, years = c(1932, 2012), method = "ssa", certainty = TRUE)
+gender(name, years = c(1932, 2012), method = "ssa", certainty = TRUE)
 }
 \arguments{
-\item{data}{A character string of a first name or a data frame with a column
-named \code{name} with a character vector containing first names. The names
-must all be lowercase.}
+\item{name}{A first name as a character vector. Names are case insensitive.}
 
-\item{years}{This argument can be either a single year, a range of years in
-the form \code{c(1880, 1900)}, or the value \code{TRUE}. If no value is
-specified, then for the \code{ssa} method it will use the period 1932 to 2012
- and for the \code{ipums} method it will use the period 1789 to 1930. If
-a year or range of years is specified, then the names will be looked up for
-that period. If the value is \code{TRUE}, then the function will look for
-a column in the data frame named \code{year} containing an integer vector
-of the year of birth associated with each name. This permits you to do a
-precise lookup for each person in your data set. Valid dates in the columns
-will depend on the method used to determine the gender; if earlier or later
-dates are included in a column in the data frame, they will not be matched.}
+\item{years}{The birth year of the name whose gender is to be predicted. This
+argument can be either a single year, a range of years in the form
+\code{c(1880, 1900)}. If no value is specified, then for the \code{ssa}
+method it will use the period 1932 to 2012; acceptable years for the SSA
+method range from 1880 to 2012, but for years before 1930 the IPUMS method
+is probably more accurate. For the \code{ipums} method the default range is
+the period 1789 to 1930, which is also the range of acceptable years. If a
+year or range of years is specified, then the names will be looked up for
+that period.}
 
 \item{method}{This value determines the data set that is used to predict the
-gender of the name. The \code{"ssa"} method looks up names based from the U.S.
-Social Security Administration baby name data. (This method is based on an
-implementation by Cameron Blevins.) The \code{"ipums"} method looks up names
-from the U.S. Census data in the Integrated Public Use Microdata Series. (This
-method was contributed by Benjamin Schmidt.) The \code{"kantrowitz"} method,
-in which case the function uses the Kantrowitz corpus of male and female names.}
+gender of the name. The \code{"ssa"} method looks up names based from the
+U.S. Social Security Administration baby name data. (This method is based
+on an implementation by Cameron Blevins.) The \code{"ipums"} method looks
+up names from the U.S. Census data in the Integrated Public Use Microdata
+Series. (This method was contributed by Benjamin Schmidt.) The
+\code{"kantrowitz"} method uses the Kantrowitz corpus of male and female
+names.}
 
 \item{certainty}{A boolean value, which determines whether or not to return
 the proportion of male and female uses of names in addition to determining
 the gender of names.}
 }
+\value{
+Returns a list containing the results of predicting the gender.
+  Passing multiple names to the function results in a list of lists. The
+  components of the returned list: \item{name}{The name for which the gender
+  has been predicted.} \item{proportion_male}{The proportion of male names
+  for the given range of years.} \item{proportion_female}{The proportion of
+  female names for the given range of years.} \item{gender}{The predicted
+  gender based on the proportion of male and female names. Possible values
+  are \code{"male"} and \code{"female"} for proportions above \code{0.5},
+  \code{"either"} for proportions that are exactly \code{0.5}, and \code{NA}
+  for combinations of names and years for which a gender cannot be predicted
+  using the given method.} \item{year_min}{The lower bound (inclusive) of the
+  year range used for the prediction.} \item{year_max}{The upper bound
+  (inclusive) of the year range used for the prediction.}
+}
 \description{
-Gender: find gender by name and date
+Gender: predict gender by name from historical data
 
-This function looks up the gender of either a single first name or of a
-column of first names in a data frame. Optionally it can take a year, a
-range of years, or a column of years in the data frame to take into account
-variation in the use of names over time. It can determine the likely gender
-of a name from several different data sets.
+This function predicts the gender of a first name given a year or range of
+years in which the person was born. The prediction can use one of several
+data sets suitable for different time periods or geographical regions. See
+the package vignette for suggestions on using this function with multiple
+names and for a discussion of which data set is most suitable for your
+research question.
 }
 \details{
 Encodes gender based on names and dates of birth, using U.S. Census or Social
 Security data sets.
 }
 \examples{
-library(dplyr)
 gender("madison")
-gender("madison", years = c(1900, 1985))
-gender("madison", years = 1985)
-gender(sample_names_data)
-gender(sample_names_data, years = TRUE)
-gender(sample_names_data, certainty = FALSE)
-gender(sample_names_data, method = "ipums", years = TRUE)
-gender(sample_names_data, method = "kantrowitz")
+# SSA method
+gender("madison", method = "ssa", years = c(1900, 1985))
+gender("madison", method = "ssa", years = 1985)
+# IPUMS method
+gender("madison", method = "ipums", years = 1860)
 }
 \author{
 \email{lincoln@lincolnmullen.com}
