@@ -1,0 +1,19 @@
+---
+title: "Predicting Gender Using Historical Data"
+author: "Lincoln Mullen"
+date: "August 25, 2014"
+output: html_document
+---
+
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{Adding new database support to dplyr}
+-->
+
+A common problem for historians working with data is that they have names but not gender.
+
+```{r}
+library(gender)
+gender("madison")
+```
+
