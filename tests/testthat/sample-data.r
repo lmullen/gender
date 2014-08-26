@@ -6,6 +6,9 @@ sample_names_data <- c("john", "john", "john", "john", "jane", "jane", "jane",
 sample_years_ssa  <- c(rep(c(1930, 1960, 1990, 2010), 4))
 sample_years_ipums  <- c(rep(c(1790, 1830, 1880, 1910), 4))
 
+sample_names_df <- data.frame(names = sample_names_data,
+                              years = sample_years_ssa,
+                              stringsAsFactors = FALSE)
 
 merle_test <- data.frame(
   name = c("merle", "merle", "merle", "merle", "merle"),
