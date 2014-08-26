@@ -4,6 +4,9 @@ context("IPUMS method")
 # Test a single name
 single        <- gender("madison", method = "ipums")
 
+# Test uppercase name
+uppercase     <- gender("Madison", method = "ipums")
+
 # Test multiple names with same years
 multiple_same <- gender(sample_names_data, years = c(1860, 1880),
                         method = "ipums")
@@ -19,6 +22,10 @@ missing       <- gender("zzzzz", method = "ipums")
 test_that("a single name can be encoded", {
   # Madison was male in the IPUMS period
   expect_that(single$gender, equals("male"))
+})
+
+test_that("name is case-insensitive", {
+  expect_that(single$proportion_female, equals(uppercase$proportion_female))
 })
 
 test_that("a single name returns a list with the name, gender, and proportions", {

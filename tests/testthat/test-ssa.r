@@ -4,6 +4,9 @@ context("SSA method")
 # Test a single name
 single        <- gender("madison", method = "ssa")
 
+# Test uppercase name
+uppercase     <- gender("Madison", method = "ssa")
+
 # Test multiple names with same years
 multiple_same <- gender(sample_names_data, years = c(1980, 2000),
                         method = "ssa")
@@ -19,6 +22,10 @@ missing       <- gender("zzzzz", method = "ssa")
 test_that("a single name can be encoded", {
   # Madison was female in the SSA period
   expect_that(single$gender, equals("female"))
+})
+
+test_that("name is case-insensitive", {
+  expect_that(single$proportion_female, equals(uppercase$proportion_female))
 })
 
 test_that("a single name returns a list with the name, gender, and proportions", {

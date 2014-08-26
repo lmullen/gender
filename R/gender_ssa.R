@@ -37,7 +37,7 @@ gender_ssa <- function(data, years, certainty, correct_skew = TRUE) {
 
     # Calculate the male and female proportions for the given range of years
     results <- gender::ssa_national %>%
-      filter(name == n,
+      filter(name == tolower(n),
              year >= years[1], year <= years[2])
 
     # If the name isn't in the data set, use that information rather than
@@ -72,6 +72,9 @@ gender_ssa <- function(data, years, certainty, correct_skew = TRUE) {
 
     # Include the years used in the data frame
     results <- results %>% mutate(year_min = years[1], year_max = years[2])
+
+    # Use the original capitalization of the name
+    results$name <- n
 
     return(as.list(results))
 
