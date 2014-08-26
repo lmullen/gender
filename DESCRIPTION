@@ -1,7 +1,7 @@
 Package: gender
 Type: Package
 Title: Gender: predict gender from names using historical data
-Version: 0.2
+Version: 0.3
 Author: Lincoln Mullen <lincoln@lincolnmullen.com>
 Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>
 Description: Encodes gender based on names and dates of birth, using either the
