@@ -1,9 +1,12 @@
 # Gender, an R package
 
-Master branch: [![Build Status][]][] [![Build status][]][]
+Master branch:
+[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender)
+[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master)](https://ci.appveyor.com/project/lmullen/gender/branch/master)
 
-Development branch: [![Build Status][1]][![Build Status][]] [![Build
-status][2]][]
+Development branch:
+[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=develop)](https://travis-ci.org/ropensci/gender)
+[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/develop)](https://ci.appveyor.com/project/lmullen/gender/branch/develop)
 
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
@@ -145,13 +148,6 @@ to researchers to interpret exactly what the encoded values mean.
 
 [![][]][]
 
-  [Build Status]: https://travis-ci.org/ropensci/gender.svg?branch=master
-  [![Build Status][]]: https://travis-ci.org/ropensci/gender
-  [Build status]: https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master
-  [![Build status][]]: https://ci.appveyor.com/project/lmullen/gender/branch/master
-  [1]: https://travis-ci.org/ropensci/gender.svg?branch=develop
-  [2]: https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/develop
-  [![Build status][2]]: https://ci.appveyor.com/project/lmullen/gender/branch/develop
   [Natural Language Toolkit]: http://www.nltk.org/
   [\*]: #gender-vs-sex
   [Cameron Blevins]: http://www.cameronblevins.org/
