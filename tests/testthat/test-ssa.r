@@ -12,7 +12,7 @@ multiple_diff <- Map(gender, sample_names_data, sample_years_ssa, method = "ssa"
   do.call(rbind.data.frame, .)
 
 # Test a missing name
-missing       <- gender("zzzzz", method = "kantrowitz")
+missing       <- gender("zzzzz", method = "ssa")
 
 test_that("a single name can be encoded", {
   expect_that(single$gender, equals("female"))
