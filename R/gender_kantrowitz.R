@@ -3,7 +3,7 @@
 #' This internal function implements the \code{method = "kantrowitz"} option of
 #' \code{\link{gender}}. See that function for documentation.
 #'
-#' @param data A character string of a first name.
+#' @param name A character string of a first name.
 #' @return A list or (for multiple names) a list of lists containing the name
 #'   property and the predicted gender property.
 gender_kantrowitz <- function(name) {

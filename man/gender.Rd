@@ -49,7 +49,7 @@ Returns a list containing the results of predicting the gender.
   (inclusive) of the year range used for the prediction.}
 }
 \description{
-Gender: predict gender by name from historical data
+Gender: predict gender from names using historical data
 
 This function predicts the gender of a first name given a year or range of
 years in which the person was born. The prediction can use one of several

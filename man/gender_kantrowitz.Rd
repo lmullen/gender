@@ -6,7 +6,7 @@
 gender_kantrowitz(name)
 }
 \arguments{
-\item{data}{A character string of a first name.}
+\item{name}{A character string of a first name.}
 }
 \value{
 A list or (for multiple names) a list of lists containing the name
