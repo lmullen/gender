@@ -161,5 +161,3 @@ to researchers to interpret exactly what the encoded values mean.
   [GitHub repository]: https://github.com/ropensci/gender
   [Lincoln Mullen]: http://lincolnmullen.com
   [contributors]: https://github.com/ropensci/gender/graphs/contributors
-  []: http://ropensci.org/public_images/github_footer.png
-  [![][]]: http://ropensci.org
