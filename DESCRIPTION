@@ -5,9 +5,9 @@ Version: 0.3
 Author: Lincoln Mullen, with contributions from Cameron Blevins and Ben Schmidt
 Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
-  	     email = "lincoln@lincolnmullen.com"),
-	      person("Cameron", "Blevins", role = "ctb"),
-	      person("Ben", "Schmidt", role = "ctb"))
+    email = "lincoln@lincolnmullen.com"),
+    person("Cameron", "Blevins", role = "ctb"),
+    person("Ben", "Schmidt", role = "ctb"))
 Description: Encodes gender based on names and dates of birth, using either the
     Social Security Administration's data set of first names by year of birth
     or the U.S. Census data from 1789 to 1940. By using these data sets instead

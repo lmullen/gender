@@ -5,3 +5,4 @@
 ^changingnames\.png$
 ^\.git$
 ^\.gitignore$
+^cran-comments.md$
