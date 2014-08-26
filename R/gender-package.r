@@ -1,4 +1,4 @@
-#' Gender: predict gender by name from historical data
+#' Gender: predict gender from names using historical data
 #'
 #' Encodes gender based on names and dates of birth, using U.S. Census or Social
 #' Security data sets.

@@ -1,6 +1,6 @@
 bibentry("Manual",
-  title = "Gender: find gender by name and date",
-  author = "Cameron Blevins and Lincoln Mullen",
+  title = "Gender: predict gender from names using historical data",
+  author = "Lincoln Mullen",
   year = "2014",
-  url = "https://github.com/lmullen/gender"
+  url = "https://github.com/ropensci/gender"
   )

@@ -1,6 +1,6 @@
 Package: gender
 Type: Package
-Title: Gender: predict gender by name from historical data
+Title: Gender: predict gender from names using historical data
 Version: 0.2
 Author: Lincoln Mullen <lincoln@lincolnmullen.com>
 Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>
