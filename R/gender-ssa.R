@@ -105,9 +105,6 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 #'
 #' @param years The range of years. This value will be passed to it by the
 #'   gender_ssa function.
-#' @param names_df The data frame of names and genders used inside the function.
-#'   Defaults to the U.S. Social Security Administration's database of baby
-#'   names provided by the \code{babynames} package.
 get_correction_factors <- function(years) {
   selection <- babynames::babynames %>%
     dplyr::filter(year >= years[1], year <= years[2]) %>%

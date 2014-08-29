@@ -7,6 +7,9 @@ gender_genderize(name, certainty)
 }
 \arguments{
 \item{name}{A character string of a first name.}
+
+\item{certainty}{A boolean value whether or not to return the proportion
+columns.}
 }
 \value{
 A list or (for multiple names) a list of lists containing the name
