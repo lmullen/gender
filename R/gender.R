@@ -84,6 +84,8 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
       stop("Please provide a year range between 1789 and 1930")
     }
     gender_ipums_usa(name = name, years = years, certainty = certainty)
+  } else if (method == "genderize") {
+    gender_genderize(name = name)
   } else {
     stop("Method ", method, " is not recognized. Try ?gender for help.")
   }
