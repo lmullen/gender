@@ -85,6 +85,7 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
     }
     gender_ipums_usa(name = name, years = years, certainty = certainty)
   } else if (method == "genderize") {
+    if (!missing(years)) warning("Genderize method does not account for year.")
     gender_genderize(name = name)
   } else {
     stop("Method ", method, " is not recognized. Try ?gender for help.")
