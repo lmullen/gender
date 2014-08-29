@@ -8,14 +8,12 @@
 #'   property and the predicted gender property, along with the proportion of
 #'   the uses of the name that is male and female.
 gender_genderize <- function(name) {
-  suppressMessages(require(httr))
-  suppressMessages(require(jsonlite))
-  suppressMessages(require(dplyr))
+
   endpoint <- "http://api.genderize.io"
 
   apply_genderize <- function(n, country = country, lang = lang) {
-    r <- GET(endpoint, query = list(name = n))
-    stop_for_status(r)
+    r <- httr::GET(endpoint, query = list(name = n))
+    httr::stop_for_status(r)
     result <- content(r, as = "text") %>%
       jsonlite::fromJSON(., simplifyVector = FALSE)
 

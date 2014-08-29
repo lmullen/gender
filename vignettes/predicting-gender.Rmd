@@ -5,6 +5,7 @@
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(gender)
+library(magrittr)
 library(dplyr)
 library(ggplot2)
 ```
@@ -33,8 +34,7 @@ The Social Security Administration data was collected from applicants to Social 
 
 ## Predicting gender for single names
 
-The simplest way to predict gender from a name is to pass the name to the function.
-Notice that the capitalization of the name passed to the function does not matter.
+The simplest way to predict gender from a name is to pass the name to the function. Notice that the capitalization of the name passed to the function does not matter.
 
 ```{r}
 gender("Madison")
@@ -75,7 +75,6 @@ Here we have a data set with first names connected to years. It is important to 
 If we want to use the same range of years for all of the names, we can pass the names vector to the `gender()` function and use a constant range of years (in this case, the minimum and maximum year in the data set).
 
 ```{r}
-library(magrittr) # to use the %>% pipe operator
 gender(sample_names_df$names, method = "ssa", years = c(1930, 2010)) %>%
   head()
 ```
