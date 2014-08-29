@@ -11,21 +11,7 @@
 #' @import dplyr
 #' @import jsonlite
 #' @import httr
-NULL
-
-#' Social Security Administration national names dataset
-#'
-#' A data set containing the number of instances of male and female names born
-#' in the years 1880 to 2012 for people who have received Social Security
-#' Numbers. The SSA includes only names were used more than five times in a
-#' given year. The data set contains 91,320 unique names in total.
-#'
-#' @docType data
-#' @keywords datasets
-#' @name ssa_national
-#' @source Social Security Administration,
-#'   \url{http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data}
-#' @format A data frame with 1,603,026 observations and 4 variables
+#' @import babynames
 NULL
 
 #' IPUMS US census national names dataset
@@ -41,21 +27,6 @@ NULL
 #' @name ipums_usa
 #' @source Steven Ruggles, J. Trent Alexander, Katie Genadek, Ronald Goeken, Matthew B. Schroeder, and Matthew Sobek. Integrated Public Use Microdata Series: Version 5.0 [Machine-readable database]. Minneapolis, MN: Minnesota Population Center [producer and distributor], 2010.
 #' @format A data frame with c. 1.3m observations and 4 variables
-NULL
-
-#' Social Security Administration state names dataset
-#'
-#' A data set containing the number of instances of male and female names born
-#' in each state for the years 1910 to 2012 for people who have received Social
-#' Security Numbers. The SSA includes only names were used more than five times
-#' in a given state in a given year.
-#'
-#' @docType data
-#' @keywords datasets
-#' @name ssa_state
-#' @source Social Security Administration,
-#'   \url{http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-}
-#' @format A data frame with 5,267,234 observations and 5 variables
 NULL
 
 #' Katrowitz names corpus
