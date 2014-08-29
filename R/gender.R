@@ -46,6 +46,8 @@
 #'   (inclusive) of the year range used for the prediction.}
 #' @keywords gender
 #' @import dplyr
+#' @import jsonlite
+#' @import httr
 #' @export
 #' @examples
 #' gender("madison")
@@ -89,7 +91,7 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
     gender_ipums_usa(name = name, years = years, certainty = certainty)
   } else if (method == "genderize") {
     if (!missing(years)) warning("Genderize method does not account for year.")
-    gender_genderize(name = name)
+    gender_genderize(name = name, certainty = certainty)
   } else {
     stop("Method ", method, " is not recognized. Try ?gender for help.")
   }

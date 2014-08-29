@@ -7,11 +7,11 @@
 #' @return A list or (for multiple names) a list of lists containing the name
 #'   property and the predicted gender property, along with the proportion of
 #'   the uses of the name that is male and female.
-gender_genderize <- function(name) {
+gender_genderize <- function(name, certainty) {
 
   endpoint <- "http://api.genderize.io"
 
-  apply_genderize <- function(n, country = country, lang = lang) {
+  apply_genderize <- function(n) {
     r <- httr::GET(endpoint, query = list(name = n))
     httr::stop_for_status(r)
     result <- content(r, as = "text") %>%
@@ -27,6 +27,11 @@ gender_genderize <- function(name) {
     }
     result$probability <- NULL
     result$count <- NULL
+
+    if(!certainty) {
+      result$proportion_female <- NULL
+      result$proportion_male <- NULL
+    }
 
     result
   }

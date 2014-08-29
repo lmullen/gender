@@ -26,3 +26,8 @@ test_that("genderize returns values of correct type", {
   expect_that(class(single$proportion_female), equals("numeric"))
   expect_that(class(single$proportion_male), equals("numeric"))
 })
+
+test_that("genderize can delete certainty columns", {
+  expect_that(length(gender("peter", method = "genderize", certainty = FALSE)),
+              equals(2))
+})

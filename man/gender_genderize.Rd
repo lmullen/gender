@@ -3,7 +3,7 @@
 \alias{gender_genderize}
 \title{Find the gender of first names using Genderize.io API}
 \usage{
-gender_genderize(name)
+gender_genderize(name, certainty)
 }
 \arguments{
 \item{name}{A character string of a first name.}
