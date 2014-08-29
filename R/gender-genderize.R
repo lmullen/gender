@@ -1,7 +1,7 @@
 gender_genderize <- function(name) {
-  require(httr)
-  require(jsonlite)
-  require(dplyr)
+  suppressMessages(require(httr))
+  suppressMessages(require(jsonlite))
+  suppressMessages(require(dplyr))
   endpoint <- "http://api.genderize.io"
 
   apply_genderize <- function(n, country = country, lang = lang) {
