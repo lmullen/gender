@@ -25,7 +25,6 @@ Imports:
 Suggests:
     testthat,
     knitr,
-    magrittr,
     ggplot2
 LazyData: yes
 License: MIT + file LICENSE
