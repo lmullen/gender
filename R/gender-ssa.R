@@ -27,28 +27,40 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
   }
 
   # An internal function to predict the gender of one name
-  apply_ssa <- function(n) {
+  apply_ssa <- function(name_to_lookup) {
 
     # Calculate the male and female proportions for the given range of years
-    results <- gender::ssa_national %>%
-      filter(name == tolower(n),
+    results <- babynames::babynames %>%
+      dplyr::filter(tolower(name) == tolower(name_to_lookup),
              year >= years[1], year <= years[2])
 
     # If the name isn't in the data set, use that information rather than
     # silently dropping a row
     if (nrow(results) == 0) {
-      results <- data.frame(name = n,
+      results <- data.frame(name = name_to_lookup,
                             female = NA,
                             male = NA,
                             proportion_male = NA,
                             proportion_female = NA)
+    } else {
+      # Reshaping from babynames format to our assumed format
+      results <-
+        results %>%
+        dplyr::select(-prop) %>%
+        tidyr::spread(sex, n)
+
+      if(!"F" %in% names(results)) results$F <- NA
+      if(!"M" %in% names(results)) results$M <- NA
+
+      results <- results %>%
+        dplyr::select(name, year, male = M, female = F)
     }
 
     results <- results %>%
       group_by(name) %>%
       # Multiply the number of males and females by the correction factors
-      summarise(female = sum(female) * correx['female'],
-                male = sum(male) * correx['male']) %>%
+      summarise(female = sum(female, na.rm = TRUE) * correx['female'],
+                male = sum(male, na.rm = TRUE) * correx['male']) %>%
       mutate(proportion_male = round((male / (male + female)), digits = 4),
              proportion_female = round((female / (male + female)), digits = 4)) %>%
       # Now predict the gender
@@ -68,7 +80,7 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
     results <- results %>% mutate(year_min = years[1], year_max = years[2])
 
     # Use the original capitalization of the name
-    results$name <- n
+    results$name <- name_to_lookup
 
     return(as.list(results))
 
@@ -93,15 +105,22 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 #'
 #' @param years The range of years. This value will be passed to it by the
 #'   gender_ssa function.
-#'
+#' @param names_df The data frame of names and genders used inside the function.
+#'   Defaults to the U.S. Social Security Administration's database of baby
+#'   names provided by the \code{babynames} package.
 get_correction_factors <- function(years) {
-  selection <- gender::ssa_national %>%
-    filter(year >= years[1], year <= years[2])
+  selection <- babynames::babynames %>%
+    dplyr::filter(year >= years[1], year <= years[2]) %>%
+    dplyr::select(-prop) %>%
+    tidyr::spread(sex, n) %>%
+    dplyr::select(name, year, female = F, male = M)
 
-  ratio_female <- sum(selection$female) / sum(selection$female + selection$male)
+  ratio_female <- sum(selection$female, na.rm = TRUE) /
+    sum(selection$female + selection$male, na.rm = TRUE)
   ratio_male   <- 1 - ratio_female
 
   correction_factors <- c(0.5 / ratio_female, 0.5 / ratio_male)
   names(correction_factors) <- c("female", "male")
   return(correction_factors)
 }
+
