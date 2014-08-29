@@ -9,6 +9,8 @@
 #' @author \email{lincoln@@lincolnmullen.com}
 #' @keywords gender
 #' @import dplyr
+#' @import jsonlite
+#' @import httr
 NULL
 
 #' Social Security Administration national names dataset

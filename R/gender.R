@@ -24,13 +24,16 @@
 #'   up names from the U.S. Census data in the Integrated Public Use Microdata
 #'   Series. (This method was contributed by Benjamin Schmidt.) The
 #'   \code{"kantrowitz"} method uses the Kantrowitz corpus of male and female
-#'   names.
+#'   names. The \code{"genderize"} method uses the Genderize.io
+#'   <\url{http://genderize.io/}> API, which is based on "user profiles across
+#'   major social networks."
 #' @param certainty A boolean value, which determines whether or not to return
 #'   the proportion of male and female uses of names in addition to determining
 #'   the gender of names.
 #' @return Returns a list containing the results of predicting the gender.
 #'   Passing multiple names to the function results in a list of lists. The
-#'   components of the returned list: \item{name}{The name for which the gender
+#'   exact components of the returned list will depend on the specific method
+#'   used. They include the following: \item{name}{The name for which the gender
 #'   has been predicted.} \item{proportion_male}{The proportion of male names
 #'   for the given range of years.} \item{proportion_female}{The proportion of
 #'   female names for the given range of years.} \item{gender}{The predicted
@@ -43,6 +46,8 @@
 #'   (inclusive) of the year range used for the prediction.}
 #' @keywords gender
 #' @import dplyr
+#' @import jsonlite
+#' @import httr
 #' @export
 #' @examples
 #' gender("madison")
@@ -84,6 +89,9 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
       stop("Please provide a year range between 1789 and 1930")
     }
     gender_ipums_usa(name = name, years = years, certainty = certainty)
+  } else if (method == "genderize") {
+    if (!missing(years)) warning("Genderize method does not account for year.")
+    gender_genderize(name = name, certainty = certainty)
   } else {
     stop("Method ", method, " is not recognized. Try ?gender for help.")
   }

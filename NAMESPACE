@@ -2,3 +2,5 @@
 
 export(gender)
 import(dplyr)
+import(httr)
+import(jsonlite)

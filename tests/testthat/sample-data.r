@@ -1,4 +1,4 @@
-require(dplyr)
+suppressMessages(require(dplyr))
 
 sample_names_data <- c("john", "john", "john", "john", "jane", "jane", "jane",
                        "jane", "madison", "madison", "madison", "madison",

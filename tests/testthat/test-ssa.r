@@ -54,7 +54,7 @@ test_that("multiple names returns a list of lists", {
 })
 
 test_that("names vary over time", {
-  require(dplyr)
+  suppressMessages(require(dplyr))
   madison_names <- multiple_diff %>%
     filter(name == "madison")
   expect_that(as.character(madison_names$gender), is_equivalent_to(
