@@ -8,6 +8,10 @@ get_correction_factors(years)
 \arguments{
 \item{years}{The range of years. This value will be passed to it by the
 gender_ssa function.}
+
+\item{names_df}{The data frame of names and genders used inside the function.
+Defaults to the U.S. Social Security Administration's database of baby
+names provided by the \code{babynames} package.}
 }
 \description{
 The SSA data is skewed by gender, especially for years before 1935. This

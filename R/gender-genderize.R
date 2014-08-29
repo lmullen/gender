@@ -14,7 +14,7 @@ gender_genderize <- function(name, certainty) {
   apply_genderize <- function(n) {
     r <- httr::GET(endpoint, query = list(name = n))
     httr::stop_for_status(r)
-    result <- content(r, as = "text") %>%
+    result <- httr::content(r, as = "text") %>%
       jsonlite::fromJSON(., simplifyVector = FALSE)
 
     # Convert genderize's return into our format

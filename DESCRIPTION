@@ -17,11 +17,13 @@ Description: Encodes gender based on names and dates of birth, using either the
     Benjamin Schmidt.
 URL: https://github.com/ropensci/gender
 Depends:
-    R (>= 3.0.0)
+    R (>= 3.1.0)
 Imports:
+    babynames (>= 0.1),
     dplyr (>= 0.2),
     httr (>= 0.4),
-    jsonlite (>= 0.9.10)
+    jsonlite (>= 0.9.10),
+    tidyr (>= 0.1)
 Suggests:
     testthat,
     knitr,
