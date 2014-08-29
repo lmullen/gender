@@ -110,18 +110,3 @@ joined
 ## Predicting gender for yourself
 
 By using the `certainty` option you can determine whether or not to return the proportion of male and female names. When predicting gender the `gender()` function assumes that any proportion above `0.5` should be male or female. If you want to be more certain about your prediction, you can use the values in the proportion columns and decide that you are certain about your prediction only at a threshold, for instance, of `0.7`.
-
-## Accessing the data sets
-
-The data sets which are a part of this package can be viewed by running the following command.
-
-```{r, eval = FALSE}
-data(package = "gender")
-```
-
-You can then load any of those data sets and work with them directly.
-
-```{r}
-data(ssa_national)
-ssa_national
-```
