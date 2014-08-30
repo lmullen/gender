@@ -30,7 +30,7 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
   apply_ssa <- function(n) {
 
     # Calculate the male and female proportions for the given range of years
-    results <- gender::ssa_national %>%
+    results <- genderdata::ssa_national %>%
       filter(name == tolower(n),
              year >= years[1], year <= years[2])
 
@@ -95,7 +95,7 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 #'   gender_ssa function.
 #'
 get_correction_factors <- function(years) {
-  selection <- gender::ssa_national %>%
+  selection <- genderdata::ssa_national %>%
     filter(year >= years[1], year <= years[2])
 
   ratio_female <- sum(selection$female) / sum(selection$female + selection$male)
