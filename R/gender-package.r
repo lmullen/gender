@@ -11,4 +11,5 @@
 #' @import dplyr
 #' @import jsonlite
 #' @import httr
+#' @import genderdata
 "gender"

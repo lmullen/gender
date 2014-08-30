@@ -18,7 +18,7 @@ gender_ipums_usa <- function(name, years, certainty) {
   apply_ipums <- function(n) {
 
     # Calculate the male and female proportions for the given range of years
-    results <- gender::ipums_usa %>%
+    results <- genderdata::ipums_usa %>%
       filter(name == tolower(n),
              year >= years[1], year <= years[2])
 
