@@ -6,6 +6,8 @@
 \title{Gender: predict gender by name from historical data}
 \usage{
 gender(name, years = c(1932, 2012), method = "ssa", certainty = TRUE)
+
+gender(name, years = c(1932, 2012), method = "ssa", certainty = TRUE)
 }
 \arguments{
 \item{name}{A first name as a character vector. Names are case insensitive.}
