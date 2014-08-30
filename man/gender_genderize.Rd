@@ -7,6 +7,10 @@ gender_genderize(name, certainty)
 }
 \arguments{
 \item{name}{A character string of a first name.}
+
+\item{certainty}{A boolean value, which determines whether or not to return
+the proportion of male and female uses of names in addition to determining
+the gender of names.}
 }
 \value{
 A list or (for multiple names) a list of lists containing the name

@@ -4,6 +4,9 @@
 #' \code{\link{gender}}. See that function for documentation.
 #'
 #' @param name A character string of a first name.
+#' @param certainty A boolean value, which determines whether or not to return
+#'   the proportion of male and female uses of names in addition to determining
+#'   the gender of names.
 #' @return A list or (for multiple names) a list of lists containing the name
 #'   property and the predicted gender property, along with the proportion of
 #'   the uses of the name that is male and female.
