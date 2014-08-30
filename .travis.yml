@@ -26,3 +26,4 @@ notifications:
 github_packages:
   - devtools
   - testthat
+  - lmullen/gender-data-pkg
