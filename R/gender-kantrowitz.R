@@ -8,10 +8,15 @@
 #'   property and the predicted gender property.
 gender_kantrowitz <- function(name) {
 
+  # Load the necessary data the first time the function is called
+  if(!exists("kantrowitz")) {
+    data("kantrowitz", package = "genderdata", envir = environment())
+  }
+
   # An internal function to predict the gender of one name
   apply_kantrowitz <- function(n) {
 
-    results <- genderdata::kantrowitz %>% filter(name == n)
+    results <- kantrowitz %>% filter(name == n)
 
     # If the name isn't in the data set, return use that information rather than
     # silently dropping a row

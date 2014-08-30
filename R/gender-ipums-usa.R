@@ -14,11 +14,16 @@
 #'   the gender of names.
 gender_ipums_usa <- function(name, years, certainty) {
 
+  # Load the necessary data the first time the function is called
+  if(!exists("ipums_usa")) {
+    data("ipums_usa", package = "genderdata", envir = environment())
+  }
+
   # An internal function to predict the gender of one name
   apply_ipums <- function(n) {
 
     # Calculate the male and female proportions for the given range of years
-    results <- genderdata::ipums_usa %>%
+    results <- ipums_usa %>%
       filter(name == tolower(n),
              year >= years[1], year <= years[2])
 
