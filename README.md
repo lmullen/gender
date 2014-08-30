@@ -24,8 +24,6 @@ female names, this package is able to more accurately guess the gender
 of a name; furthermore it is able to report the proportion of times that
 a name was male or female for any given range of years.
 
-![Twelve names that changed over time][]
-
 ## Installation
 
 To install this package, first install [devtools][].
