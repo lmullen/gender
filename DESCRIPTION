@@ -24,9 +24,10 @@ Imports:
     httr (>= 0.4),
     jsonlite (>= 0.9.10)
 Suggests:
-    testthat,
+    ggplot2,
     knitr,
-    ggplot2
+    magrittr,
+    testthat
 LazyData: yes
 License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
