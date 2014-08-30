@@ -1,7 +1,7 @@
 Package: gender
 Type: Package
 Title: Gender: predict gender from names using historical data
-Version: 0.4
+Version: 0.4.9000
 Author: Lincoln Mullen, with contributions from Cameron Blevins and Ben Schmidt
 Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
