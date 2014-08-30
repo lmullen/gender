@@ -19,7 +19,7 @@
 gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 
   # Load the necessary data the first time the function is called
-  if(!exists("ssa_national")) {
+  if(!exists("ssa_national", where = environment())) {
     data("ssa_national", package = "genderdata", envir = environment())
   }
 
@@ -101,7 +101,7 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 #'
 get_correction_factors <- function(years) {
 
-  if(!exists("ssa_national")) {
+  if(!exists("ssa_national", where = environment())) {
     data("ssa_national", package = "genderdata", envir = environment())
   }
 

@@ -9,7 +9,7 @@
 gender_kantrowitz <- function(name) {
 
   # Load the necessary data the first time the function is called
-  if(!exists("kantrowitz")) {
+  if(!exists("kantrowitz", where = environment())) {
     data("kantrowitz", package = "genderdata", envir = environment())
   }
 

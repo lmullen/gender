@@ -15,7 +15,7 @@
 gender_ipums_usa <- function(name, years, certainty) {
 
   # Load the necessary data the first time the function is called
-  if(!exists("ipums_usa")) {
+  if(!exists("ipums_usa", where = environment())) {
     data("ipums_usa", package = "genderdata", envir = environment())
   }
 
