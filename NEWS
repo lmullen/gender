@@ -1,3 +1,9 @@
+gender 0.4
+
+* data is now external to the gender package and is available in the 
+  genderdata package. 
+* genderdata package can be installed with a new function 
+
 gender 0.3
 ==========
 
