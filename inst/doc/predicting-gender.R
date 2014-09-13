@@ -1,4 +1,5 @@
 ## ----, echo=FALSE, results='hide', message=FALSE-------------------------
+
 library(gender)
 library(dplyr)
 library(ggplot2)
@@ -54,7 +55,7 @@ results <- Map(gender,
 results
 
 ## ------------------------------------------------------------------------
-joined <- merge(sample_names_df, results, 
+joined <- merge(sample_names_df, results,
                 by.x = c("names", "years"), by.y = c("name", "year_min"))
 joined
 
