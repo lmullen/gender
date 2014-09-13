@@ -104,3 +104,10 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
   }
 
 }
+
+# Hide variables from R CMD check
+if(getRversion() >= "2.15.1") {
+  c("year", "male", "female", "proportion_female", "proportion_male",
+    "ssa_national", "kantrowitz", ".", "ipums_usa") %>%
+  utils::globalVariables()
+}
