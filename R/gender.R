@@ -59,6 +59,13 @@
 gender <- function(name, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
 
+  tryCatch(install_genderdata_package(), error = function(e) {
+    stop("Failed to install the genderdata package. Please try installing
+          the package for yourself using the following command:
+          \n
+          devtools::install_github(\"lmullen/gender-data-pkg\")")
+  })
+
   # Check that the name is a character vector
   if (class(name) != "character") stop("Data must be a character vector.")
 
