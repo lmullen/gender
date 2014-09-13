@@ -14,7 +14,9 @@ Description: Encodes gender based on names and dates of birth, using either the
     is able to report the probability that a name was male or female.
 URL: https://github.com/ropensci/gender
 Depends:
-    R (>= 3.0.0)
+    R (>= 3.0.0),
+    utils,
+    stats
 Imports:
     devtools(>= 1.5),
     dplyr (>= 0.2),
