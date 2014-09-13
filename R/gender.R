@@ -50,14 +50,12 @@
 #' @import httr
 #' @export
 #' @examples
-#' if(require(genderdata) {
-#'   gender("madison")
-#'   # SSA method
-#'   gender("madison", method = "ssa", years = c(1900, 1985))
-#'   gender("madison", method = "ssa", years = 1985)
-#'   # IPUMS method
-#'   gender("madison", method = "ipums", years = 1860)
-#' }
+#' gender("madison")
+#' # SSA method
+#' gender("madison", method = "ssa", years = c(1900, 1985))
+#' gender("madison", method = "ssa", years = 1985)
+#' # IPUMS method
+#' gender("madison", method = "ipums", years = 1860)
 gender <- function(name, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
 
