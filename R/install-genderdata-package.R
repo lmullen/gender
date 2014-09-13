@@ -13,8 +13,3 @@ install_genderdata_package <- function() {
     devtools::install_github("lmullen/gender-data-pkg")
   }
 }
-
-.onattach <- function(libname, pkgname) {
-  packageStartupMessage("Works beautifully")
-  install_genderdata_package()
-}
