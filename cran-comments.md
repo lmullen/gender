@@ -1,5 +1,9 @@
-This package passes R CMD check on Windows, OS X, and Linux (Ubuntu).
+This is a resubmission of the gender package after making requested corrections
+and rerunning checks.
 
--   This is a new submission.
 -   There are notes about "no visible binding for global variables" but
-    these variables are all in the data sets in the package environment.
+    these are spurious. These variables are not global, but are within the
+    data used by the package as manipulated by dplyr.
+-   Requested corrections to DESCRIPTION file have been made.
+-   Data that exceeded the 5MB limit has been removed.
+
