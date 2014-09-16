@@ -70,12 +70,11 @@ done automatically and can be done manually by running
 \code{install_genderdata_package()}.
 }
 \examples{
-gender("madison")
 # SSA method
-gender("madison", method = "ssa", years = c(1900, 1985))
 gender("madison", method = "ssa", years = 1985)
+\dontrun{gender("madison", method = "ssa", years = c(1900, 1985))}
 # IPUMS method
-gender("madison", method = "ipums", years = 1860)
+\dontrun{gender("madison", method = "ipums", years = 1860)}
 }
 \author{
 \email{lincoln@lincolnmullen.com}
