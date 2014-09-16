@@ -51,7 +51,7 @@
 #' @export
 #' @examples
 #' # SSA method
-#' gender("madison", method = "ssa", years = 1985)
+#' \dontrun{gender("madison", method = "ssa", years = 1985)}
 #' \dontrun{gender("madison", method = "ssa", years = c(1900, 1985))}
 #' # IPUMS method
 #' \dontrun{gender("madison", method = "ipums", years = 1860)}
