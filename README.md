@@ -28,9 +28,11 @@ a name was male or female for any given range of years.
 
 To install this package, first install [devtools][].
 
-Then run the following command:
+Then run the following commands, which will install the gender package 
+and its accompanying data package.:
 
     devtools::install_github("ropensci/gender")
+    devtools::install_github("lmullen/gender-data-pkg")
 
 ## Using the package
 
