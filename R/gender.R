@@ -5,7 +5,9 @@
 #' data sets suitable for different time periods or geographical regions. See
 #' the package vignette for suggestions on using this function with multiple
 #' names and for a discussion of which data set is most suitable for your
-#' research question.
+#' research question. When using certains methods, the \code{genderdata} data
+#' package is required; you will be prompted to install it if it is not already
+#' available.
 #'
 #' @param name A first name as a character vector. Names are case insensitive.
 #' @param years The birth year of the name whose gender is to be predicted. This
@@ -26,7 +28,10 @@
 #'   \code{"kantrowitz"} method uses the Kantrowitz corpus of male and female
 #'   names. The \code{"genderize"} method uses the Genderize.io
 #'   <\url{http://genderize.io/}> API, which is based on "user profiles across
-#'   major social networks."
+#'   major social networks." The \code{"demo"} method is uses the top 100 names
+#'   in the SSA method; it is provided only for demonstration purposes when the
+#'   \code{genderdata} package is not installed and it is not suitable for
+#'   research purposes.
 #' @param certainty A boolean value, which determines whether or not to return
 #'   the proportion of male and female uses of names in addition to determining
 #'   the gender of names.
@@ -85,6 +90,11 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
       stop("Please provide a year range between 1880 and 2012")
     }
     gender_ssa(name = name, years = years, certainty = certainty)
+  } else if (method == "demo") {
+    if (years[1] < 1880 || years[2] > 2012) {
+      stop("Please provide a year range between 1880 and 2012")
+    }
+    gender_demo(name = name, years = years, certainty = certainty)
   } else if (method == "kantrowitz") {
     if (!missing(years)) warning("Kantrowitz method does not account for year.")
     gender_kantrowitz(name = name)
