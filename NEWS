@@ -1,4 +1,13 @@
+gender 0.4.1
+============
+
+* tests and vignettes run without depending on the genderdata package
+* users will be prompted to install the genderdata package from GitHub the 
+  first time that it is necessary
+* added a demo mode with a minimal dataset
+
 gender 0.4
+==========
 
 * data is now external to the gender package and is available in the 
   genderdata package. 
