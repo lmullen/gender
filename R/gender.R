@@ -55,10 +55,11 @@
 #' @import httr
 #' @export
 #' @examples
+#' gender("madison", method = "demo", years = 1985)
+#' gender("madison", method = "demo", years = c(1900, 1985))
 #' # SSA method
-#' \dontrun{gender("madison", method = "ssa", years = 1985)}
-#' \dontrun{gender("madison", method = "ssa", years = c(1900, 1985))}
-#' # IPUMS methodevtools::revdep()
+#' \dontrun{gender("madison", method = "demo", years = c(1900, 1985))}
+#' # IPUMS method
 #' \dontrun{gender("madison", method = "ipums", years = 1860)}
 gender <- function(name, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
