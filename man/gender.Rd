@@ -73,7 +73,7 @@ done automatically and can be done manually by running
 # SSA method
 \dontrun{gender("madison", method = "ssa", years = 1985)}
 \dontrun{gender("madison", method = "ssa", years = c(1900, 1985))}
-# IPUMS method
+# IPUMS methodevtools::revdep()
 \dontrun{gender("madison", method = "ipums", years = 1860)}
 }
 \author{

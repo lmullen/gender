@@ -53,17 +53,15 @@
 #' # SSA method
 #' \dontrun{gender("madison", method = "ssa", years = 1985)}
 #' \dontrun{gender("madison", method = "ssa", years = c(1900, 1985))}
-#' # IPUMS method
+#' # IPUMS methodevtools::revdep()
 #' \dontrun{gender("madison", method = "ipums", years = 1860)}
 gender <- function(name, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
 
-  tryCatch(install_genderdata_package(), error = function(e) {
-    stop("Failed to install the genderdata package. Please try installing
-          the package for yourself using the following command:
-          \n
-          devtools::install_github(\"lmullen/gender-data-pkg\")")
-  })
+  # If we need the genderdata package, check that it is installed
+  if(!method %in% c("basic", "genderize")) {
+    gender::check_genderdata_package()
+  }
 
   # Check that the name is a character vector
   if (class(name) != "character") stop("Data must be a character vector.")

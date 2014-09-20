@@ -5,7 +5,6 @@
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(gender)
-install_genderdata_package()
 library(magrittr)
 library(dplyr)
 library(ggplot2)
