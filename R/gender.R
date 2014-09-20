@@ -65,7 +65,7 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
                    certainty = TRUE) {
 
   # If we need the genderdata package, check that it is installed
-  if(!method %in% c("basic", "genderize")) {
+  if(!method %in% c("demo", "genderize")) {
     gender::check_genderdata_package()
   }
 

@@ -30,11 +30,3 @@ test_that("the returned list has items with the correct types", {
   expect_is(single$year_min, "numeric")
   expect_is(single$year_max, "numeric")
 })
-
-test_that("Correct predictions from skewed SSA data", {
-  # For rationale see https://github.com/ropensci/gender/issues/9
-  expect_that(gender("merle", method = "ssa", years = 1901)$gender,
-              equals("male"))
-  expect_that(gender("merle", method = "ssa", years = c(1901, 1903))$gender,
-              equals("male"))
-})
