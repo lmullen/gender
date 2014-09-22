@@ -24,15 +24,15 @@ female names, this package is able to more accurately guess the gender
 of a name; furthermore it is able to report the proportion of times that
 a name was male or female for any given range of years.
 
-![Twelve names that changed over time][]
-
 ## Installation
 
 To install this package, first install [devtools][].
 
-Then run the following command:
+Then run the following commands, which will install the gender package 
+and its accompanying data package.:
 
     devtools::install_github("ropensci/gender")
+    devtools::install_github("lmullen/gender-data-pkg")
 
 ## Using the package
 

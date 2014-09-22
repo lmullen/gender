@@ -1,5 +1,14 @@
-This package passes R CMD check on Windows, OS X, and Linux (Ubuntu).
+This is a resubmission of the gender package after making requested
+corrections and rerunning checks. Below is the list of changes made
+since first submission:
 
--   This is a new submission.
--   There are notes about "no visible binding for global variables" but
-    these variables are all in the data sets in the package environment.
+-   The package includes a minimal "demo" dataset, which is used for
+    tests and vignettes. Users will be prompted to install the full
+    datasets from GitHub as necessary.
+-   Tests and vignettes have been streamlined to execute faster.
+-   The check no longer complains about global variables.
+-   Format of the LICENSE file has been changed as requested.
+-   Examples run in the "few seconds" required by the policies.
+-   Requested corrections to DESCRIPTION file have been made.
+-   Data that exceeded the 5MB limit has been removed and put into a 
+    separate data package which will not be on CRAN.

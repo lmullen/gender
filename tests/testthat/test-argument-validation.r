@@ -10,10 +10,6 @@ test_that("warns if Kantrowitz method includes years", {
 test_that("error if data is not a character vector", {
   expect_that(gender(name = 1900),
               throws_error("Data must be a character vector."))
-  expect_that(gender(name = test_list),
-              throws_error("Data must be a character vector."))
-  expect_that(gender(name = as.data.frame(sample_names_data)),
-              throws_error("Data must be a character vector."))
 })
 
 test_that("error if years are not either range or single year", {
@@ -31,6 +27,4 @@ test_that("error if method is not recognized", {
 test_that("function works with a single year", {
   expect_that(gender("madison", method = "ssa", years = 2000)$gender,
               equals("female"))
-  expect_that(gender("madison", method = "ipums", years = 1860)$gender,
-              equals("male"))
 })

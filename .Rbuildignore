@@ -6,3 +6,4 @@
 ^\.git$
 ^\.gitignore$
 ^cran-comments.md$
+^data-raw$
