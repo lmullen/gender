@@ -1,30 +1,19 @@
-# From https://github.com/craigcitro/r-travis
-#
-# See README.md for instructions, or for more configuration options,
-# see the wiki:
-#   https://github.com/craigcitro/r-travis/wiki
-
 language: c
-
 before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
+- curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+- chmod 755 ./travis-tool.sh
+- "./travis-tool.sh bootstrap"
 install:
-  - "./travis-tool.sh github_package"
-  - ./travis-tool.sh install_deps
-script: ./travis-tool.sh run_tests
-
+- "./travis-tool.sh install_deps"
+script: "./travis-tool.sh run_tests"
 after_failure:
-  - ./travis-tool.sh dump_logs
-
+- "./travis-tool.sh dump_logs"
 notifications:
-  slack: ropensci:wh30e1MP9Am3wXb2wJx1ZRFi
+  slack:
+    secure: PJD7ovk1ttw9CQliDLfEdUzgHWmfoP8Ld7dAE2piHRX1axAmkAOzDIg6NubQrIgGPKDTbP+X9GIrrCYzF5o47wCt/HxG0zk4uhsT+d16EUabVZ3sWQ7b/6nl+U7NlWhzkJ6k2g5mvvH34NSwl/jO/uGr7SwpW83eAFtLh6Dhc44=
   email:
     on_success: change
     on_failure: always
-
 github_packages:
-  - devtools
-  - testthat
-  - lmullen/gender-data-pkg
+- devtools
+- testthat
