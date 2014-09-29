@@ -10,7 +10,6 @@ test_that("a single name returns a list with the name, gender, and proportions",
 
 test_that("leslie is a female name according to genderize", {
   expect_that(single$gender, equals("female"))
-  expect_that(single$proportion_female, equals(0.9))
 })
 
 test_that("genderize returns values of correct type", {
