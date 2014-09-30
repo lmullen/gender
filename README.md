@@ -26,10 +26,16 @@ a name was male or female for any given range of years.
 
 ## Installation
 
-To install this package, first install [devtools][].
+You can install the [CRAN 
+version](http://cran.r-project.org/web/packages/gender/index.html) of 
+this package with `install.packages("gender")`. The first time you use 
+the package you will be prompted to install the necessary data, which is 
+in the [genderdata package](http://github.com/lmullen/gender-data-pkg) 
+hosted on GitHub.
 
-Then run the following commands, which will install the gender package 
-and its accompanying data package.:
+If you prefer, you can install both packages directly from GitHub. First 
+install devtools. Then run the following commands, which will install 
+the gender package and its accompanying data package.
 
     devtools::install_github("ropensci/gender")
     devtools::install_github("lmullen/gender-data-pkg")
