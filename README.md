@@ -1,12 +1,12 @@
-pandoc: Duplicate link reference `[![Build status][]]' "source" (line 155, column 1)
-pandoc: Duplicate link reference `[Build status]' "source" (line 154, column 1)
 # Gender, an R package
 
-Master branch: [![Build Status][]][] [![Build status][Build
-Status]][![Build Status][]]
+Master branch:
+[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender)
+[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master)](https://ci.appveyor.com/project/lmullen/gender/branch/master)
 
-Development branch: [![Build Status][1]][![Build Status][]] [![Build
-status][]][]
+Development branch:
+[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=develop)](https://travis-ci.org/ropensci/gender)
+[![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/develop)](https://ci.appveyor.com/project/lmullen/gender/branch/develop)
 
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
@@ -26,14 +26,10 @@ a name was male or female for any given range of years.
 
 ## Installation
 
-You can install the [CRAN version][] of this package with
-`install.packages("gender")`. The first time you use the package you
-will be prompted to install the necessary data, which is in the
-genderdata package hosted on GitHub.
+To install this package, first install [devtools][].
 
-If you prefer, you can install both packages directly from GitHub. First
-install [devtools][]. Then run the following commands, which will
-install the gender package and its accompanying data package.:
+Then run the following commands, which will install the gender package 
+and its accompanying data package.:
 
     devtools::install_github("ropensci/gender")
     devtools::install_github("lmullen/gender-data-pkg")
@@ -148,20 +144,15 @@ records names given at birth. But since in most cases researchers will
 be interested in gender, I've named this package gender, leaving it up
 to researchers to interpret exactly what the encoded values mean.
 
-------------------------------------------------------------------------
+---
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
 
-[![][]][]
 
-  [Build Status]: https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master
-  [![Build Status][]]: https://ci.appveyor.com/project/lmullen/gender/branch/master
-  [1]: https://travis-ci.org/ropensci/gender.svg?branch=develop
-  [Build status]: https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/develop
-  [![Build status][]]: https://ci.appveyor.com/project/lmullen/gender/branch/develop
   [Natural Language Toolkit]: http://www.nltk.org/
   [\*]: #gender-vs-sex
   [Cameron Blevins]: http://www.cameronblevins.org/
   [Ben Schmidt]: http://benschmidt.org/
-  [CRAN version]: http://cran.r-project.org/web/packages/gender/index.html
+  [Twelve names that changed over time]: https://raw.github.com/lmullen/gender/master/changing-names.png
   [devtools]: https://github.com/hadley/devtools
   [Mark Kantrowitz's name corpus]: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html
   [Social Security Administration's baby names by year and state]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-
@@ -170,5 +161,3 @@ to researchers to interpret exactly what the encoded values mean.
   [GitHub repository]: https://github.com/ropensci/gender
   [Lincoln Mullen]: http://lincolnmullen.com
   [contributors]: https://github.com/ropensci/gender/graphs/contributors
-  []: http://ropensci.org/public_images/github_footer.png
-  [![][]]: http://ropensci.org
