@@ -117,10 +117,13 @@ frame: `vignette(topic = "predicting-gender", package = "gender")`
 
 ## Data
 
-This package includes cleaned-up versions of several data sets. To see
+The accompanying [genderdata 
+package](http://github.com/lmullen/gender-data-pkg) includes cleaned-up 
+versions of several data sets. To see
 the available data sets run the following command:
 
-    data(package = "gender")
+    library(genderdata)
+    data(package = "genderdata")
     data(ssa_national)        # returns a data set with 1.6 million rows
 
 The raw data sets used in this package are available here:
