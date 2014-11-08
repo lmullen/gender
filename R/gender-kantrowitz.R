@@ -15,8 +15,9 @@ gender_kantrowitz <- function(name) {
 
   # An internal function to predict the gender of one name
   apply_kantrowitz <- function(n) {
-
-    results <- kantrowitz %>% filter(name == n)
+    
+    #Check if the name (lowercased, to avoid insensitivity problems) is in the kantrowitz dataset
+    results <- kantrowitz %>% filter(name == tolower(n))
 
     # If the name isn't in the data set, return use that information rather than
     # silently dropping a row
