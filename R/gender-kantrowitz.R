@@ -15,8 +15,7 @@ gender_kantrowitz <- function(name) {
 
   # An internal function to predict the gender of one name
   apply_kantrowitz <- function(n) {
-    
-    #Check if the name (lowercased, to avoid insensitivity problems) is in the kantrowitz dataset
+
     results <- kantrowitz %>% filter(name == tolower(n))
 
     # If the name isn't in the data set, return use that information rather than
@@ -24,6 +23,9 @@ gender_kantrowitz <- function(name) {
     if (nrow(results) == 0) {
       results <- data.frame(name = n, gender = NA)
     }
+
+    # Use the original capitalization of the name
+    results$name <- n
 
     return(as.list(results))
 
