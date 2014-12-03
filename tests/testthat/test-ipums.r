@@ -32,3 +32,7 @@ test_that("the returned list has items with the correct types", {
 test_that("a name not in the data set is marked as such and not dropped", {
   expect_that(missing$gender, is_equivalent_to(NA))
 })
+
+test_that("capitalization of name matches what was passed to it", {
+  expect_that(gender("Marie", method = "ipums")$name, equals("Marie"))
+})

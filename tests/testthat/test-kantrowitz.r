@@ -22,3 +22,7 @@ test_that("multiple names returns a list of lists", {
   expect_that(length(multiple_same), equals(length(sample_names_data)))
   expect_that(names(multiple_same[[1]]), equals(c("name", "gender")))
 })
+
+test_that("capitalization of name matches what was passed to it", {
+  expect_that(gender("Marie", method = "kantrowitz")$name, equals("Marie"))
+})

@@ -1,17 +1,23 @@
+gender 0.4.2
+============
+
+* bugfix: Kantrowitz method is now case-insensitive
+* updates to title and descriptions according to CRAN policy
+
 gender 0.4.1
 ============
 
 * tests and vignettes run without depending on the genderdata package
-* users will be prompted to install the genderdata package from GitHub the 
+* users will be prompted to install the genderdata package from GitHub the
   first time that it is necessary
 * added a demo mode with a minimal dataset
 
 gender 0.4
 ==========
 
-* data is now external to the gender package and is available in the 
-  genderdata package. 
-* genderdata package can be installed with a new function 
+* data is now external to the gender package and is available in the
+  genderdata package.
+* genderdata package can be installed with a new function
 
 gender 0.3
 ==========
