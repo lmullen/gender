@@ -1,6 +1,6 @@
 Package: gender
 Type: Package
-Title: Gender: predict gender from names using historical data
+Title: Predict Gender from Names Using Historical Data
 Version: 0.4.2.9000
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com"),
