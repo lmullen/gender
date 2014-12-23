@@ -154,7 +154,7 @@ be interested in gender, I've named this package gender, leaving it up
 to researchers to interpret exactly what the encoded values mean.
 
 ---
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![rOpenSCi logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
 
 
   [Natural Language Toolkit]: http://www.nltk.org/
