@@ -37,8 +37,8 @@ If you prefer, you can install both packages directly from GitHub. First
 install devtools. Then run the following commands, which will install 
 the gender package and its accompanying data package.
 
-    devtools::install_github("ropensci/gender")
-    devtools::install_github("lmullen/gender-data-pkg")
+    devtools::install_github("ropensci/gender", username="<your username>")
+    devtools::install_github("lmullen/gender-data-pkg", username="<your username>")
 
 ## Using the package
 
