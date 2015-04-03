@@ -18,11 +18,6 @@
 #'   correction, which is recommended.
 gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 
-  # Load the necessary data the first time the function is called
-  if(!exists("ssa_national", where = environment())) {
-    data("ssa_national", package = "genderdata", envir = environment())
-  }
-
   # If we're going to correct the skew, calculate the correction factors;
   # otherwise just give them a value of one.
   if (correct_skew) {
@@ -35,7 +30,7 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
   apply_ssa <- function(n) {
 
     # Calculate the male and female proportions for the given range of years
-    results <- ssa_national %>%
+    results <- genderdata::ssa_national %>%
       filter(name == tolower(n),
              year >= years[1], year <= years[2])
 
@@ -101,11 +96,7 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 #'
 get_correction_factors <- function(years) {
 
-  if(!exists("ssa_national", where = environment())) {
-    data("ssa_national", package = "genderdata", envir = environment())
-  }
-
-  selection <- ssa_national %>%
+  selection <- genderdata::ssa_national %>%
     filter(year >= years[1], year <= years[2])
 
   ratio_female <- sum(selection$female) / sum(selection$female + selection$male)

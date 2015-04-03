@@ -23,6 +23,7 @@ Imports:
     httr (>= 0.4),
     jsonlite (>= 0.9.10)
 Suggests:
+    genderdata (>= 0.1),
     ggplot2,
     knitr,
     magrittr,
