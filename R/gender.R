@@ -66,7 +66,7 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
 
   # If we need the genderdata package, check that it is installed
   if(!method %in% c("demo", "genderize")) {
-    gender::check_genderdata_package()
+    check_genderdata_package()
   }
 
   # Check that the name is a character vector

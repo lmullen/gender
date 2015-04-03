@@ -5,7 +5,7 @@
 #' @export
 check_genderdata_package <- function() {
   genderdata_version <- "0.1"
-  if (! "genderdata" %in% utils::installed.packages()) {
+  if (!requireNamespace("genderdata", quietly = TRUE)) {
     message("The genderdata package needs to be installed from GitHub.")
     gender::install_genderdata_package()
   } else if (utils::packageVersion("genderdata") < genderdata_version) {
