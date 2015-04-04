@@ -42,20 +42,19 @@ the proportion of male and female uses of names in addition to determining
 the gender of names.}
 }
 \value{
-Returns a list containing the results of predicting the gender.
-  Passing multiple names to the function results in a list of lists. The
-  exact components of the returned list will depend on the specific method
-  used. They include the following: \item{name}{The name for which the gender
-  has been predicted.} \item{proportion_male}{The proportion of male names
-  for the given range of years.} \item{proportion_female}{The proportion of
-  female names for the given range of years.} \item{gender}{The predicted
-  gender based on the proportion of male and female names. Possible values
-  are \code{"male"} and \code{"female"} for proportions above \code{0.5},
-  \code{"either"} for proportions that are exactly \code{0.5}, and \code{NA}
-  for combinations of names and years for which a gender cannot be predicted
-  using the given method.} \item{year_min}{The lower bound (inclusive) of the
-  year range used for the prediction.} \item{year_max}{The upper bound
-  (inclusive) of the year range used for the prediction.}
+Returns a data frame containing the results of predicting the gender.
+  The exact components of the returned list will depend on the specific
+  method used. They include the following: \item{name}{The name for which the
+  gender has been predicted.} \item{proportion_male}{The proportion of male
+  names for the given range of years.} \item{proportion_female}{The
+  proportion of female names for the given range of years.} \item{gender}{The
+  predicted gender based on the proportion of male and female names. Possible
+  values are \code{"male"} and \code{"female"} for proportions above
+  \code{0.5}, \code{"either"} for proportions that are exactly \code{0.5},
+  and \code{NA} for combinations of names and years for which a gender cannot
+  be predicted using the given method.} \item{year_min}{The lower bound
+  (inclusive) of the year range used for the prediction.} \item{year_max}{The
+  upper bound (inclusive) of the year range used for the prediction.}
 }
 \description{
 Gender: predict gender from names using historical data

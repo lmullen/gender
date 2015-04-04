@@ -4,10 +4,10 @@
 \alias{gender_ssa}
 \title{Find the gender of first names using Social Security data}
 \usage{
-gender_ssa(name, years, certainty, correct_skew = TRUE)
+gender_ssa(names, years, certainty, correct_skew = TRUE)
 }
 \arguments{
-\item{name}{A character string of a first name. Case insensitive.}
+\item{names}{A character string of a first name. Case insensitive.}
 
 \item{years}{This argument can be either a single year or a range of years in
 the form \code{c(1880, 1900)}. If no value is specified, then the names
@@ -15,10 +15,6 @@ will be looked up for the period 1932 to 2012. If a year or range of years
 is specified, then the names will be looked up for that period. Dates may
 range from 1880 to 2012. For years before 1930, the IPUMS method is
 probably better.}
-
-\item{certainty}{A boolean value, which determines whether or not to return
-the proportion of male and female uses of names in addition to determining
-the gender of names.}
 
 \item{correct_skew}{A boolean value which determines whether or not to
 correct the skewed gender ratios of the SSA data. Default is to do the
