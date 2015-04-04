@@ -7,3 +7,5 @@
 ^\.gitignore$
 ^cran-comments.md$
 ^data-raw$
+^README\.Rmd$
+^README-*\.png$
