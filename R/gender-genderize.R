@@ -1,16 +1,13 @@
-#' Find the gender of first names using Genderize.io API
-#'
-#' This internal function implements the \code{method = "genderize"} option of
-#' \code{\link{gender}}. See that function for documentation.
-#'
-#' @param name A character string of a first name.
-#' @param certainty A boolean value, which determines whether or not to return
-#'   the proportion of male and female uses of names in addition to determining
-#'   the gender of names.
-#' @return A list or (for multiple names) a list of lists containing the name
-#'   property and the predicted gender property, along with the proportion of
-#'   the uses of the name that is male and female.
-gender_genderize <- function(name, certainty) {
+# Find the gender of first names using Genderize.io API
+#
+# This internal function implements the \code{method = "genderize"} option of
+# \code{\link{gender}}. See that function for documentation.
+#
+# @param name A character string of a first name.
+# @return A list or (for multiple names) a list of lists containing the name
+#   property and the predicted gender property, along with the proportion of
+#   the uses of the name that is male and female.
+gender_genderize <- function(names) {
 
   endpoint <- "http://api.genderize.io"
 
@@ -31,18 +28,13 @@ gender_genderize <- function(name, certainty) {
     result$probability <- NULL
     result$count <- NULL
 
-    if(!certainty) {
-      result$proportion_female <- NULL
-      result$proportion_male <- NULL
-    }
-
     result
   }
 
-  if (length(name) == 1) {
-    return(as.list(apply_genderize(name)))
+  if (length(names) == 1) {
+    return(as.list(apply_genderize(names)))
   } else {
-    return(as.list(lapply(name, apply_genderize)))
+    return(as.list(lapply(names, apply_genderize)))
   }
 
 }

@@ -9,7 +9,7 @@
 #' package is required; you will be prompted to install it if it is not already
 #' available.
 #'
-#' @param name A first name as a character vector. Names are case insensitive.
+#' @param names First names as a character vector. Names are case insensitive.
 #' @param years The birth year of the name whose gender is to be predicted. This
 #'   argument can be either a single year, a range of years in the form
 #'   \code{c(1880, 1900)}. If no value is specified, then for the \code{ssa}
@@ -32,9 +32,6 @@
 #'   in the SSA method; it is provided only for demonstration purposes when the
 #'   \code{genderdata} package is not installed and it is not suitable for
 #'   research purposes.
-#' @param certainty A boolean value, which determines whether or not to return
-#'   the proportion of male and female uses of names in addition to determining
-#'   the gender of names.
 #' @return Returns a data frame containing the results of predicting the gender.
 #'   The exact components of the returned list will depend on the specific
 #'   method used. They include the following: \item{name}{The name for which the
@@ -57,8 +54,7 @@
 #' \dontrun{gender("madison", method = "demo", years = c(1900, 1985))}
 #' # IPUMS method
 #' \dontrun{gender("madison", method = "ipums", years = 1860)}
-gender <- function(name, years = c(1932, 2012), method = "ssa",
-                   certainty = TRUE) {
+gender <- function(names, years = c(1932, 2012), method = "ssa") {
 
   # If we need the genderdata package, check that it is installed
   if(!method %in% c("demo", "genderize")) {
@@ -66,7 +62,7 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
   }
 
   # Check that the name is a character vector
-  if (class(name) != "character") stop("Data must be a character vector.")
+  if (class(names) != "character") stop("Data must be a character vector.")
 
   # Check the validity of the years argument
   if (length(years) == 1) years <- c(years, years)
@@ -86,23 +82,23 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
     if (years[1] < 1880 || years[2] > 2012) {
       stop("Please provide a year range between 1880 and 2012")
     }
-    gender_ssa(name = name, years = years, certainty = certainty)
+    gender_ssa(names = names, years = years)
   } else if (method == "demo") {
     if (years[1] < 1880 || years[2] > 2012) {
       stop("Please provide a year range between 1880 and 2012")
     }
-    gender_demo(name = name, years = years, certainty = certainty)
+    gender_demo(names = names, years = years)
   } else if (method == "kantrowitz") {
     if (!missing(years)) warning("Kantrowitz method does not account for year.")
-    gender_kantrowitz(name = name)
+    gender_kantrowitz(names = names)
   } else if (method == "ipums") {
     if (years[1] < 1789 || years[2] > 1930) {
       stop("Please provide a year range between 1789 and 1930")
     }
-    gender_ipums_usa(name = name, years = years, certainty = certainty)
+    gender_ipums_usa(names = names, years = years)
   } else if (method == "genderize") {
     if (!missing(years)) warning("Genderize method does not account for year.")
-    gender_genderize(name = name, certainty = certainty)
+    gender_genderize(names = names)
   } else {
     stop("Method ", method, " is not recognized. Try ?gender for help.")
   }
@@ -112,6 +108,7 @@ gender <- function(name, years = c(1932, 2012), method = "ssa",
 # Hide variables from R CMD check
 if(getRversion() >= "2.15.1") {
   c("year", "male", "female", "proportion_female", "proportion_male",
-    "ssa_national", "kantrowitz", ".", "ipums_usa") %>%
+    "ssa_national", "kantrowitz", ".", "ipums_usa", "ratio_male",
+    "ratio_female", "name", "year_min", "year_max") %>%
   utils::globalVariables()
 }

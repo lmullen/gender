@@ -6,12 +6,12 @@
 \alias{gender-package}
 \title{Gender: predict gender by name from historical data}
 \usage{
-gender(name, years = c(1932, 2012), method = "ssa", certainty = TRUE)
+gender(names, years = c(1932, 2012), method = "ssa")
 
-gender(name, years = c(1932, 2012), method = "ssa", certainty = TRUE)
+gender(names, years = c(1932, 2012), method = "ssa")
 }
 \arguments{
-\item{name}{A first name as a character vector. Names are case insensitive.}
+\item{names}{First names as a character vector. Names are case insensitive.}
 
 \item{years}{The birth year of the name whose gender is to be predicted. This
 argument can be either a single year, a range of years in the form
@@ -36,10 +36,6 @@ major social networks." The \code{"demo"} method is uses the top 100 names
 in the SSA method; it is provided only for demonstration purposes when the
 \code{genderdata} package is not installed and it is not suitable for
 research purposes.}
-
-\item{certainty}{A boolean value, which determines whether or not to return
-the proportion of male and female uses of names in addition to determining
-the gender of names.}
 }
 \value{
 Returns a data frame containing the results of predicting the gender.

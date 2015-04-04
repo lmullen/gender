@@ -1,12 +1,12 @@
-#' Find the gender of frst names using Kantrowitz names corpus
-#'
-#' This internal function implements the \code{method = "kantrowitz"} option of
-#' \code{\link{gender}}. See that function for documentation.
-#'
-#' @param name A character string of a first name.
-#' @return A list or (for multiple names) a list of lists containing the name
-#'   property and the predicted gender property.
-gender_kantrowitz <- function(name) {
+# Find the gender of frst names using Kantrowitz names corpus
+#
+# This internal function implements the \code{method = "kantrowitz"} option of
+# \code{\link{gender}}. See that function for documentation.
+#
+# @param name A character string of a first name.
+# @return A list or (for multiple names) a list of lists containing the name
+#   property and the predicted gender property.
+gender_kantrowitz <- function(names) {
 
   # An internal function to predict the gender of one name
   apply_kantrowitz <- function(n) {
@@ -28,10 +28,10 @@ gender_kantrowitz <- function(name) {
 
   # Use the function directly if there is one name; use lapply if there are > 1.
   # Return the results as a list or a list of lists.
-  if (length(name) == 1) {
-    return(as.list(apply_kantrowitz(name)))
+  if (length(names) == 1) {
+    return(as.list(apply_kantrowitz(names)))
   } else {
-    return(as.list(lapply(name, apply_kantrowitz)))
+    return(as.list(lapply(names, apply_kantrowitz)))
   }
 
 }

@@ -1,19 +1,19 @@
-#' Find the gender of first names using Social Security data
-#'
-#' This internal function implements the \code{method = "ssa"} option of
-#' \code{\link{gender}}. See that function for documentation.
-#'
-#' @param names A character string of a first name. Case insensitive.
-#' @param years This argument can be either a single year or a range of years in
-#'   the form \code{c(1880, 1900)}. If no value is specified, then the names
-#'   will be looked up for the period 1932 to 2012. If a year or range of years
-#'   is specified, then the names will be looked up for that period. Dates may
-#'   range from 1880 to 2012. For years before 1930, the IPUMS method is
-#'   probably better.
-#' @param correct_skew A boolean value which determines whether or not to
-#'   correct the skewed gender ratios of the SSA data. Default is to do the
-#'   correction, which is recommended.
-gender_ssa <- function(names, years, certainty, correct_skew = TRUE) {
+# Find the gender of first names using Social Security data
+#
+# This internal function implements the \code{method = "ssa"} option of
+# \code{\link{gender}}. See that function for documentation.
+#
+# @param names A character string of a first name. Case insensitive.
+# @param years This argument can be either a single year or a range of years in
+#   the form \code{c(1880, 1900)}. If no value is specified, then the names
+#   will be looked up for the period 1932 to 2012. If a year or range of years
+#   is specified, then the names will be looked up for that period. Dates may
+#   range from 1880 to 2012. For years before 1930, the IPUMS method is
+#   probably better.
+# @param correct_skew A boolean value which determines whether or not to
+#   correct the skewed gender ratios of the SSA data. Default is to do the
+#   correction, which is recommended.
+gender_ssa <- function(names, years, correct_skew = TRUE) {
 
   # If we're going to correct the skew, calculate the correction factors;
   # otherwise just give them a value of one.

@@ -1,18 +1,15 @@
-#' Find the gender of first names using U.S. Census data
-#'
-#' This internal function implements the \code{method = "ipums"} option of
-#' \code{\link{gender}}. See that function for documentation.
-#'
-#' @param name A character string of a first name. Case insensitive.
-#' @param years This argument can be either a single year, a range of years in
-#'   the form \code{c(1880, 1900)}. If no value is specified, then the names
-#'   will be looked up for the period 1789 to 1930. If a year or range of years
-#'   is specified, then the names will be looked up for that period. Acceptable
-#'   years range from 1789 to 1930.
-#' @param certainty A boolean value, which determines whether or not to return
-#'   the proportion of male and female uses of names in addition to determining
-#'   the gender of names.
-gender_ipums_usa <- function(names, years, certainty) {
+# Find the gender of first names using U.S. Census data
+#
+# This internal function implements the \code{method = "ipums"} option of
+# \code{\link{gender}}. See that function for documentation.
+#
+# @param name A character string of a first name. Case insensitive.
+# @param years This argument can be either a single year, a range of years in
+#   the form \code{c(1880, 1900)}. If no value is specified, then the names
+#   will be looked up for the period 1789 to 1930. If a year or range of years
+#   is specified, then the names will be looked up for that period. Acceptable
+#   years range from 1789 to 1930.
+gender_ipums_usa <- function(names, years) {
 
   genderdata::ipums_usa %>%
     filter(name %in% tolower(names),
