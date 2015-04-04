@@ -4,11 +4,9 @@
 \alias{gender_ipums_usa}
 \title{Find the gender of first names using U.S. Census data}
 \usage{
-gender_ipums_usa(name, years, certainty)
+gender_ipums_usa(names, years, certainty)
 }
 \arguments{
-\item{name}{A character string of a first name. Case insensitive.}
-
 \item{years}{This argument can be either a single year, a range of years in
 the form \code{c(1880, 1900)}. If no value is specified, then the names
 will be looked up for the period 1789 to 1930. If a year or range of years
@@ -18,6 +16,8 @@ years range from 1789 to 1930.}
 \item{certainty}{A boolean value, which determines whether or not to return
 the proportion of male and female uses of names in addition to determining
 the gender of names.}
+
+\item{name}{A character string of a first name. Case insensitive.}
 }
 \description{
 This internal function implements the \code{method = "ipums"} option of

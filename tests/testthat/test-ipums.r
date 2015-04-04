@@ -13,7 +13,7 @@ test_that("a single name can be encoded", {
 })
 
 test_that("a single name returns a list with the name, gender, and proportions", {
-  expect_that(class(single), equals("list"))
+  expect_is(single, "data.frame")
   expect_that(length(single), equals(6))
   expect_that(names(single), equals(c("name", "proportion_male",
                                       "proportion_female", "gender",
@@ -29,8 +29,8 @@ test_that("the returned list has items with the correct types", {
   expect_is(single$year_max, "numeric")
 })
 
-test_that("a name not in the data set is marked as such and not dropped", {
-  expect_that(missing$gender, is_equivalent_to(NA))
+test_that("a name not in the data set returns an empty data frame", {
+  expect_equal(nrow(missing), 0)
 })
 
 test_that("capitalization of name matches what was passed to it", {
