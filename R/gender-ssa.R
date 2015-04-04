@@ -95,14 +95,14 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 #'   gender_ssa function.
 #'
 get_correction_factors <- function(years) {
-
-  selection <- genderdata::ssa_national %>%
-    filter(year >= years[1], year <= years[2])
-
-  ratio_female <- sum(selection$female) / sum(selection$female + selection$male)
-  ratio_male   <- 1 - ratio_female
-
-  correction_factors <- c(0.5 / ratio_female, 0.5 / ratio_male)
-  names(correction_factors) <- c("female", "male")
-  return(correction_factors)
+  genderdata::ssa_national %>%
+    filter(year >= years[1],
+           year <= years[2]) %>%
+    summarise(female = sum(female),
+              male = sum(male)) %>%
+    transmute(ratio_female = female / (male + female),
+              ratio_male = 1 - ratio_female) %>%
+    transmute(female = 0.5 / ratio_female,
+              male = 0.5 / ratio_male) %>%
+    unlist()
 }
