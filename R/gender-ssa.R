@@ -84,16 +84,16 @@ gender_ssa <- function(name, years, certainty, correct_skew = TRUE) {
 
 }
 
-#' Calculate the correction factors for a year or range of years
-#'
-#' The SSA data is skewed by gender, especially for years before 1935. This
-#' internal function figures out the factor by which the gender ratio should be
-#' multiplied in order to assume that the ratio of male to female births for
-#' those years was 1:1.
-#'
-#' @param years The range of years. This value will be passed to it by the
-#'   gender_ssa function.
-#'
+# Calculate the correction factors for a year or range of years
+#
+# The SSA data is skewed by gender, especially for years before 1935. This
+# internal function figures out the factor by which the gender ratio should be
+# multiplied in order to assume that the ratio of male to female births for
+# those years was 1:1.
+#
+# @param years The range of years. This value will be passed to it by the
+#   gender_ssa function.
+#
 get_correction_factors <- function(years) {
   genderdata::ssa_national %>%
     filter(year >= years[1],
