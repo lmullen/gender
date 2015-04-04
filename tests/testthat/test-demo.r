@@ -15,7 +15,7 @@ test_that("a single name can be encoded", {
 })
 
 test_that("a single name returns a list with the name, gender, and proportions", {
-  expect_that(class(single), equals("list"))
+  expect_is(single, "data.frame")
   expect_that(length(single), equals(6))
   expect_that(names(single), equals(c("name", "proportion_male",
                                       "proportion_female", "gender",
