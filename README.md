@@ -1,5 +1,5 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender) [![Build status](https://ci.appveyor.com/api/projects/status/56q80n66voo9rks2/branch/master)](https://ci.appveyor.com/project/lmullen/gender/branch/master)
+[![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender)
 
 gender: Predict Gender from Names Using Historical Data
 =======================================================
