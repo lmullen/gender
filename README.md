@@ -11,14 +11,14 @@ This package encodes gender based on names and dates of birth, using either the 
 Installation
 ------------
 
-You can install the [CRAN version](http://cran.r-project.org/web/packages/gender/index.html) of this package with `install.packages("gender")`. The first time you use the package you will be prompted to install the necessary data, which is in the [genderdata package](http://github.com/lmullen/gender-data-pkg) hosted on GitHub.
+You can install the [CRAN version](http://cran.r-project.org/web/packages/gender/index.html) of this package with `install.packages("gender")`. The first time you use the package you will be prompted to install the necessary data, which is in the [genderdata package](http://github.com/lmullen/genderdata) hosted on GitHub.
 
 If you prefer, you can install the development versions of both packages directly from GitHub. First install [devtools](https://github.com/hadley/devtools). Then run the following commands, which will install the gender package and its accompanying data package.
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("ropensci/gender")
-devtools::install_github("ropensci/gender-data-pkg")
+devtools::install_github("ropensci/genderdata")
 ```
 
 Using the package
@@ -60,7 +60,7 @@ See the function documentation for more options: `?gender`. See the package vign
 Data
 ----
 
-The accompanying [genderdata package](http://github.com/ropensci/gender-data-pkg) includes cleaned-up versions of several data sets. To see the available data sets run the following command:
+The accompanying [genderdata package](http://github.com/ropensci/genderdata) includes cleaned-up versions of several data sets. To see the available data sets run the following command:
 
 ``` r
 library(genderdata)

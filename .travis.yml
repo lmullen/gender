@@ -2,7 +2,7 @@ language: r
 r_binary_packages:
   - dplyr
 r_github_packages:
-  - ropensci/gender-data-pkg
+  - ropensci/genderdata
 warnings_are_errors: true
 notifications:
   slack:
