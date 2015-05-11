@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/gender)](http://cran.r-project.org/web/packages/gender)
+[![CRAN_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](http://cran.r-project.org/web/packages/gender)
 [![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender) 
 
 # gender: Predict Gender from Names Using Historical Data
