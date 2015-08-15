@@ -25,7 +25,6 @@ Suggests:
     genderdata (>= 0.1),
     ggplot2,
     knitr,
-    magrittr,
     testthat
 Additional_repositories: http://packages.ropensci.org
 LazyData: yes

@@ -5,7 +5,6 @@
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
 library(gender)
-library(magrittr)
 library(dplyr)
 library(ggplot2)
 ```
@@ -32,7 +31,7 @@ The Census data is provided by [IPUMS USA](https://usa.ipums.org/usa/) from the 
 
 The Social Security Administration data was collected from applicants to Social Security. The Social Security Board was created in the New Deal in 1935. Early applicants, however, were people who were nearing retirement age not people who were being born, so the data set extends further into the past. However, the Social Security Administration did not immediately require all persons born in the United States to register for a Social Security Number. (See Shane Landrum, "The State's Big Family Bible: Birth Certificates, Personal Identity, and Citizenship in the United States, 1840--1950" [PhD dissertation, Brandeis University, 2014].) A [consequence](https://github.com/ropensci/gender/issues/9) of this---for reasons that are not entirely clear---is that for years before 1918, the SSA data set is heavily female; after about 1940 it skews slightly male. For this reason this package corrects the prediction to assume a secondary sex ratio that is evenly distributed between males and females. Also, the SSA data set only includes names that were used more than five times in a given year, so the "long tail" of names is excluded. Even so, the data set includes 91,320 unique names. The SSA data set extends from 1880 to 2012, but for years before 1930 you should use the IPUMS method.
 
-These datasets are available in the [genderdata package](https://github.com/ropensci/genderdata). This package is not available on CRAN, but it can be installed using [devtools](http://cran.r-project.org/web/packages/devtools/index.html): `devtools::install_github("ropensci/genderdata")`. If you use the SSA or IPUMS method without the data package installed, you will be prompted to install it. This vignetee uses the `demo` method, which uses only the one hundred most popular names from the SSA dataset.
+These datasets are available in the [genderdata package](https://github.com/ropensci/genderdata). This package is not available on CRAN, but it can be installed from the [rOpenSci repository](http://packages.ropensci.org/): `install.packages("genderdata", repos = "http://packages.ropensci.org")`. If you use the SSA or IPUMS method without the data package installed, you will be prompted to install it. This vignetee uses the `demo` method, which uses only the one hundred most popular names from the SSA dataset.
 
 ## Predicting gender for single names
 
