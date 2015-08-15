@@ -22,16 +22,16 @@ gender_kantrowitz <- function(names) {
     # Use the original capitalization of the name
     results$name <- n
 
-    return(as.list(results))
+    results
 
   }
 
   # Use the function directly if there is one name; use lapply if there are > 1.
   # Return the results as a list or a list of lists.
   if (length(names) == 1) {
-    return(as.list(apply_kantrowitz(names)))
+    return(apply_kantrowitz(names))
   } else {
-    return(as.list(lapply(names, apply_kantrowitz)))
+    return(bind_rows(lapply(names, apply_kantrowitz)))
   }
 
 }

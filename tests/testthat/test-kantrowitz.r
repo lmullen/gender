@@ -12,15 +12,15 @@ test_that("a single name can be encoded", {
 })
 
 test_that("a single name returns a list with the name and gender", {
-  expect_that(class(single), equals("list"))
+  expect_is(single, "data.frame")
   expect_that(length(single), equals(2))
   expect_that(names(single), equals(c("name", "gender")))
 })
 
-test_that("multiple names returns a list of lists", {
-  expect_that(class(multiple_same), equals("list"))
-  expect_that(length(multiple_same), equals(length(sample_names_data)))
-  expect_that(names(multiple_same[[1]]), equals(c("name", "gender")))
+test_that("multiple names returns a data.frame", {
+  expect_is(multiple_same, "data.frame")
+  expect_equal(nrow(multiple_same), length(sample_names_data))
+  expect_equal(names(multiple_same), c("name", "gender"))
 })
 
 test_that("capitalization of name matches what was passed to it", {
