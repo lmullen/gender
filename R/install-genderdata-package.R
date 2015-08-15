@@ -17,18 +17,25 @@ check_genderdata_package <- function() {
 #' Install the genderdata package after checking with the user
 #' @export
 install_genderdata_package <- function() {
-  input <- menu(c("Yes", "No"), title = "Install the genderdata package?")
-  if (input == 1) {
-    message("Installing the genderdata package.")
-    tryCatch(install.packages("genderdata",
-                              repos = "http://packages.ropensci.org"),
-             error = function(e) {
-      stop("Failed to install the genderdata package. Please try installing
-            the package for yourself using the following command:
-            \n
-            install.packages(\"genderdata\", repo = \"http://packages.ropensci.org\")")
-    })
+  if (interactive()) {
+    input <- menu(c("Yes", "No"), title = "Install the genderdata package?")
+    if (input == 1) {
+      message("Installing the genderdata package.")
+      tryCatch(install.packages("genderdata",
+                                repos = "http://packages.ropensci.org"),
+               error = function(e) {
+        stop("Failed to install the genderdata package. Please try installing
+              the package for yourself using the following command:
+              \n
+              install.packages(\"genderdata\", repo = \"http://packages.ropensci.org\")")
+      })
+    } else {
+      stop("The genderdata package is necessary for your chosen method.")
+    }
   } else {
-    stop("The genderdata package is necessary for your chosen method.")
+    stop("Failed to install the genderdata package. Please try installing
+          the package for yourself using the following command:
+          \n
+          install.packages(\"genderdata\", repo = \"http://packages.ropensci.org\")")
   }
 }
