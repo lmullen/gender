@@ -28,13 +28,13 @@ gender_genderize <- function(names) {
     result$probability <- NULL
     result$count <- NULL
 
-    result
+    as_data_frame(result)
   }
 
   if (length(names) == 1) {
-    return(as.list(apply_genderize(names)))
+    return(apply_genderize(names))
   } else {
-    return(as.list(lapply(names, apply_genderize)))
+    return(bind_rows(lapply(names, apply_genderize)))
   }
 
 }

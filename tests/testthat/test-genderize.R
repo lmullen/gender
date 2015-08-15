@@ -2,8 +2,8 @@ context("Genderize method")
 
 single <- gender("leslie", method = "genderize")
 
-test_that("a single name returns a list with the name, gender, and proportions", {
-  expect_that(class(single), equals("list"))
+test_that("a single name returns a data frame with the name, gender, and proportions", {
+  expect_is(single, "data.frame")
   expect_that(names(single), equals(c("name", "gender", "proportion_female",
                                       "proportion_male")))
 })
