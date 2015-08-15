@@ -1,6 +1,9 @@
 gender 0.5.0 DEVELOPMENT
 ============
-
+* all methods always return data frames
+* general performance improvements
+* calls to Genderize.io API no longer fail if the name does not exist
+* data package is installed using install.packages() not install_github()
 
 gender 0.4.3
 ============

@@ -10,8 +10,5 @@
 #' @title Gender: predict gender by name from historical data
 #' @author \email{lincoln@@lincolnmullen.com}
 #' @keywords gender
-#' @import devtools
 #' @import dplyr
-#' @import jsonlite
-#' @import httr
 "gender"

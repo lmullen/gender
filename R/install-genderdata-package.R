@@ -6,10 +6,10 @@
 check_genderdata_package <- function() {
   genderdata_version <- "0.1"
   if (!requireNamespace("genderdata", quietly = TRUE)) {
-    message("The genderdata package needs to be installed from GitHub.")
+    message("The genderdata package needs to be installed.")
     install_genderdata_package()
   } else if (utils::packageVersion("genderdata") < genderdata_version) {
-    message("The genderdata package needs to be updated from GitHub.")
+    message("The genderdata package needs to be updated.")
     install_genderdata_package()
   }
 }
@@ -20,12 +20,13 @@ install_genderdata_package <- function() {
   input <- menu(c("Yes", "No"), title = "Install the genderdata package?")
   if (input == 1) {
     message("Installing the genderdata package.")
-    tryCatch(devtools::install_github("ropensci/genderdata"),
+    tryCatch(install.packages("genderdata",
+                              repos = "http://packages.ropensci.org"),
              error = function(e) {
       stop("Failed to install the genderdata package. Please try installing
             the package for yourself using the following command:
             \n
-            devtools::install_github(\"ropensci/genderdata\")")
+            install.packages(\"genderdata\", repo = \"http://packages.ropensci.org\")")
     })
   } else {
     stop("The genderdata package is necessary for your chosen method.")
