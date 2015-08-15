@@ -18,7 +18,11 @@ gender_genderize <- function(names) {
       jsonlite::fromJSON(., simplifyVector = FALSE)
 
     # Convert genderize's return into our format
-    if (result$gender == "female") {
+    if (is.null(result$gender)) {
+      result$gender <- NA_character_
+      result$proportion_male <- NA_real_
+      result$proportion_female <- NA_real_
+    } else if (result$gender == "female") {
       result$proportion_female = as.numeric(result$probability)
       result$proportion_male   = 1 - result$proportion_female
     } else if (result$gender == "male") {
