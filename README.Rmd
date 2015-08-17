@@ -83,13 +83,14 @@ MIT License, <http://lmullen.mit-license.org/>
 
 ## Citation
 
-Eventually Cameron and I will publish an article about this method. In the meantime, please cite this [GitHub repository](https://github.com/ropensci/gender).
+You can see up to date citation information with `citation("gender")`. You can cite either the package or the accompanying journal article.
 
-By [Lincoln Mullen](http://lincolnmullen.com) and [contributors](https://github.com/ropensci/gender/graphs/contributors).
+> Lincoln Mullen (2015). gender: Predict Gender from Names Using Historical
+  Data. R package version 0.5.0.9000. <https://github.com/ropensci/gender>
 
-## Note
-
-<a name="gender-vs-sex"></a>\* Of course in most cases the Social Security Administration data more approximately records the biological category sex rather than the social category gender, since it mostly records names given at birth. But since in most cases researchers will be interested in gender, I've named this package gender, leaving it up to researchers to interpret exactly what the encoded values mean.
+> Cameron Blevins and Lincoln Mullen, "Jane, John ... Leslie? A Historical
+Method for Algorithmic Gender Prediction," _Digital Humanities Quarterly_
+(forthcoming 2015).
 
 ------------------------------------------------------------------------
 

@@ -2,6 +2,7 @@ Package: gender
 Type: Package
 Title: Predict Gender from Names Using Historical Data
 Version: 0.5.0.9000
+Date: 2015-08-18
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com"),
     person("Cameron", "Blevins", role = "ctb"),
@@ -22,7 +23,7 @@ Imports:
     httr (>= 1.0.0),
     jsonlite (>= 0.9.16)
 Suggests:
-    genderdata (>= 0.1),
+    genderdata (>= 0.5.0.9000),
     ggplot2,
     knitr,
     testthat
