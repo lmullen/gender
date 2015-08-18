@@ -6,29 +6,34 @@
 \alias{gender-package}
 \title{Gender: predict gender by name from historical data}
 \usage{
-gender(names, years = c(1932, 2012), method = "ssa")
+gender(names, years = c(1932, 2012), method = c("ssa", "ipums", "napp",
+  "kantrowitz", "genderize", "demo"), countries = c("United States", "Canada",
+  "United Kingdom", "Germany", "Iceland", "Norway", "Sweden"))
 
-gender(names, years = c(1932, 2012), method = "ssa")
+gender(names, years = c(1932, 2012), method = c("ssa", "ipums", "napp",
+  "kantrowitz", "genderize", "demo"), countries = c("United States", "Canada",
+  "United Kingdom", "Germany", "Iceland", "Norway", "Sweden"))
 }
 \arguments{
 \item{names}{First names as a character vector. Names are case insensitive.}
 
 \item{years}{The birth year of the name whose gender is to be predicted. This
 argument can be either a single year, a range of years in the form
-\code{c(1880, 1900)}. If no value is specified, then for the \code{ssa}
+\code{c(1880, 1900)}. If no value is specified, then for the \code{ "ssa"}
 method it will use the period 1932 to 2012; acceptable years for the SSA
 method range from 1880 to 2012, but for years before 1930 the IPUMS method
-is probably more accurate. For the \code{ipums} method the default range is
-the period 1789 to 1930, which is also the range of acceptable years. If a
-year or range of years is specified, then the names will be looked up for
-that period.}
+is probably more accurate. For the \code{"ipums"} method the default range
+is the period 1789 to 1930, which is also the range of acceptable years.
+For the \code{"napp"} method the default range is the period 1758 to 1910,
+which is also the range of acceptable years. If a year or range of years is
+specified, then the names will be looked up for that period.}
 
 \item{method}{This value determines the data set that is used to predict the
 gender of the name. The \code{"ssa"} method looks up names based from the
 U.S. Social Security Administration baby name data. (This method is based
 on an implementation by Cameron Blevins.) The \code{"ipums"} method looks
 up names from the U.S. Census data in the Integrated Public Use Microdata
-Series. (This method was contributed by Benjamin Schmidt.) The
+Series. (This method was contributed by Ben Schmidt.) The
 \code{"kantrowitz"} method uses the Kantrowitz corpus of male and female
 names. The \code{"genderize"} method uses the Genderize.io
 <\url{http://genderize.io/}> API, which is based on "user profiles across
@@ -36,6 +41,15 @@ major social networks." The \code{"demo"} method is uses the top 100 names
 in the SSA method; it is provided only for demonstration purposes when the
 \code{genderdata} package is not installed and it is not suitable for
 research purposes.}
+
+\item{countries}{The countries for which datasets are being used. For the
+\code{"ssa"} and \code{"ipums"} methods, the only valid option is
+\code{"United States"} which will be assumed if no argument is specified.
+For the \code{"napp"} method, you may specify a character vector with any
+of the following countries: \code{"Canada"}, \code{"United Kingdom"},
+\code{"Germany"}, \code{"Iceland"}, \code{"Norway"}, \code{"Sweden"}. For
+the \code{"kantrowitz"} and \code{"genderize"} methods, no country should
+be specified.}
 }
 \value{
 Returns a data frame containing the results of predicting the gender.
@@ -77,6 +91,8 @@ gender("madison", method = "demo", years = c(1900, 1985))
 \dontrun{gender("madison", method = "demo", years = c(1900, 1985))}
 # IPUMS method
 \dontrun{gender("madison", method = "ipums", years = 1860)}
+# NAPP method
+\dontrun{gender("madison", method = "napp", countries = c("Sweden", "Denmark"))}
 }
 \author{
 \email{lincoln@lincolnmullen.com}

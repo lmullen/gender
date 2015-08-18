@@ -4,7 +4,7 @@
 #' devtools. If it is not up to date, reinstall it.
 #' @export
 check_genderdata_package <- function() {
-  genderdata_version <- "0.5.0"
+  genderdata_version <- "0.5.0.9000"
   if (!requireNamespace("genderdata", quietly = TRUE)) {
     message("The genderdata package needs to be installed.")
     install_genderdata_package()

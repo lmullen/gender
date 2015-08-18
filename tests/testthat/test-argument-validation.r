@@ -1,10 +1,10 @@
 source("sample-data.r")
 context("Argument validation")
 
-test_that("warns if Kantrowitz method includes years", {
+test_that("error if Kantrowitz method includes years", {
   expect_that(gender(name = "julie", years = c(1880,1900), method =
                             "kantrowitz"),
-              gives_warning("Kantrowitz method does not account for year."))
+              throws_error("Kantrowitz method does not account for year."))
 })
 
 test_that("error if data is not a character vector", {
@@ -21,10 +21,24 @@ test_that("error if years are not either range or single year", {
 
 test_that("error if method is not recognized", {
   expect_that(gender(sample_names_data, method = "my_nonworking_method"),
-              throws_error("Method .+ is not recognized"))
+              throws_error("Error in match.arg"))
 })
 
 test_that("function works with a single year", {
   expect_that(gender("madison", method = "ssa", years = 2000)$gender,
               equals("female"))
+})
+
+test_that("countries are mapped with their respective methods", {
+  expect_error(gender("Madison", method = "ssa", countries = "Sweden"),
+               "SSA data is only available")
+  expect_error(gender("Madison", method = "ipums", countries = "Denmark"),
+               "IPUMS data is only available")
+  expect_error(gender("Madison", method = "kantrowitz", countries = "Denmark"),
+               "Kantrowitz method does not account for country")
+  expect_error(gender("Madison", method = "genderize", countries = "USA"),
+               "Genderize method does not account for country")
+  expect_error(gender("Madison", method = "napp", countries = "United States"),
+               "NAPP data is only available for European countries.")
+  expect_error(gender("Madison", method = "napp", countries = "New South Wales"))
 })
