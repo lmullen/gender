@@ -10,6 +10,6 @@ top_names <- genderdata::ssa_national %>%
 
 # Get just those names from the ssa_national dataset
 basic_names <- genderdata::ssa_national %>%
-  filter(name %in% c(top_names$name, "jane", "madison"))
+  filter(name %in% c(top_names$name, "jordan", "madison", "hillary", "monroe"))
 
 save(basic_names, file = "R/sysdata.rda", compress = TRUE)
