@@ -1,6 +1,12 @@
 language: r
+sudo: required
 r_binary_packages:
   - dplyr
+  - ggplot2
+  - knitr
+  - httr
+  - jsonlite
+  - testthat
 r_github_packages:
   - ropensci/genderdata
 warnings_are_errors: true
