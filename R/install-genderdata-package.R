@@ -26,7 +26,8 @@ install_genderdata_package <- function() {
   }
 
   if (interactive()) {
-    input <- menu(c("Yes", "No"), title = "Install the genderdata package?")
+    input <- utils::menu(c("Yes", "No"),
+                         title = "Install the genderdata package?")
     if (input == 1) {
       message("Installing the genderdata package.")
       tryCatch(utils::install.packages("genderdata",

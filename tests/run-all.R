@@ -1,5 +1,5 @@
 library(testthat)
-if("genderdata" %in% installed.packages()) {
+if (requireNamespace("genderdata", quietly = TRUE)) {
   test_check("gender")
 } else {
   test_check("gender", filter = "demo")

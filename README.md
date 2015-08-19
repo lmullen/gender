@@ -1,5 +1,5 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gender)](http://cran.r-project.org/web/packages/gender) [![CRAN\_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](http://cran.r-project.org/web/packages/gender) [![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/gender?branch=master)](https://ci.appveyor.com/project/ropensci/gender)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gender)](http://cran.r-project.org/package=gender) [![CRAN\_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](http://cran.r-project.org/package=gender) [![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/gender?branch=master)](https://ci.appveyor.com/project/ropensci/gender)
 
 gender: Predict Gender from Names Using Historical Data
 =======================================================
