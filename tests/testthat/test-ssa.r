@@ -40,5 +40,5 @@ test_that("Correct predictions from skewed SSA data", {
 })
 
 test_that("capitalization of name matches what was passed to it", {
-  expect_that(gender("Marie", method = "ssa")$name, equals("Marie"))
+  expect_equal(gender("Marie", method = "ssa")$name, "Marie")
 })

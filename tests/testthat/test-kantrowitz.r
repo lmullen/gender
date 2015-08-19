@@ -24,5 +24,5 @@ test_that("multiple names returns a data.frame", {
 })
 
 test_that("capitalization of name matches what was passed to it", {
-  expect_that(gender("Marie", method = "kantrowitz")$name, equals("Marie"))
+  expect_equal(gender("Marie", method = "kantrowitz")$name, "Marie")
 })

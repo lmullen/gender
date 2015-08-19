@@ -34,5 +34,5 @@ test_that("a name not in the data set returns an empty data frame", {
 })
 
 test_that("capitalization of name matches what was passed to it", {
-  expect_that(gender("Marie", method = "ipums")$name, equals("Marie"))
+  expect_equal(gender("Marie", method = "ipums")$name, "Marie")
 })

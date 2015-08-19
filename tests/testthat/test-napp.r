@@ -34,7 +34,7 @@ test_that("a name not in the data set returns an empty data frame", {
 })
 
 test_that("capitalization of name matches what was passed to it", {
-  expect_that(gender("Marie", method = "napp")$name, equals("Marie"))
+  expect_equal(gender("Marie", method = "napp")$name, "Marie")
 })
 
 test_that("different countries can be specified", {
