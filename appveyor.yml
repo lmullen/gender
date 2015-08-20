@@ -13,7 +13,7 @@ install:
 # Adapt as necessary starting from here
 
 build_script:
-  - travis-tool.sh install_github ropensci/genderdata
+  # - travis-tool.sh install_github ropensci/genderdata
   - travis-tool.sh install_deps
 
 test_script:
@@ -21,6 +21,9 @@ test_script:
 
 on_failure:
   - travis-tool.sh dump_logs
+
+environment:
+  _R_CHECK_FORCE_SUGGESTS_: false
 
 artifacts:
   - path: '*.Rcheck\**\*.log'
