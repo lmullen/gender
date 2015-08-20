@@ -59,7 +59,7 @@ gender_df <- function(data, name_col = "name", year_col = "year",
     distinct_(.dots = name_year_grouping) %>%
     group_by_(.dots = year_grouping) %>%
     do(results = gender(.[[name_col]],
-                        years = c(.[[year_col[1]]][1], .[[year_col[1]]][1]),
+                        years = c(.[[year_col[1]]][1], .[[year_col[2]]][1]),
                         method = method)) %>%
     do(bind_rows(.$results)) %>%
     ungroup()
