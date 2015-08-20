@@ -54,7 +54,6 @@
 #'   be predicted using the given method.} \item{year_min}{The lower bound
 #'   (inclusive) of the year range used for the prediction.} \item{year_max}{The
 #'   upper bound (inclusive) of the year range used for the prediction.}
-#' @keywords gender
 #' @export
 #' @examples
 #' gender("madison", method = "demo", years = 1985)

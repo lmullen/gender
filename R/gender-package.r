@@ -5,10 +5,9 @@
 #' done automatically and can be done manually by running
 #' \code{install_genderdata_package()}.
 #'
-#' @name gender
 #' @docType package
+#' @name gender-package
 #' @title Gender: predict gender by name from historical data
 #' @author \email{lincoln@@lincolnmullen.com}
-#' @keywords gender
 #' @import dplyr
-"gender"
+NULL
