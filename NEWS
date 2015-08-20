@@ -4,6 +4,7 @@ gender 0.5.0 DEVELOPMENT
 * general performance improvements
 * calls to Genderize.io API no longer fail if the name does not exist
 * data package is installed using install.packages() not install_github()
+* New function `gender_df()` efficiently applies `gender()` to data frames
 
 gender 0.4.3
 ============
