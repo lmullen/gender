@@ -7,10 +7,8 @@ Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com"),
     person("Cameron", "Blevins", role = "ctb"),
     person("Ben", "Schmidt", role = "ctb"))
-Description: Encodes gender based on names and dates of birth, using either the
-    Social Security Administration's data set of first names by year of birth
-    or the Census Bureau data from 1789 to 1940, both from the United States of
-    America. By using these data sets instead of lists of male and female names,
+Description: Encodes gender based on names and dates of birth using historical
+    datasets. By using these datasets instead of lists of male and female names,
     this package is able to more accurately guess the gender of a name, and it
     is able to report the probability that a name was male or female.
 URL: https://github.com/ropensci/gender
