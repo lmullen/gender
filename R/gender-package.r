@@ -10,4 +10,6 @@
 #' @title Gender: predict gender by name from historical data
 #' @author \email{lincoln@@lincolnmullen.com}
 #' @import dplyr
+#' @importFrom utils data
+#' @importFrom utils menu
 NULL
