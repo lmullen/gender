@@ -22,9 +22,9 @@ Imports:
     jsonlite (>= 0.9.16)
 Suggests:
     genderdata (>= 0.5.0),
-    ggplot2,
-    knitr,
-    testthat
+    ggplot2 (>= 1.0.0),
+    knitr (>= 1.11),
+    testthat (>= 0.10.0)
 Additional_repositories: http://packages.ropensci.org
 LazyData: yes
 License: MIT + file LICENSE
