@@ -17,9 +17,9 @@ check_genderdata_package <- function() {
 #' Install the genderdata package after checking with the user
 #' @export
 install_genderdata_package <- function() {
-  instructions <- paste("Please try installing the package for yourself \n",
+  instructions <- paste("Please try installing the package for yourself",
                         "using the following command: \n",
-  "install.packages(\"genderdata\", repo = \"http://packages.ropensci.org\")")
+  "install.packages(\"genderdata\", repos = \"http://packages.ropensci.org\")")
 
   error_func <- function(e) {
     stop(paste("Failed to install the genderdata package.\n", instructions))
