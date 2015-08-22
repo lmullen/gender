@@ -1,10 +1,12 @@
-gender 0.5.0 DEVELOPMENT
+gender 0.5.0
 ============
-* all methods always return data frames
+* genderdata package is installed using `install.packages()` from the rOpenSci
+  package repository instead of using `install_github()`.
+* all functions always return data frames
 * general performance improvements
 * calls to Genderize.io API no longer fail if the name does not exist
-* data package is installed using install.packages() not install_github()
-* New function `gender_df()` efficiently applies `gender()` to data frames
+* new function `gender_df()` efficiently applies `gender()` to data frames
+* add North Atlantic Population Project dataset for six European countries
 
 gender 0.4.3
 ============
