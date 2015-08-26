@@ -31,13 +31,19 @@ You can install [this package from CRAN](http://cran.r-project.org/package=gende
 install.packages("gender")
 ```
 
-The first time you use the package you will be prompted to install the accompanying [genderdata package](http://github.com/ropensci/genderdata). 
+The first time you use the package you will be prompted to install the accompanying [genderdata package](http://github.com/ropensci/genderdata). Alternatively, you can install this package for yourself from the [rOpenSci package repository](http://packages.ropensci.org/):
+
+```{r eval = FALSE}
+install.packages("genderdata", type = "source",
+                 repos = "http://packages.ropensci.org")
+```
 
 If you prefer, you can install the development versions of both packages from the [rOpenSci package repository](http://packages.ropensci.org/):
 
 ```{r eval=FALSE}
 install.packages(c("gender", "genderdata"),
-                 repos = "http://packages.ropensci.org")
+                 repos = "http://packages.ropensci.org",
+                 type = "source")
 ```
 
 ## Using the package

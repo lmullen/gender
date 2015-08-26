@@ -1,3 +1,8 @@
+gender 0.5.0.9003 DEVELOPMENT
+=============================
+* bugfix for some users who cannot install the `genderdata` package as binary
+
+
 gender 0.5.0
 ============
 * genderdata package is installed using `install.packages()` from the rOpenSci
