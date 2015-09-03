@@ -1,5 +1,5 @@
-This is an update to the gender package which adds datasets for European 
-countries and improves performance.
+This is an patch to the gender package which fixes a bug for some users who have
+been unable install the data package because of an option they have set.
 
 ## Testing environments
 

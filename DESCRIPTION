@@ -1,8 +1,8 @@
 Package: gender
 Type: Package
 Title: Predict Gender from Names Using Historical Data
-Version: 0.5.0.9003
-Date: 2015-08-21
+Version: 0.5.1
+Date: 2015-09-03
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com"),
     person("Cameron", "Blevins", role = "ctb"),

@@ -1,4 +1,4 @@
-gender 0.5.0.9003 DEVELOPMENT
+gender 0.5.1
 =============================
 * bugfix for some users who cannot install the `genderdata` package as binary
 
