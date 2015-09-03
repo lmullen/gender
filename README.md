@@ -15,7 +15,7 @@ You can install [this package from CRAN](http://cran.r-project.org/package=gende
 install.packages("gender")
 ```
 
-The first time you use the package you will be prompted to install the accompanying [genderdata package](http://github.com/ropensci/genderdata). Alternatively, you can install this package for yourself from the [rOpenSci package repository](http://packages.ropensci.org/):
+The first time you use the package you will be prompted to install the accompanying [genderdata package](https://github.com/ropensci/genderdata). Alternatively, you can install this package for yourself from the [rOpenSci package repository](http://packages.ropensci.org/):
 
 ``` r
 install.packages("genderdata", type = "source",
@@ -41,12 +41,14 @@ gender(c("Madison", "Hillary"), years = 1930, method = "ssa")
 #> Source: local data frame [2 x 6]
 #> 
 #>      name proportion_male proportion_female gender year_min year_max
+#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
 #> 1 Hillary               1                 0   male     1930     1930
 #> 2 Madison               1                 0   male     1930     1930
 gender(c("Madison", "Hillary"), years = c(2000, 2010), method = "ssa")
 #> Source: local data frame [2 x 6]
 #> 
 #>      name proportion_male proportion_female gender year_min year_max
+#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
 #> 1 Hillary          0.0055            0.9945 female     2000     2010
 #> 2 Madison          0.0046            0.9954 female     2000     2010
 ```
