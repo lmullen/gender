@@ -31,3 +31,4 @@ License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
 VignetteBuilder: knitr
 BugReports: https://github.com/ropensci/gender/issues
+RoxygenNote: 5.0.1
