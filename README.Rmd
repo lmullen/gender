@@ -77,14 +77,14 @@ data(package = "genderdata")
 
 ### Citation
 
-If you use this package, I would appreciate a citation. You can see up to date citation information with `citation("gender")`. You can cite either the package or the accompanying journal article.
+If you use this package, I would appreciate a citation. You can see an up to date citation information with `citation("gender")`. You can cite either the package or the accompanying journal article. The article is also included in the package as a vignette.
 
-> Lincoln Mullen (2015). gender: Predict Gender from Names Using Historical
-  Data. R package version 0.5.0.9000. <https://github.com/ropensci/gender>
+> Lincoln Mullen (2016). gender: Predict Gender from Names Using Historical
+  Data. R package version 0.5.2. <https://github.com/ropensci/gender>
 
 > Cameron Blevins and Lincoln Mullen, "Jane, John ... Leslie? A Historical
-Method for Algorithmic Gender Prediction," _Digital Humanities Quarterly_
-(forthcoming 2015).
+Method for Algorithmic Gender Prediction," _Digital Humanities Quarterly_ 9, no.
+3 (2015): <http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>
 
 ------------------------------------------------------------------------
 

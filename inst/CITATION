@@ -19,4 +19,5 @@ citEntry(entry="Manual",
 citFooter("For the journal article, please cite: \n \n",
           "Cameron Blevins and Lincoln Mullen, \"Jane, John ... Leslie?",
           "A Historical Method for Algorithmic Gender Prediction,\"",
-          "_Digital Humanities Quarterly_ (forthcoming 2015).")
+          "_Digital Humanities Quarterly_ 9, no. 3 (2015):",
+          "<http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>.")
