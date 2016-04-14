@@ -72,7 +72,7 @@ data(package = "genderdata")
 
 ### Citation
 
-If you use this package, I would appreciate a citation. You can see an up to date citation information with `citation("gender")`. You can cite either the package or the accompanying journal article. The article is also included in the package as a vignette.
+If you use this package, I would appreciate a citation. You can see an up to date citation information with `citation("gender")`. You can cite either the package or the accompanying journal article.
 
 > Lincoln Mullen (2016). gender: Predict Gender from Names Using Historical Data. R package version 0.5.2. <https://github.com/ropensci/gender>
 
