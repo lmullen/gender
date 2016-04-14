@@ -1,16 +1,14 @@
 language: r
-sudo: required
-r_binary_packages:
-  - dplyr
-  - ggplot2
-  - knitr
-  - httr
-  - jsonlite
-  - testthat
-  - rmarkdown
+sudo: false
+cache: packages
+
+r:
+- oldrel
+- release
+- devel
+
 r_github_packages:
   - ropensci/genderdata
-warnings_are_errors: true
 
 after_success:
   - Rscript -e 'covr::codecov()'
