@@ -24,7 +24,8 @@ Suggests:
     genderdata (>= 0.5.0),
     ggplot2 (>= 1.0.0),
     knitr (>= 1.11),
-    testthat (>= 0.10.0)
+    testthat (>= 0.10.0),
+    covr
 Additional_repositories: http://packages.ropensci.org
 LazyData: yes
 License: MIT + file LICENSE
