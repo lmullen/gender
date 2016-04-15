@@ -25,6 +25,7 @@ Suggests:
     ggplot2 (>= 1.0.0),
     knitr (>= 1.11),
     testthat (>= 0.10.0),
+    rmarkdown (>= 0.9.0),
     covr
 Additional_repositories: http://packages.ropensci.org
 LazyData: yes
