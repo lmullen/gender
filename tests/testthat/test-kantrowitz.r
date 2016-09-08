@@ -1,21 +1,28 @@
 source("sample-data.r")
 context("Kantrowitz")
 
-results <- gender(sample_names_data, method = "kantrowitz")
+# Test a single name
+single        <- gender("madison", method = "kantrowitz")
 
-test_that("Kantrowitz method returns valid data frame", {
-  
-  expect_that(results, is_a("data.frame"))
-  
-  # Don't drop any data if there aren't matches
-  expect_that(nrow(sample_names_data), equals(nrow(results)))
-  
-  expect_that(colnames(results),
-              is_equivalent_to(c("name", "year", "gender")))
-  
-  expect_that(results$gender,
-              is_equivalent_to(c("female", "female",
-                                 "male", "male",
-                                 "either", "either", "either",
-                                 "male", "male", "male", NA)))
+# Test multiple names with same years
+multiple_same <- gender(sample_names_data, method = "kantrowitz")
+
+test_that("a single name can be encoded", {
+  expect_that(single$gender, equals("male"))
+})
+
+test_that("a single name returns a list with the name and gender", {
+  expect_is(single, "data.frame")
+  expect_that(length(single), equals(2))
+  expect_that(names(single), equals(c("name", "gender")))
+})
+
+test_that("multiple names returns a data.frame", {
+  expect_is(multiple_same, "data.frame")
+  expect_equal(nrow(multiple_same), length(sample_names_data))
+  expect_equal(names(multiple_same), c("name", "gender"))
+})
+
+test_that("capitalization of name matches what was passed to it", {
+  expect_equal(gender("Marie", method = "kantrowitz")$name, "Marie")
 })

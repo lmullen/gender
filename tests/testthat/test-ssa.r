@@ -1,52 +1,45 @@
 source("sample-data.r")
-context("Social Security Administration")
+context("SSA method")
 
-# Using a range of years passed as an argument
-results_range <- gender(sample_names_data, method = "ssa",
-                        years = c(1932, 2012))
+# Test a single name
+single        <- gender("Madison", method = "ssa", years = c(2000, 2001))
 
-# Using a column of years in the input data frame
-results_column <- gender(sample_names_data, method = "ssa",
-                         years = TRUE)
+# Test multiple names with different years
+multiple_diff <- Map(gender, sample_names_data, sample_years_ssa,
+                     method = "ssa") %>%
+  do.call(rbind.data.frame, .)
 
-# Removing the proportion columns from the results
-results_minimal <- gender(sample_names_data, method = "ssa",
-                          certainty = FALSE)
-
-test_that("SSA method returns valid data frame", {
-  
-  expect_that(results_range, is_a("data.frame"))
-  expect_that(results_column, is_a("data.frame"))
-  expect_that(results_minimal, is_a("data.frame"))
-  
-  # Don't drop any data if there aren't matches
-  expect_that(nrow(sample_names_data), equals(nrow(results_range)))
-  expect_that(nrow(sample_names_data), equals(nrow(results_column)))
-  expect_that(nrow(sample_names_data), equals(nrow(results_minimal)))
-  
-#   expect_that(colnames(results_range),
-#               is_equivalent_to(c("name", "year","proportion_male", "gender",
-#                                  "proportion_female")))
-  expect_that(colnames(results_column),
-              is_equivalent_to(c("name", "year", "proportion_male",
-                                 "proportion_female", "gender")))
-  expect_that(colnames(results_minimal),
-              is_equivalent_to(c("name", "year","gender")))
-  
+test_that("a single name can be encoded", {
+  # Madison was female in the SSA period
+  expect_that(single$gender, equals("female"))
 })
 
-test_that("SSA results vary over time", {
-  
-  expect_that(results_range$gender,
-              is_equivalent_to(c("female", "female",
-                                 "male", "male",
-                                 "female", "female", "female",
-                                 "female", "female", "female", NA)))
-  
-  expect_that(results_column$gender,
-              is_equivalent_to(c("female", "female",
-                                 "male", "male",
-                                 NA, "female", NA,
-                                 "male", "male", "female", NA)))
-  
+test_that("a single name returns a list with the name, gender, and proportions", {
+  expect_is(single, "data.frame")
+  expect_that(length(single), equals(6))
+  expect_that(names(single), equals(c("name", "proportion_male",
+                                      "proportion_female", "gender",
+                                      "year_min", "year_max")))
+})
+
+test_that("the returned list has items with the correct types", {
+  expect_is(single$name, "character")
+  expect_is(single$proportion_female, "numeric")
+  expect_is(single$proportion_male, "numeric")
+  expect_is(single$gender, "character")
+  expect_is(single$year_min, "numeric")
+  expect_is(single$year_max, "numeric")
+})
+
+test_that("Correct predictions from skewed SSA data", {
+  # For rationale see https://github.com/ropensci/gender/issues/9
+  expect_that(gender("merle", method = "ssa", years = 1901)$gender,
+              equals("male"))
+  expect_that(gender("merle", method = "ssa", years = c(1901, 1903))$gender,
+              equals("male"))
+})
+
+test_that("capitalization of name matches what was passed to it", {
+  marie <- gender("Marie", years = 1978, method = "ssa")
+  expect_equal(marie$name, "Marie")
 })

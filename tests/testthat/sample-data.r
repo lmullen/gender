@@ -1,14 +1,10 @@
-require(dplyr)
+suppressMessages(require(dplyr))
 
-# sample_names_data <- data.frame(
-#   name = c("john", "john", "jane", "jane", "madison", "madison", "madison", "zzz",
-#            "lindsay", "lindsay", "lindsay"),
-#   year = as.integer(c(1890, 1990, 1890, 1990, 1890, 1980, 1990, 1600, 1600, 
-#                       1950, 2015)),
-#   stringsAsFactors = FALSE
-#   ) %.%
-#   arrange(name)
+sample_names_data <- c("jane", "jane", "madison", "madison")
+sample_years_ssa  <- c(rep(c(1930, 2010), 2))
+sample_years_ipums  <- c(rep(c(1830, 1880), 2))
 
-data(sample_names_data)
+sample_names_df <- data_frame(names = sample_names_data,
+                              years = sample_years_ssa)
 
-test_list <- list(name = "madison", year = "1900")
+sample_names_df_big <- bind_rows(sample_names_df, sample_names_df)

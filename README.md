@@ -1,128 +1,83 @@
-# Gender, an R package 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+gender
+------
 
-Data sets, historical or otherwise, often contain a list of first names
-but seldom identify those names by gender. Most techniques for finding
-gender programmatically, such as the [Natural Language Toolkit][], rely
-on lists of male and female names. However, the gender[\*][] of names
-can vary over time. Any data set that covers the normal span of a human
-life will require a fundamentally historical method to find gender from
-names.
+An R package for predicting gender from first names using historical data.
 
-This package, based on collaborative work with [Cameron Blevins][],
-encodes gender based on names and dates of birth, using the Social
-Security Administration's data set of first names by year since 1880. By
-using the SSA data instead of lists of male and female names, this
-package is able to more accurately guess the gender of a name;
-furthermore it is able to report the proportion of times that a name was
-male or female for any given range of years.
+**Author:** [Lincoln Mullen](http://lincolnmullen.com)<br> **License:** [MIT](http://opensource.org/licenses/MIT)<br>
 
-See also Cameron's implementation of the same concept in a [Python
-script][].
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gender)](http://cran.r-project.org/package=gender) [![CRAN\_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](http://cran.r-project.org/package=gender) [![Build Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/gender?branch=master&svg=true)](https://ci.appveyor.com/project/ropensci/gender) [![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/gender/master.svg)](https://codecov.io/github/ropensci/gender?branch=master)
 
-![Twelve names that changed over time](https://raw.github.com/lmullen/gender/master/changing-names.png)
+### Description
 
-## Installation
+Data sets, historical or otherwise, often contain a list of first names but seldom identify those names by gender. Most techniques for finding gender programmatically rely on lists of male and female names. However, the gender associated with names can vary over time. Any data set that covers the normal span of a human life will require a historical method to find gender from names. This [R](http://www.r-project.org/) package uses historical datasets from the U.S. Social Security Administration, the U.S. Census Bureau (via [IPUMS USA](https://usa.ipums.org/usa/)), and the [North Atlantic Population Project](https://www.nappdata.org/napp/) to provide predictions of gender for first names for particular countries and time periods.
 
-To install this package, first install [devtools][].
+### Installation
 
-Then run the following command:
+You can install [this package from CRAN](http://cran.r-project.org/package=gender):
 
-    devtools::install_github("ropensci/gender")
+``` r
+install.packages("gender")
+```
 
-## Using the package
+The first time you use the package you will be prompted to install the accompanying [genderdata package](https://github.com/ropensci/genderdata). Alternatively, you can install this package for yourself from the [rOpenSci package repository](http://packages.ropensci.org/):
 
-The simplest way to use this package is to pass a single name to the
-`gender()` function. You can optionally specify a year or range of years
-to the function. If you specify the years option, the function will
-calculate the proportion of male and female uses of a name for that time
-period; otherwise it will use the time period 1932-2012.
+``` r
+install.packages("genderdata", type = "source",
+                 repos = "http://packages.ropensci.org")
+```
 
-    gender("madison")
-    # returns
-    #      name proportion_female gender proportion_male
-    # 1 madison            0.9828 female          0.0172
+If you prefer, you can install the development versions of both packages from the [rOpenSci package repository](http://packages.ropensci.org/):
 
-    gender("madison", years = c(1900, 1985))
-    # returns
-    #      name proportion_female gender proportion_male
-    # 1 madison            0.0972   male          0.9028
+``` r
+install.packages(c("gender", "genderdata"),
+                 repos = "http://packages.ropensci.org",
+                 type = "source")
+```
 
-    gender("madison", years = 1985)
-    #      name proportion_female gender proportion_male
-    # 1 madison            0.7863 female          0.2137
+### Using the package
 
-You probably have a data set with many names. For now
-this package assumes that you have a data frame with a column `name`
-which is a character vector (not a factor) containing all lowercase
-names. If this does not match your data set, see [dplyr][] and
-[stringr][] for help. You can pass that data frame to the `gender()`
-function, which will add columns for gender and the certainty of that
-guess to your data frame.
+The `gender()` function takes a character vector of names and a year or range of years and uses various datasets to predict the gender of names. Here we predict the gender of the names Madison and Hillary in 1930 and again in the 2000s using Social Security data.
 
-    gender(sample_names_data)
+``` r
+library(gender)
+gender(c("Madison", "Hillary"), years = 1930, method = "ssa")
+#> Source: local data frame [2 x 6]
+#> 
+#>      name proportion_male proportion_female gender year_min year_max
+#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#> 1 Hillary               1                 0   male     1930     1930
+#> 2 Madison               1                 0   male     1930     1930
+gender(c("Madison", "Hillary"), years = c(2000, 2010), method = "ssa")
+#> Source: local data frame [2 x 6]
+#> 
+#>      name proportion_male proportion_female gender year_min year_max
+#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#> 1 Hillary          0.0055            0.9945 female     2000     2010
+#> 2 Madison          0.0046            0.9954 female     2000     2010
+```
 
-Using a data frame you can specify a single year or range of years as in
-the example above. But you can also specify a column in your data set
-which contains year of birth associated with the name. For now, this
-column must be an integer vector (not a numeric vector) name `year`.
+See the package vignette or [read it online at CRAN](https://cran.rstudio.com/web/packages/gender/vignettes/predicting-gender.html) for a fuller introduction and suggestions on how to use the `gender()` function efficiently with large datasets.
 
-    gender(sample_names_data, years = TRUE)
+``` r
+vignette(topic = "predicting-gender", package = "gender")
+```
 
-If you prefer to use Kantrowitz corpus of male and female names, you can
-use the `method` option.
+To read the documentation for the datasets, install the [genderdata package](https://github.com/ropensci/genderdata) then examine the included datasets.
 
-    gender(sample_names_data, method = "kantrowitz")
+``` r
+library(genderdata)
+data(package = "genderdata")
+```
 
-If you prefer a more minimal output, use the option `certainty = FALSE`
-to remove the `proportion_male` and `proportion_female` output.
+### Citation
 
-## Data
+If you use this package, I would appreciate a citation. You can see an up to date citation information with `citation("gender")`. You can cite either the package or the accompanying journal article.
 
-This package includes cleaned-up versions of several data sets. To see
-the available data sets run the following command:
+> Lincoln Mullen (2016). gender: Predict Gender from Names Using Historical Data. R package version 0.5.2. <https://github.com/ropensci/gender>
 
-    data(package = "gender")
-    data(ssa_national)        # returns a data set with 1.6 million rows
+> Cameron Blevins and Lincoln Mullen, "Jane, John ... Leslie? A Historical Method for Algorithmic Gender Prediction," *Digital Humanities Quarterly* 9, no. 3 (2015): <http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>
 
-The raw data sets used in this package are available here:
+------------------------------------------------------------------------
 
--   [Mark Kantrowitz's name corpus][]
--   [Social Security Administration's baby names by year and state][]
--   [Social Security Administration's baby names by year][]
-
-## License
-
-MIT License, <http://lmullen.mit-license.org/>
-
-## Citation
-
-Eventually Cameron and I will publish an article about this method. In
-the meantime, you can cite and link to either his [Python
-implementation][Python script] or my implementation in this R package.
-
-By [Lincoln Mullen][] and [contributors][].
-
-## Note
-
-<a name="gender-vs-sex"></a>\* Of course in most cases the Social
-Security Administration data more approximately records the biological
-category sex rather than the social category gender, since it mostly
-records names given at birth. But since in most cases researchers will
-be interested in gender, I've named this package gender, leaving it up
-to researchers to interpret exactly what the encoded values mean.
-
-  [Natural Language Toolkit]: http://www.nltk.org/
-  [\*]: #gender-vs-sex
-  [Cameron Blevins]: http://www.cameronblevins.org/
-  [Python script]: https://github.com/cblevins/Gender-ID-By-Time
-  [devtools]: https://github.com/hadley/devtools
-  [dplyr]: https://github.com/hadley/dplyr
-  [stringr]: https://github.com/hadley/stringr
-  [Mark Kantrowitz's name corpus]: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/0.html
-  [Social Security Administration's baby names by year and state]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-data-by-state-and-district-of-
-  [Social Security Administration's baby names by year]: http://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data
-  [Lincoln Mullen]: http://lincolnmullen.com
-  [contributors]: https://github.com/ropensci/gender/graphs/contributors
-
----
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![rOpenSCi logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

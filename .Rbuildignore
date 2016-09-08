@@ -1,2 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.travis\.yml$
+^appveyor\.yml$
+^changingnames\.png$
+^\.git$
+^\.gitignore$
+^cran-comments.md$
+^data-raw$
+^README\.Rmd$
+^README-*\.png$

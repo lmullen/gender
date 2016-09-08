@@ -1,0 +1,21 @@
+language: r
+sudo: false
+cache: packages
+
+r:
+- oldrel
+- release
+- devel
+
+r_github_packages:
+  - ropensci/genderdata
+
+after_success:
+  - Rscript -e 'covr::codecov()'
+
+notifications:
+  slack:
+    secure: PJD7ovk1ttw9CQliDLfEdUzgHWmfoP8Ld7dAE2piHRX1axAmkAOzDIg6NubQrIgGPKDTbP+X9GIrrCYzF5o47wCt/HxG0zk4uhsT+d16EUabVZ3sWQ7b/6nl+U7NlWhzkJ6k2g5mvvH34NSwl/jO/uGr7SwpW83eAFtLh6Dhc44=
+  email:
+    on_success: change
+    on_failure: change

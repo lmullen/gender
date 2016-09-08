@@ -1,22 +1,36 @@
 Package: gender
 Type: Package
-Title: Gender: find gender by name and date
-Version: 0.1
-Author: Lincoln Mullen <lincoln@lincolnmullen.com>
-Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>
-Description: Encodes gender based on names and dates of birth, using the Social
-    Security Administration's data set of first names by year and state. By
-    using the SSA data instead of lists of male and female names, this package
-    is able to more accurately guess the gender of a name, and it is able to
-    report the probability that a name was male or female. Based on an
-    algorithm devised by Cameron Blevins.
-URL: https://github.com/lmullen/gender
+Title: Predict Gender from Names Using Historical Data
+Version: 0.5.1.9000
+Date: 2015-09-04
+Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
+    email = "lincoln@lincolnmullen.com"),
+    person("Cameron", "Blevins", role = "ctb"),
+    person("Ben", "Schmidt", role = "ctb"))
+Description: Encodes gender based on names and dates of birth using historical
+    datasets. By using these datasets instead of lists of male and female names,
+    this package is able to more accurately guess the gender of a name, and it
+    is able to report the probability that a name was male or female.
+URL: https://github.com/ropensci/gender
 Depends:
-    R (>= 3.0.0)
+    R (>= 3.0.0),
+    utils,
+    stats
 Imports:
-    dplyr (>= 0.1.1)
+    dplyr (>= 0.4.2),
+    httr (>= 1.0.0),
+    jsonlite (>= 0.9.16)
 Suggests:
-    testthat
+    genderdata (>= 0.5.0),
+    ggplot2 (>= 1.0.0),
+    knitr (>= 1.11),
+    testthat (>= 0.10.0),
+    rmarkdown (>= 0.9.0),
+    covr
+Additional_repositories: http://packages.ropensci.org
 LazyData: yes
 License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
+VignetteBuilder: knitr
+BugReports: https://github.com/ropensci/gender/issues
+RoxygenNote: 5.0.1

@@ -1,6 +1,23 @@
-bibentry("Manual",
-  title = "Gender: find gender by name and date",
-  author = "Cameron Blevins and Lincoln Mullen",
-  year = "2014",
-  url = "https://github.com/lmullen/gender"
-  )
+citHeader("To cite the 'gender' package, you may either cite the package",
+          "directly or cite the journal article which explains its method:")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry="Manual",
+         title = "gender: Predict Gender from Names Using Historical Data",
+         author = personList(as.person("Lincoln Mullen")),
+         year = year,
+         note = vers,
+         url = meta$URL,
+         textVersion =
+         paste("Lincoln Mullen (", year, "). ",
+         "gender: Predict Gender from Names Using Historical Data. ",
+         vers, ".", sep="")
+         )
+
+citFooter("For the journal article, please cite: \n \n",
+          "Cameron Blevins and Lincoln Mullen, \"Jane, John ... Leslie?",
+          "A Historical Method for Algorithmic Gender Prediction,\"",
+          "_Digital Humanities Quarterly_ 9, no. 3 (2015):",
+          "<http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>.")
