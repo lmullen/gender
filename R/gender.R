@@ -25,7 +25,11 @@
 #'   U.S. Social Security Administration baby name data. (This method is based
 #'   on an implementation by Cameron Blevins.) The \code{"ipums"} method looks
 #'   up names from the U.S. Census data in the Integrated Public Use Microdata
-#'   Series. (This method was contributed by Ben Schmidt.) The
+#'   Series. (This method was contributed by Ben Schmidt.) The \code{"napp"} 
+#'   method uses census microdata from Canada, Great Britain, Germany,
+#'   Iceland, Norway, and Sweden from 1801 to 1910 created by the
+#'   \href{https://www.nappdata.org/napp/}{North Atlantic Population Project}.
+#'   The
 #'   \code{"kantrowitz"} method uses the Kantrowitz corpus of male and female
 #'   names. The \code{"genderize"} method uses the Genderize.io
 #'   <\url{http://genderize.io/}> API, which is based on "user profiles across
