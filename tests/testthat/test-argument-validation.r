@@ -21,7 +21,7 @@ test_that("error if years are not either range or single year", {
 
 test_that("error if method is not recognized", {
   expect_that(gender(sample_names_data, method = "my_nonworking_method"),
-              throws_error("Error in match.arg"))
+              throws_error("'arg' should be one of"))
 })
 
 test_that("function works with a single year", {
