@@ -6,7 +6,7 @@
 \usage{
 gender(names, years = c(1932, 2012), method = c("ssa", "ipums", "napp",
   "kantrowitz", "genderize", "demo"), countries = c("United States", "Canada",
-  "United Kingdom", "Germany", "Iceland", "Norway", "Sweden"))
+  "United Kingdom", "Denmark", "Iceland", "Norway", "Sweden"))
 }
 \arguments{
 \item{names}{First names as a character vector. Names are case insensitive.}
@@ -28,7 +28,7 @@ U.S. Social Security Administration baby name data. (This method is based
 on an implementation by Cameron Blevins.) The \code{"ipums"} method looks
 up names from the U.S. Census data in the Integrated Public Use Microdata
 Series. (This method was contributed by Ben Schmidt.) The \code{"napp"}
-method uses census microdata from Canada, Great Britain, Germany,
+method uses census microdata from Canada, Great Britain, Denmark,
 Iceland, Norway, and Sweden from 1801 to 1910 created by the
 \href{https://www.nappdata.org/napp/}{North Atlantic Population Project}.
 The
@@ -45,7 +45,7 @@ research purposes.}
 \code{"United States"} which will be assumed if no argument is specified.
 For the \code{"napp"} method, you may specify a character vector with any
 of the following countries: \code{"Canada"}, \code{"United Kingdom"},
-\code{"Germany"}, \code{"Iceland"}, \code{"Norway"}, \code{"Sweden"}. For
+\code{"Denmark"}, \code{"Iceland"}, \code{"Norway"}, \code{"Sweden"}. For
 the \code{"kantrowitz"} and \code{"genderize"} methods, no country should
 be specified.}
 }
