@@ -89,7 +89,7 @@ gender_vector <- function(
     ) %>% rbind(
       data_frame(midpoint=rep(1776:1910,each=3),
                  method="napp",
-                 country=rep(c("Sweden","Norway","Canada"),length(1758:1910))
+                 country=rep(c("Sweden","Norway","Canada"),length(1776:1910))
       )
     )
   )

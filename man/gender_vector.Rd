@@ -2,7 +2,7 @@
 % Please edit documentation in R/gender_vector.R
 \name{gender_vector}
 \alias{gender_vector}
-\title{Use gender prediction on each element of vector, with automatic defaults}
+\title{Predict gender on each element of vector, with automatic defaults}
 \usage{
 gender_vector(names, years = 2000, year_ends = years,
   countries = "United States", threshold = 0.5)
@@ -20,7 +20,7 @@ want to search a range of years. Defaults to the equivalent value of years.}
 \item{countries}{The countries for which datasets are being used. Default is
 "United States"
 will call the "ipums" method between 1789 and 1930, and "ssa" between 1931 and 2011.
-"Canada", "United Kingdom", "Germany", "Iceland", "Norway", and "Sweden"
+"Canada", "United Kingdom", "Denmark", "Iceland", "Norway", and "Sweden"
 will call the 'napp' method between 1758 and 1910.}
 
 \item{threshold}{Certainty required before a name is reported as 'male' or 'female.'
@@ -32,8 +32,17 @@ A vector of the same length as the longest passed argument. Each
 value will be 'male', 'female', or NA.
 }
 \description{
-This function calls `gender_df` under the hood, so it is efficient at
-eliminating duplicate calls.
+This function selects sane defaults for the years and/or countries
+supplied. It calls `gender_df` under the hood, so it is efficient at
+eliminating duplicate calls. The vectorized results are suitable to
+use in a dplyr `mutate` call.
+}
+\details{
+All passed arguments should be of the same length, or else of length
+1, in which case they will be recycled. For example, if all the
+names are from the United States, just pass "United States" to countries:
+but if half are Norwegian and half are Swedish, pass a vector of the
+same length as the names.
 }
 \examples{
 
