@@ -3,6 +3,7 @@
 export(check_genderdata_package)
 export(gender)
 export(gender_df)
+export(gender_vector)
 export(install_genderdata_package)
 import(dplyr)
 importFrom(utils,data)
