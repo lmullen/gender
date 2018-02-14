@@ -9,7 +9,7 @@
 #   the uses of the name that is male and female.
 gender_genderize <- function(names) {
 
-  endpoint <- "http://api.genderize.io"
+  endpoint <- "https://api.genderize.io"
 
   apply_genderize <- function(n) {
     r <- httr::GET(endpoint, query = list(name = n))
