@@ -5,7 +5,7 @@
 #' data sets suitable for different time periods or geographical regions. See
 #' the package vignette for suggestions on using this function with multiple
 #' names and for a discussion of which data set is most suitable for your
-#' research question. When using certains methods, the \code{genderdata} data
+#' research question. When using certain methods, the \code{genderdata} data
 #' package is required; you will be prompted to install it if it is not already
 #' available.
 #'
