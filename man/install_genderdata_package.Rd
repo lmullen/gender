@@ -9,4 +9,3 @@ install_genderdata_package()
 \description{
 Install the genderdata package after checking with the user
 }
-

@@ -1,17 +1,18 @@
-This is an patch to the gender package which fixes a bug for some users who have
-been unable install the data package because of an option they have set.
+This is an patch to the gender package due to a change in an API called by the package.
 
 ## Testing environments
 
-Mac OS X 10.10.4:
-- R version 3.2.2 (2015-08-14)
+Mac OS X 10.13.3:
+- R version 3.4.3 
 
 Windows via winbuilder:
-- R version 3.2.2 (2015-08-14)
-- R Under development (unstable) (2015-08-20 r69138)
+- R-devel 
+- R-release
 
-Debian (via Docker):
-- R Under development (unstable) (2015-08-11 r68999)
+Ubuntu via travis:
+- R-oldrel
+- R-release
+- R-devel
 
 ## Check results
 

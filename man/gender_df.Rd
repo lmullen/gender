@@ -58,4 +58,3 @@ gender_df(demo_df, method = "demo",
 \seealso{
 \code{\link{gender}}
 }
-

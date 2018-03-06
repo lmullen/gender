@@ -16,4 +16,3 @@ done automatically and can be done manually by running
 \author{
 \email{lincoln@lincolnmullen.com}
 }
-

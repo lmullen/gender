@@ -84,4 +84,3 @@ gender("madison", method = "demo", years = c(1900, 1985))
 # NAPP method
 \dontrun{gender("madison", method = "napp", countries = c("Sweden", "Denmark"))}
 }
-
