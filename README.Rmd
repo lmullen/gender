@@ -29,17 +29,17 @@ An R package for predicting gender from first names using historical data.
 
 ### Description
 
-Data sets, historical or otherwise, often contain a list of first names but seldom identify those names by gender. Most techniques for finding gender programmatically rely on lists of male and female names. However, the gender associated with names can vary over time. Any data set that covers the normal span of a human life will require a historical method to find gender from names. This [R](http://www.r-project.org/) package uses historical datasets from the U.S. Social Security Administration, the U.S. Census Bureau (via [IPUMS USA](https://usa.ipums.org/usa/)), and the [North Atlantic Population Project](https://www.nappdata.org/napp/) to provide predictions of gender for first names for particular countries and time periods.
+Data sets, historical or otherwise, often contain a list of first names but seldom identify those names by gender. Most techniques for finding gender programmatically rely on lists of male and female names. However, the gender associated with names can vary over time. Any data set that covers the normal span of a human life will require a historical method to find gender from names. This [R](https://www.r-project.org/) package uses historical datasets from the U.S. Social Security Administration, the U.S. Census Bureau (via [IPUMS USA](https://usa.ipums.org/usa/)), and the [North Atlantic Population Project](https://www.nappdata.org/napp/) to provide predictions of gender for first names for particular countries and time periods.
 
 ### Installation
 
-You can install [this package from CRAN](http://cran.r-project.org/package=gender):
+You can install [this package from CRAN](https://cran.r-project.org/package=gender):
 
 ```{r eval=FALSE}
 install.packages("gender")
 ```
 
-The first time you use the package you will be prompted to install the accompanying [genderdata package](https://github.com/ropensci/genderdata). Alternatively, you can install this package for yourself from the [rOpenSci package repository](http://packages.ropensci.org/):
+The first time you use the package you will be prompted to install the accompanying [genderdata package](https://github.com/ropensci/genderdata). Alternatively, you can install this package for yourself from the [rOpenSci package repository](https://packages.ropensci.org/):
 
 ```{r eval = FALSE}
 install.packages("genderdata", type = "source",
@@ -64,7 +64,7 @@ gender(c("Madison", "Hillary"), years = 1930, method = "ssa")
 gender(c("Madison", "Hillary"), years = c(2000, 2010), method = "ssa")
 ```
 
-See the package vignette or [read it online at CRAN](https://cran.rstudio.com/web/packages/gender/vignettes/predicting-gender.html) for a fuller introduction and suggestions on how to use the `gender()` function efficiently with large datasets.
+See the package vignette for a fuller introduction and suggestions on how to use the `gender()` function efficiently with large datasets.
 
 ```{r eval=FALSE}
 vignette(topic = "predicting-gender", package = "gender")
