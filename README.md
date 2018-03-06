@@ -44,7 +44,7 @@ The first time you use the package you will be prompted to install the
 accompanying [genderdata
 package](https://github.com/ropensci/genderdata). Alternatively, you can
 install this package for yourself from the [rOpenSci package
-repository](https://packages.ropensci.org/):
+repository](http://packages.ropensci.org/):
 
 ``` r
 install.packages("genderdata", type = "source",
