@@ -8,8 +8,8 @@ data.
 **Author:** [Lincoln Mullen](http://lincolnmullen.com)<br> **License:**
 [MIT](http://opensource.org/licenses/MIT)<br>
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gender)](http://cran.r-project.org/package=gender)
-[![CRAN\_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](http://cran.r-project.org/package=gender)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gender)](https://CRAN.R-project.org/package=gender)
+[![CRAN\_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](https://CRAN.R-project.org/package=gender)
 [![Build
 Status](https://travis-ci.org/ropensci/gender.svg?branch=master)](https://travis-ci.org/ropensci/gender)
 [![AppVeyor Build
