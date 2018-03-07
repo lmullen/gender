@@ -1,4 +1,4 @@
-This is an patch to the gender package due to a change in an API called by the package.
+This is an patch to the gender package due to a change in an API called by the package. This also fixes non-canonical CRAN URLs as requested.
 
 ## Testing environments
 
