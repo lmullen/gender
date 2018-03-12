@@ -4,7 +4,8 @@ Title: Predict Gender from Names Using Historical Data
 Version: 0.5.2
 Date: 2018-03-06
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
-    email = "lincoln@lincolnmullen.com"),
+    email = "lincoln@lincolnmullen.com",
+    comment = c(ORCID = "0000-0001-5103-6917")),
     person("Cameron", "Blevins", role = "ctb"),
     person("Ben", "Schmidt", role = "ctb"))
 Description: Encodes gender based on names and dates of birth using historical
