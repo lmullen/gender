@@ -2,6 +2,7 @@
 output:
   md_document:
     variant: markdown_github
+pagetitle: "Predict Gender from Names Using Historical Data"
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
