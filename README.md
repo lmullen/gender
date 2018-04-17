@@ -1,12 +1,7 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-gender
-------
 
-An R package for predicting gender from first names using historical
-data.
-
-**Author:** [Lincoln Mullen](http://lincolnmullen.com)<br> **License:**
-[MIT](http://opensource.org/licenses/MIT)<br>
+# gender
 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gender)](https://CRAN.R-project.org/package=gender)
 [![CRAN\_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](https://CRAN.R-project.org/package=gender)
@@ -17,7 +12,7 @@ Status](https://ci.appveyor.com/api/projects/status/github/ropensci/gender?branc
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/ropensci/gender/master.svg)](https://codecov.io/github/ropensci/gender?branch=master)
 
-### Description
+## Description
 
 Data sets, historical or otherwise, often contain a list of first names
 but seldom identify those names by gender. Most techniques for finding
@@ -31,7 +26,7 @@ and the [North Atlantic Population
 Project](https://www.nappdata.org/napp/) to provide predictions of
 gender for first names for particular countries and time periods.
 
-### Installation
+## Installation
 
 You can install [this package from
 CRAN](https://cran.r-project.org/package=gender):
@@ -60,7 +55,7 @@ install.packages(c("gender", "genderdata"),
                  type = "source")
 ```
 
-### Using the package
+## Using the package
 
 The `gender()` function takes a character vector of names and a year or
 range of years and uses various datasets to predict the gender of names.
@@ -99,22 +94,38 @@ library(genderdata)
 data(package = "genderdata")
 ```
 
-### Citation
+## Citation
 
-If you use this package, I would appreciate a citation. You can see an
-up to date citation information with `citation("gender")`. You can cite
-either the package or the accompanying journal article.
+If you use this package, I would appreciate a citation.
 
-> Lincoln Mullen (2016). gender: Predict Gender from Names Using
-> Historical Data. R package version 0.5.2.
-> <https://github.com/ropensci/gender>
+``` r
+citation("gender")
+#> 
+#> To cite the 'gender' package, you may either cite the package
+#> directly or cite the journal article which explains its method:
+#> 
+#>   Lincoln Mullen (2018). gender: Predict Gender from Names Using
+#>   Historical Data. R package version 0.5.2.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {gender: Predict Gender from Names Using Historical Data},
+#>     author = {Lincoln Mullen},
+#>     year = {2018},
+#>     note = {R package version 0.5.2},
+#>     url = {https://github.com/ropensci/gender},
+#>   }
+#> 
+#> For the journal article, please cite:
+#> 
+#> Cameron Blevins and Lincoln Mullen, "Jane, John ... Leslie? A
+#> Historical Method for Algorithmic Gender Prediction," _Digital
+#> Humanities Quarterly_ 9, no. 3 (2015):
+#> <http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>.
+```
 
-> Cameron Blevins and Lincoln Mullen, “Jane, John … Leslie? A Historical
-> Method for Algorithmic Gender Prediction,” *Digital Humanities
-> Quarterly* 9, no. 3 (2015):
-> <http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>
-
-------------------------------------------------------------------------
+-----
 
 [![rOpenSCi
 logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

@@ -1,7 +1,5 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
 pagetitle: "Predict Gender from Names Using Historical Data"
 ---
 
@@ -15,12 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## gender 
-
-An R package for predicting gender from first names using historical data.
-
-**Author:** [Lincoln Mullen](http://lincolnmullen.com)<br>
-**License:** [MIT](http://opensource.org/licenses/MIT)<br>
+# gender 
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/gender)](https://CRAN.R-project.org/package=gender)
 [![CRAN_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gender)](https://CRAN.R-project.org/package=gender)
@@ -28,11 +21,11 @@ An R package for predicting gender from first names using historical data.
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/gender?branch=master&svg=true)](https://ci.appveyor.com/project/ropensci/gender)
 [![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/gender/master.svg)](https://codecov.io/github/ropensci/gender?branch=master)
 
-### Description
+## Description
 
 Data sets, historical or otherwise, often contain a list of first names but seldom identify those names by gender. Most techniques for finding gender programmatically rely on lists of male and female names. However, the gender associated with names can vary over time. Any data set that covers the normal span of a human life will require a historical method to find gender from names. This [R](https://www.r-project.org/) package uses historical datasets from the U.S. Social Security Administration, the U.S. Census Bureau (via [IPUMS USA](https://usa.ipums.org/usa/)), and the [North Atlantic Population Project](https://www.nappdata.org/napp/) to provide predictions of gender for first names for particular countries and time periods.
 
-### Installation
+## Installation
 
 You can install [this package from CRAN](https://cran.r-project.org/package=gender):
 
@@ -55,7 +48,7 @@ install.packages(c("gender", "genderdata"),
                  type = "source")
 ```
 
-### Using the package
+## Using the package
 
 The `gender()` function takes a character vector of names and a year or range of years and uses various datasets to predict the gender of names. Here we predict the gender of the names Madison and Hillary in 1930 and again in the 2000s using Social Security data.
 
@@ -78,16 +71,13 @@ library(genderdata)
 data(package = "genderdata")
 ```
 
-### Citation
+## Citation
 
-If you use this package, I would appreciate a citation. You can see an up to date citation information with `citation("gender")`. You can cite either the package or the accompanying journal article.
+If you use this package, I would appreciate a citation.
 
-> Lincoln Mullen (2016). gender: Predict Gender from Names Using Historical
-  Data. R package version 0.5.2. <https://github.com/ropensci/gender>
-
-> Cameron Blevins and Lincoln Mullen, "Jane, John ... Leslie? A Historical
-Method for Algorithmic Gender Prediction," _Digital Humanities Quarterly_ 9, no.
-3 (2015): <http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>
+```{r}
+citation("gender")
+```
 
 ------------------------------------------------------------------------
 
