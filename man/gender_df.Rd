@@ -4,8 +4,8 @@
 \alias{gender_df}
 \title{Use gender prediction with data frames}
 \usage{
-gender_df(data, name_col = "name", year_col = "year", method = c("ssa",
-  "ipums", "napp", "demo"))
+gender_df(data, name_col = "name", year_col = "year",
+  method = c("ssa", "ipums", "napp", "demo"))
 }
 \arguments{
 \item{data}{A data frame containing first names and birth year or range of

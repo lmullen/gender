@@ -5,8 +5,8 @@
 \title{Predict gender from first names using historical data}
 \usage{
 gender(names, years = c(1932, 2012), method = c("ssa", "ipums", "napp",
-  "kantrowitz", "genderize", "demo"), countries = c("United States", "Canada",
-  "United Kingdom", "Denmark", "Iceland", "Norway", "Sweden"))
+  "kantrowitz", "genderize", "demo"), countries = c("United States",
+  "Canada", "United Kingdom", "Denmark", "Iceland", "Norway", "Sweden"))
 }
 \arguments{
 \item{names}{First names as a character vector. Names are case insensitive.}
