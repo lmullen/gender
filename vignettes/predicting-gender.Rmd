@@ -9,6 +9,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+**GUIDELINES:** This method must be used cautiously and responsibly. Please be sure to see the guidelines and warnings about usage in the README or the package documentation.
+
+--------
+
 A common problem for researchers who work with data, especially historians, is that a dataset has a list of people with names but does not identify the gender of the person. Since first names often indicate gender, it should be possible to predict gender using names. However, the gender associated with names can change over time. To illustrate, take the names Madison, Hillary, Jordan, and Monroe. For babies born in the United States, those predominant gender associated with those names has changed over time.
 
 ```{r, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE, fig.width=6, fig.height=4}
