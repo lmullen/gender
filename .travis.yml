@@ -9,6 +9,7 @@ r:
 
 r_github_packages:
   - ropensci/genderdata
+  - r-lib/covr
 
 after_success:
   - Rscript -e 'covr::codecov()'
