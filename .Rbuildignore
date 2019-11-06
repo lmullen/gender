@@ -10,3 +10,5 @@
 ^README\.Rmd$
 ^README-*\.png$
 ^codecov\.yml$
+Makefile
+_pkgdown.yml

@@ -1,15 +1,14 @@
-This is an patch to the gender package due to a change in an API called by the package. This also fixes non-canonical CRAN URLs as requested.
+This is a patch release improving documentation and testing.
 
 ## Testing environments
 
-Mac OS X 10.13.3:
-- R version 3.4.3 
+Mac OS X 10.15.1:
+- R version 3.6.1 
 
-Windows via winbuilder:
+Windows via R-Hub:
 - R-devel 
-- R-release
 
-Ubuntu via travis:
+Ubuntu via Travis CI:
 - R-oldrel
 - R-release
 - R-devel

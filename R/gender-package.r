@@ -50,6 +50,6 @@ NULL
 .onAttach <- function(libname, pkgname) {
   packageStartupMessage(paste0(
     "PLEASE NOTE: The method provided by this package must be used cautiously\n",
-    "and responsibly.Please be sure to see the guidelines and warnings about\n",
+    "and responsibly. Please be sure to see the guidelines and warnings about\n",
     "usage in the README or the package documentation."))
 }
