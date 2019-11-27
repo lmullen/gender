@@ -4,15 +4,24 @@
 # \code{\link{gender}}. See that function for documentation.
 #
 # @param name A character string of a first name.
+# @param countries The countries to look up the names for following ISO 
+#   3166-1 alpha-2 country codes. One (e.g., "US") or multiple countries
+#   through a character vector (e.g., \code{c("US", "SE")}) may be used.
+#   Omitted in API call if specified as NA (default).
 # @return A list or (for multiple names) a list of lists containing the name
 #   property and the predicted gender property, along with the proportion of
 #   the uses of the name that is male and female.
-gender_genderize <- function(names) {
+gender_genderize <- function(names, countries = NA) {
 
   endpoint <- "https://api.genderize.io"
 
-  apply_genderize <- function(n) {
-    r <- httr::GET(endpoint, query = list(name = n))
+  apply_genderize <- function(n, c) {
+    if (!missing(c) && !is.na(c)) {
+	  r <- httr::GET(endpoint, query = list(name = n, country_id = c))
+	} else {
+	  r <- httr::GET(endpoint, query = list(name = n))
+	}
+	
     httr::stop_for_status(r)
     result <- httr::content(r, as = "text") %>%
       jsonlite::fromJSON(., simplifyVector = FALSE)
@@ -31,14 +40,28 @@ gender_genderize <- function(names) {
     }
     result$probability <- NULL
     result$count <- NULL
+	result$country_id <- NULL
 
     as_tibble(result)
   }
 
   if (length(names) == 1) {
-    return(apply_genderize(names))
-  } else {
-    return(bind_rows(lapply(names, apply_genderize)))
+    if (missing(countries) || is.na(countries)) {
+      return(apply_genderize(names))
+    } else if (length(countries) == 1) {
+	  return(apply_genderize(names, countries))
+    } else {
+	  return(apply_genderize(names, countries[1]))
+    }
+ } else {
+    if (missing(countries) || is.na(countries)) {
+      return(bind_rows(lapply(names, apply_genderize)))
+    } else if (length(countries) == 1) {
+      return(bind_rows(lapply(names, apply_genderize, c = countries)))
+    } else {
+	  return(bind_rows(mapply(apply_genderize, names, countries, 
+	                   SIMPLIFY = FALSE)))
+    }
   }
 
 }

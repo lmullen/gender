@@ -42,9 +42,10 @@
 #'   \code{"United States"} which will be assumed if no argument is specified.
 #'   For the \code{"napp"} method, you may specify a character vector with any
 #'   of the following countries: \code{"Canada"}, \code{"United Kingdom"},
-#'   \code{"Denmark"}, \code{"Iceland"}, \code{"Norway"}, \code{"Sweden"}. For
-#'   the \code{"kantrowitz"} and \code{"genderize"} methods, no country should
-#'   be specified.
+#'   \code{"Denmark"}, \code{"Iceland"}, \code{"Norway"}, \code{"Sweden"}. For 
+#'   the \code{"genderize"} method, you may specify ISO 3166-1 alpha-2 country
+#'   codes as character or character vector. For the \code{"kantrowitz"} method,
+#'   no country should be specified.
 #' @return Returns a data frame containing the results of predicting the gender.
 #'   The exact components of the returned list will depend on the specific
 #'   method used. They include the following: \item{name}{The name for which the
@@ -68,6 +69,8 @@
 #' \dontrun{gender("madison", method = "ipums", years = 1860)}
 #' # NAPP method
 #' \dontrun{gender("madison", method = "napp", countries = c("Sweden", "Denmark"))}
+#' # GENDERIZE method
+#' \dontrun{gender("madison", method = "genderize", countries = "US")}
 gender <- function(names, years = c(1932, 2012),
                    method = c("ssa", "ipums", "napp", "kantrowitz",
                               "genderize", "demo"),
@@ -154,9 +157,13 @@ gender <- function(names, years = c(1932, 2012),
   } else if (method == "genderize") {
     if (!missing(years))
       stop("Genderize method does not account for year.")
-    if (!missing(countries))
-      stop("Genderize method does not account for country.")
-    gender_genderize(names = names)
+    if (!missing(countries) && length(countries) != 1 && 
+	  length(countries) != length(names)) 
+	  stop(
+	    sprintf("Countries must be length %d (the number of names) or one, not %d",
+		        length(names), length(countries))
+	  )
+    gender_genderize(names = names, countries = countries)
   }
 }
 

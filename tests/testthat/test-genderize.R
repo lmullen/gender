@@ -2,6 +2,8 @@ context("Genderize method")
 
 single <- gender("leslie", method = "genderize")
 
+single_country <- gender("leslie", method = "genderize", countries = "US")
+
 failed <- gender("does not exist", method = "genderize")
 
 test_that("a single name returns a data frame with the name, gender, and proportions", {
@@ -28,4 +30,10 @@ test_that("genderize does not have an error with names that don't exist", {
                                        gender = NA_character_,
                                        proportion_male = NA_real_,
                                        proportion_female = NA_real_))
+})
+
+test_that("county codes can be included and return the same correct data frame", {
+  expect_is(single_country, "data.frame")
+  expect_that(names(single_country), equals(c("name", "gender", "proportion_female",
+									          "proportion_male")))
 })
