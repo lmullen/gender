@@ -22,7 +22,8 @@ Depends:
 Imports:
     dplyr (>= 0.4.2),
     httr (>= 1.0.0),
-    jsonlite (>= 0.9.16)
+    jsonlite (>= 0.9.16),
+    progress (>= 1.2.2)
 Suggests:
     genderdata (>= 0.5.0),
     ggplot2 (>= 1.0.0),

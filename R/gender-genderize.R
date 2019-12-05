@@ -17,8 +17,11 @@ gender_genderize <- function(names, countries = NA, api_key = NA) {
 
   endpoint <- "https://api.genderize.io"
   api_key <- ifelse(missing(api_key), NA, api_key)
+  progress_bar <- progress::progress_bar$new(total = length(names))
 
   apply_genderize <- function(n, c) {
+    progress_bar$tick()
+
     query_params = list(name = n)
     if (!missing(c) && !is.na(c)) {
       query_params$country_id = c
@@ -69,5 +72,4 @@ gender_genderize <- function(names, countries = NA, api_key = NA) {
 	    return(bind_rows(mapply(apply_genderize, names, countries, SIMPLIFY = FALSE)))
     }
   }
-
 }
