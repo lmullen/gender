@@ -32,7 +32,7 @@ gender_genderize <- function(names) {
     result$probability <- NULL
     result$count <- NULL
 
-    as_data_frame(result)
+    as_tibble(result)
   }
 
   if (length(names) == 1) {

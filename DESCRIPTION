@@ -33,8 +33,7 @@ Suggests:
 Additional_repositories: http://packages.ropensci.org
 LazyData: yes
 License: MIT + file LICENSE
-Roxygen: list(wrap = FALSE)
 VignetteBuilder: knitr
 BugReports: https://github.com/ropensci/gender/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Encoding: UTF-8
