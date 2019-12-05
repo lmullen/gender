@@ -43,3 +43,9 @@ test_that("county codes can be included and return the same correct data frame",
   expect_that(names(single_country),
               equals(c("name", "gender", "proportion_female", "proportion_male")))
 })
+
+test_that("non-existent genderize API key will yield an HTTP-unauthorized error", {
+  expect_error(
+    gender("leslie", method = "genderize", genderize_api_key = "not_existent")
+  )
+})

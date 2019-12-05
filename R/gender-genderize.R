@@ -16,13 +16,17 @@
 gender_genderize <- function(names, countries = NA, api_key = NA) {
 
   endpoint <- "https://api.genderize.io"
+  api_key <- ifelse(missing(api_key), NA, api_key)
 
   apply_genderize <- function(n, c) {
+    query_params = list(name = n)
     if (!missing(c) && !is.na(c)) {
-  	  r <- httr::GET(endpoint, query = list(name = n, country_id = c))
-  	} else {
-  	  r <- httr::GET(endpoint, query = list(name = n))
-  	}
+      query_params$country_id = c
+    }
+    if (!is.na(api_key)) {
+      query_params$apikey = api_key
+    }
+    r <- httr::GET(endpoint, query = query_params)
 
     httr::stop_for_status(r)
     result <- httr::content(r, as = "text") %>%
