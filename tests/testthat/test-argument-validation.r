@@ -36,8 +36,7 @@ test_that("countries are mapped with their respective methods", {
                "IPUMS data is only available")
   expect_error(gender("Madison", method = "kantrowitz", countries = "Denmark"),
                "Kantrowitz method does not account for country")
-  expect_error(gender("Madison", method = "genderize", countries = "USA"),
-               "Genderize method does not account for country")
+  expect_warning(gender("Madison", method = "genderize", countries = "USA"))
   expect_error(gender("Madison", method = "napp", countries = "United States"),
                "NAPP data is only available for European countries.")
   expect_error(gender("Madison", method = "napp", countries = "New South Wales"))
