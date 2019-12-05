@@ -42,10 +42,13 @@
 #'   \code{"United States"} which will be assumed if no argument is specified.
 #'   For the \code{"napp"} method, you may specify a character vector with any
 #'   of the following countries: \code{"Canada"}, \code{"United Kingdom"},
-#'   \code{"Denmark"}, \code{"Iceland"}, \code{"Norway"}, \code{"Sweden"}. For 
+#'   \code{"Denmark"}, \code{"Iceland"}, \code{"Norway"}, \code{"Sweden"}. For
 #'   the \code{"genderize"} method, you may specify ISO 3166-1 alpha-2 country
 #'   codes as character or character vector. For the \code{"kantrowitz"} method,
 #'   no country should be specified.
+#' @param genderize_api_key As of late 2019, genderize.io allows 1,000 names
+#'   per day to be "genderized." To get more, an API key is required. This API
+#'   key can be provided here as character.
 #' @return Returns a data frame containing the results of predicting the gender.
 #'   The exact components of the returned list will depend on the specific
 #'   method used. They include the following: \item{name}{The name for which the
@@ -75,7 +78,8 @@ gender <- function(names, years = c(1932, 2012),
                    method = c("ssa", "ipums", "napp", "kantrowitz",
                               "genderize", "demo"),
                    countries = c("United States", "Canada", "United Kingdom",
-                                 "Denmark", "Iceland", "Norway", "Sweden"))
+                                 "Denmark", "Iceland", "Norway", "Sweden"),
+                   genderize_api_key = NA)
   {
 
   method <- match.arg(method)
@@ -157,13 +161,56 @@ gender <- function(names, years = c(1932, 2012),
   } else if (method == "genderize") {
     if (!missing(years))
       stop("Genderize method does not account for year.")
-    if (!missing(countries) && length(countries) != 1 && 
-	  length(countries) != length(names)) 
-	  stop(
-	    sprintf("Countries must be length %d (the number of names) or one, not %d",
-		        length(names), length(countries))
-	  )
-    gender_genderize(names = names, countries = countries)
+    if (!missing(countries) && length(countries) != 1 && length(countries) != length(names))
+	    stop(
+	      sprintf("Countries must be length %d (the number of names) or 1, not %d",
+	              length(names),
+	              length(countries))
+	    )
+    if (length(countries) > 0) {
+      # https://genderize.io/our-data [2019-12-05]
+      available_country_ids = c("AD", "AE", "AF", "AG", "AI", "AL", "AM", "AN", "AO", "AQ",
+                                "AR", "AS", "AT", "AU", "AW", "AZ", "BA", "BB", "BD", "BE",
+                                "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BR",
+                                "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF",
+                                "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CU",
+                                "CV", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ",
+                                "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FK",
+                                "FM", "FO", "FR", "GA", "GB", "GD", "GE", "GF", "GG", "GH",
+                                "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU",
+                                "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL",
+                                "IM", "IN", "IO", "IQ", "IR", "IS", "IT", "JE", "JM", "JO",
+                                "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW",
+                                "KY", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT",
+                                "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MF", "MG", "MH",
+                                "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT",
+                                "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF",
+                                "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ", "OM", "PA",
+                                "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS",
+                                "PT", "PW", "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA",
+                                "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL",
+                                "SM", "SN", "SO", "SR", "ST", "SV", "SY", "SZ", "TC", "TD",
+                                "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT",
+                                "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VA", "VC",
+                                "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT", "ZA",
+                                "ZM", "ZW")
+      country_matches = toupper(countries) %in% available_country_ids
+      if (all(!country_matches)) {
+        warning(
+          sprintf("Countries ignored because none of %s matches the possible options (%s).",
+                  paste(countries, collapse = ", "),
+                  "https://genderize.io/our-data")
+        )
+        countries = NA
+      } else if (!all(country_matches)) {
+        stop(
+          sprintf("Either all or no specified countries of %s have to be correct matches (%s).",
+                  paste(countries, collapse = ", "),
+                  "https://genderize.io/our-data")
+        )
+      }
+    }
+    gender_genderize(names = names, countries = countries, api_key = genderize_api_key)
   }
 }
 

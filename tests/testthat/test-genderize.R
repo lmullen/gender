@@ -26,14 +26,20 @@ test_that("genderize returns values of correct type", {
 test_that("genderize does not have an error with names that don't exist", {
   expect_is(failed, "data.frame")
   expect_equal(nrow(failed), 1)
-  expect_equivalent(failed, data_frame(name = "does not exist",
-                                       gender = NA_character_,
-                                       proportion_male = NA_real_,
-                                       proportion_female = NA_real_))
+
+  expect_that(class(failed$name), equals("character"))
+  expect_that(class(failed$gender), equals("character"))
+  expect_that(class(failed$proportion_female), equals("numeric"))
+  expect_that(class(failed$proportion_male), equals("numeric"))
+
+  expect_that(failed$name, equals("does not exist"))
+  expect_that(failed$gender, equals(NA_character_))
+  expect_that(failed$proportion_female, equals(NA_real_))
+  expect_that(failed$proportion_male, equals(NA_real_))
 })
 
 test_that("county codes can be included and return the same correct data frame", {
   expect_is(single_country, "data.frame")
-  expect_that(names(single_country), equals(c("name", "gender", "proportion_female",
-									          "proportion_male")))
+  expect_that(names(single_country),
+              equals(c("name", "gender", "proportion_female", "proportion_male")))
 })
