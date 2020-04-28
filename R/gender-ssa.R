@@ -28,8 +28,8 @@ gender_ssa <- function(names, years, correct_skew = TRUE) {
            year >= years[1],
            year <= years[2]) %>%
     group_by(name) %>%
-    summarise(female = sum(female) * correx['female'],
-              male = sum(male) * correx['male']) %>%
+    summarise(female = sum(female) * correx[['female']],
+              male = sum(male) * correx[['male']]) %>%
     mutate(proportion_male = round((male / (male + female)),
                                       digits = 4),
               proportion_female = round((female / (male + female)),
@@ -39,7 +39,7 @@ gender_ssa <- function(names, years, correct_skew = TRUE) {
                                   "male"))) %>%
     mutate(year_min = years[1], year_max = years[2]) %>%
     rename(join_name = name) %>%
-    left_join(data_frame(name = names, join_name = tolower(names)),
+    left_join(tibble(name = names, join_name = tolower(names)),
               by = "join_name") %>%
     select(name, proportion_male, proportion_female, gender, year_min, year_max)
 

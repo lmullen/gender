@@ -27,7 +27,7 @@ gender_ipums_usa <- function(names, years) {
                                   "male"))) %>%
     mutate(year_min = years[1], year_max = years[2]) %>%
     rename(join_name = name) %>%
-    left_join(data_frame(name = names, join_name = tolower(names)),
+    left_join(tibble(name = names, join_name = tolower(names)),
               by = "join_name") %>%
     select(name, proportion_male, proportion_female, gender, year_min, year_max)
 

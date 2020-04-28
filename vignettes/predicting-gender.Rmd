@@ -102,7 +102,7 @@ library(dplyr)
 demo_names <- c("Susan", "Susan", "Madison", "Madison",
                 "Hillary", "Hillary", "Hillary")
 demo_years <- c(rep(c(1930, 2000), 3), 1930)
-demo_df <- data_frame(first_names = demo_names,
+demo_df <- tibble(first_names = demo_names,
                       last_names = LETTERS[1:7],
                       years = demo_years,
                       min_years = demo_years - 3,

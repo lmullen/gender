@@ -24,7 +24,7 @@ test_that("genderize returns values of correct type", {
 test_that("genderize does not have an error with names that don't exist", {
   expect_is(failed, "data.frame")
   expect_equal(nrow(failed), 1)
-  expect_equivalent(failed, data_frame(name = "does not exist",
+  expect_equivalent(failed, tibble(name = "does not exist",
                                        gender = NA_character_,
                                        proportion_male = NA_real_,
                                        proportion_female = NA_real_))
