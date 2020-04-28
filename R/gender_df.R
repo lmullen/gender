@@ -26,7 +26,7 @@
 #'   years.
 #' @examples
 #' library(dplyr)
-#' demo_df <- data_frame(names = c("Hillary", "Hillary", "Hillary",
+#' demo_df <- tibble(names = c("Hillary", "Hillary", "Hillary",
 #'                                 "Madison", "Madison"),
 #'                       birth_year = c(1930, 2000, 1930, 1930, 2000),
 #'                       min_year = birth_year - 1,
