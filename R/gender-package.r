@@ -1,7 +1,7 @@
 #' Gender: predict gender from names using historical data
 #'
 #' Encodes gender based on names and dates of birth, using U.S. Census or Social
-#' Security data sets. Requires separate downlaod of datasets, which should be
+#' Security data sets. Requires separate download of datasets, which should be
 #' done automatically and can be done manually by running
 #' \code{install_genderdata_package()}.
 #'

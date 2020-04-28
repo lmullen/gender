@@ -95,4 +95,4 @@ citation("gender")
 
 ------------------------------------------------------------------------
 
-[![rOpenSCi logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![rOpenSci logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

@@ -1,9 +1,9 @@
-This is a patch release improving documentation and testing.
+This is a patch release to make this package compatible with the upcoming 1.0.0 release of dplyr.
 
 ## Testing environments
 
-Mac OS X 10.15.1:
-- R version 3.6.1 
+Mac OS X 10.15.4:
+- R version 4.0.0
 
 Windows via R-Hub:
 - R-devel 
