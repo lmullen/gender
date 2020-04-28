@@ -21,15 +21,15 @@ Depends:
     utils,
     stats
 Imports:
-    dplyr (>= 0.4.2),
-    httr (>= 1.0.0),
-    jsonlite (>= 0.9.16)
+    dplyr (>= 0.8.5),
+    httr (>= 1.4.1),
+    jsonlite (>= 1.6.1)
 Suggests:
     genderdata (>= 0.5.0),
-    ggplot2 (>= 1.0.0),
-    knitr (>= 1.11),
-    testthat (>= 0.10.0),
-    rmarkdown (>= 0.9.0),
+    ggplot2 (>= 3.3.0),
+    knitr (>= 1.28),
+    testthat (>= 2.3.2),
+    rmarkdown (>= 2.1),
     covr
 Additional_repositories: http://packages.ropensci.org
 LazyData: yes
