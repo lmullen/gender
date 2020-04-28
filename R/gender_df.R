@@ -50,10 +50,13 @@ gender_df <- function(data, name_col = "name", year_col = "year",
             length(year_col) >= 1,
             length(year_col) <= 2,
             year_col %in% names(data))
-  if (length(year_col) == 1) year_col <- c(year_col, year_col)
 
-  name_year_grouping <- list(name_col, year_col[1], year_col[2])
-  year_grouping <- list(year_col[1], year_col[2])
+  name_year_grouping <- c(list(name_col), as.list(year_col))
+  year_grouping <- as.list(year_col)
+
+  if (length(year_col) == 1) {
+    year_col <- c(year_col, year_col)
+  }
 
   data %>%
     group_by(.dots = name_year_grouping) %>%

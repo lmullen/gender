@@ -1,4 +1,4 @@
-source("sample-data.r")
+source(test_path("sample-data.r"))
 context("Gender DF")
 
 results <- gender_df(sample_names_df,
