@@ -28,8 +28,8 @@ gender_ssa <- function(names, years, correct_skew = TRUE) {
            year >= years[1],
            year <= years[2]) %>%
     group_by(name) %>%
-    summarise(female = sum(female) * correx['female'],
-              male = sum(male) * correx['male']) %>%
+    summarise(female = sum(female) * correx[['female']],
+              male = sum(male) * correx[['male']]) %>%
     mutate(proportion_male = round((male / (male + female)),
                                       digits = 4),
               proportion_female = round((female / (male + female)),
