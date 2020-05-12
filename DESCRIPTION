@@ -2,7 +2,7 @@ Package: gender
 Type: Package
 Title: Predict Gender from Names Using Historical Data
 Version: 0.5.4
-Date: 2020-04-28
+Date: 2020-05-12
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com",
     comment = c(ORCID = "0000-0001-5103-6917")),
