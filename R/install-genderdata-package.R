@@ -19,7 +19,7 @@ check_genderdata_package <- function() {
 install_genderdata_package <- function() {
   instructions <- paste(" Please try installing the package for yourself",
                         "using the following command: \n",
-  "    install.packages(\"genderdata\", repos = \"http://packages.ropensci.org\",",
+  "    install.packages(\"genderdata\", repos = \"https://dev.ropensci.org\",",
   "type = \"source\")")
 
   error_func <- function(e) {
@@ -32,7 +32,7 @@ install_genderdata_package <- function() {
     if (input == 1) {
       message("Installing the genderdata package.")
       tryCatch(utils::install.packages("genderdata",
-                                       repos = "http://packages.ropensci.org",
+                                       repos = "https://dev.ropensci.org",
                                        type = "source"),
                error = error_func, warning = error_func)
     } else {

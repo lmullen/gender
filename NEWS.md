@@ -1,6 +1,7 @@
 # gender 0.5.4
 
 - update dependencies, and fix for dplyr 1.0.0
+- update URL for rOpenSci CRAN-like repository
 
 # gender 0.5.3
 
