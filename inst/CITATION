@@ -9,7 +9,7 @@ citEntry(entry="Manual",
          author = personList(as.person("Lincoln Mullen")),
          year = year,
          note = vers,
-         url = meta$URL,
+         url = "https://github.com/ropensci/gender",
          textVersion =
          paste("Lincoln Mullen (", year, "). ",
          "gender: Predict Gender from Names Using Historical Data. ",

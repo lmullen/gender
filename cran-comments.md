@@ -1,5 +1,7 @@
 This is a patch release to make this package compatible with the upcoming 1.0.0 release of dplyr.
 
+This resubmission fixes a problem with a URL in `inst/CITATION`.
+
 ## Testing environments
 
 Mac OS X 10.15.4:
