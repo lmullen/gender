@@ -31,7 +31,8 @@
 #'   \href{https://www.nappdata.org/napp/}{North Atlantic Population Project}.
 #'   The
 #'   \code{"kantrowitz"} method uses the Kantrowitz corpus of male and female
-#'   names. The \code{"genderize"} method uses the Genderize.io
+#'   names. \code{"ind"} method uses the Indian corpus of male and female
+#'   names.The \code{"genderize"} method uses the Genderize.io
 #'   <\url{http://genderize.io/}> API, which is based on "user profiles across
 #'   major social networks." The \code{"demo"} method is uses the top 100 names
 #'   in the SSA method; it is provided only for demonstration purposes when the
@@ -69,7 +70,7 @@
 #' # NAPP method
 #' \dontrun{gender("madison", method = "napp", countries = c("Sweden", "Denmark"))}
 gender <- function(names, years = c(1932, 2012),
-                   method = c("ssa", "ipums", "napp", "kantrowitz",
+                   method = c("ssa", "ipums", "napp", "kantrowitz","ind"
                               "genderize", "demo"),
                    countries = c("United States", "Canada", "United Kingdom",
                                  "Denmark", "Iceland", "Norway", "Sweden"))
@@ -127,7 +128,13 @@ gender <- function(names, years = c(1932, 2012),
       stop("Kantrowitz method does not account for year.")
     if (!missing(countries))
       stop("Kantrowitz method does not account for country.")
-    gender_kantrowitz(names = names)
+    gender_ind(names = names)
+    else if (method == "ind") {
+    if (!missing(years))
+      stop("ind method does not account for year.")
+    if (!missing(countries))
+      stop("ind method does not account for country.")
+    gender_ind(names = names)
   } else if (method == "ipums") {
     if (years[1] < 1789 || years[2] > 1930) {
       warning("The year range provided has been trimmed to fit within 1789 to 1930.")
@@ -163,7 +170,7 @@ gender <- function(names, years = c(1932, 2012),
 # Hide variables from R CMD check
 if (getRversion() >= "2.15.1") {
   c("year", "male", "female", "proportion_female", "proportion_male",
-    "ssa_national", "kantrowitz", ".", "ipums_usa", "ratio_male",
+    "ssa_national", "kantrowitz","ind", ".", "ipums_usa", "ratio_male",
     "ratio_female", "name", "year_min", "year_max", "country", "napp") %>%
   utils::globalVariables()
 }
