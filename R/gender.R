@@ -70,7 +70,7 @@
 #' # NAPP method
 #' \dontrun{gender("madison", method = "napp", countries = c("Sweden", "Denmark"))}
 gender <- function(names, years = c(1932, 2012),
-                   method = c("ssa", "ipums", "napp", "kantrowitz","ind"
+                   method = c("ssa", "ipums", "napp", "kantrowitz","ind",
                               "genderize", "demo"),
                    countries = c("United States", "Canada", "United Kingdom",
                                  "Denmark", "Iceland", "Norway", "Sweden"))
