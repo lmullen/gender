@@ -128,7 +128,7 @@ gender <- function(names, years = c(1932, 2012),
       stop("Kantrowitz method does not account for year.")
     if (!missing(countries))
       stop("Kantrowitz method does not account for country.")
-    gender_ind(names = names)
+    gender_kantrowitz(names = names)
     else if (method == "ind") {
     if (!missing(years))
       stop("ind method does not account for year.")
