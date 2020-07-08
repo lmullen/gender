@@ -29,3 +29,16 @@ test_that("only operates on distinct combinations of names/years", {
                    name_col = "names", year_col = "years")
   expect_identical(results, big)
 })
+
+test_that("", {
+  names_example <-
+    tibble::tibble(first_names = c("zephaniah", "william"),
+                   years = c(1963, 1964))
+  results <- gender::gender_df(
+    names_example,
+    name_col = "first_names",
+    year_col = "years",
+    method = "ssa"
+  )
+  expect_is(results, "data.frame")
+})
