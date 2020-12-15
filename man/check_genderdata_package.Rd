@@ -7,6 +7,7 @@
 check_genderdata_package()
 }
 \description{
-If the genderdata package is not installed, install it from GitHub using
-devtools. If it is not up to date, reinstall it.
+If the genderdata package is not installed,
+or it is out of date (earlier than version 0.5.0),
+install it from ropensci after checking with the user.
 }

@@ -2,10 +2,12 @@
 % Please edit documentation in R/install-genderdata-package.R
 \name{install_genderdata_package}
 \alias{install_genderdata_package}
-\title{Install the genderdata package after checking with the user}
+\title{Install the genderdata package from ropensci
+after checking with the user.}
 \usage{
 install_genderdata_package()
 }
 \description{
-Install the genderdata package after checking with the user
+Install the genderdata package from ropensci
+after checking with the user.
 }
