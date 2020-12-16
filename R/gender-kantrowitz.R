@@ -11,27 +11,39 @@ gender_kantrowitz <- function(names) {
   # An internal function to predict the gender of one name
   apply_kantrowitz <- function(n) {
 
-    results <- genderdata::kantrowitz %>% filter(name == tolower(n))
+    result <- genderdata::kantrowitz %>%
+      filter(name == tolower(n))
 
-    # If the name isn't in the data set, return use that information rather than
+    # If the name isn't in the data set, return that information rather than
     # silently dropping a row
     if (nrow(results) == 0) {
-      results <- data.frame(name = n, gender = NA)
+      result <- tibble(name = n, gender = NA_character_)
     }
 
     # Use the original capitalization of the name
-    results$name <- n
+    result$name <- n
 
-    results
+    return(result)
 
   }
 
-  # Use the function directly if there is one name; use lapply if there are > 1.
-  # Return the results as a list or a list of lists.
-  if (length(names) == 1) {
+  n_names <- length(names)
+
+  if (n_names == 1) {
     return(apply_kantrowitz(names))
+  } else if (n_names < 5) {
+    return(
+      lapply(names, apply_kantrowitz) %>%
+             bind_rows()
+      )
   } else {
-    return(bind_rows(lapply(names, apply_kantrowitz)))
+    return(
+      tibble(name = names) %>%
+      mutate(lower_name = tolower(name)) %>%
+      left_join(genderdata::kantrowitz,
+                by = c("lower_name" = "name")) %>%
+      select(-lower_name)
+    )
   }
 
 }
