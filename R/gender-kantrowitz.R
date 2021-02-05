@@ -16,7 +16,8 @@ gender_kantrowitz <- function(names) {
 
     # If the name isn't in the data set, return that information rather than
     # silently dropping a row
-    if (nrow(results) == 0) {
+    if (nrow(result) == 0) {
+
       result <- tibble(name = n, gender = NA_character_)
     }
 
@@ -24,26 +25,26 @@ gender_kantrowitz <- function(names) {
     result$name <- n
 
     return(result)
-
   }
 
+  # Use the function directly if there is one name; use lapply if there are > 1.
+  # Return the results as a list or a list of lists.
   n_names <- length(names)
 
+  # n_names >= 5 it is faster to do a left_join
   if (n_names == 1) {
     return(apply_kantrowitz(names))
   } else if (n_names < 5) {
-    return(
-      lapply(names, apply_kantrowitz) %>%
-             bind_rows()
-      )
+    return(lapply(names, apply_kantrowitz) %>%
+      bind_rows())
   } else {
     return(
       tibble(name = names) %>%
-      mutate(lower_name = tolower(name)) %>%
-      left_join(genderdata::kantrowitz,
-                by = c("lower_name" = "name")) %>%
-      select(-lower_name)
+        mutate(lower_name = tolower(name)) %>%
+        left_join(genderdata::kantrowitz,
+          by = c("lower_name" = "name")
+        ) %>%
+        select(-lower_name)
     )
   }
-
 }
