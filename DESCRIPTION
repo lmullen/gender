@@ -1,8 +1,8 @@
 Package: gender
 Type: Package
 Title: Predict Gender from Names Using Historical Data
-Version: 0.5.4
-Date: 2020-05-12
+Version: 0.5.4.1000
+Date: 2021-03-20
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com",
     comment = c(ORCID = "0000-0001-5103-6917")),
@@ -23,7 +23,8 @@ Depends:
 Imports:
     dplyr (>= 0.8.5),
     httr (>= 1.4.1),
-    jsonlite (>= 1.6.1)
+    jsonlite (>= 1.6.1),
+    remotes(>= 2.2.0)
 Suggests:
     genderdata (>= 0.5.0),
     ggplot2 (>= 3.3.0),
@@ -36,5 +37,5 @@ LazyData: yes
 License: MIT + file LICENSE
 VignetteBuilder: knitr
 BugReports: https://github.com/ropensci/gender/issues
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Encoding: UTF-8
