@@ -92,49 +92,6 @@ U.S. Social Security Administration data was collected from applicants to Social
 
 The [North Atlantic Population Project](https://www.nappdata.org/napp/) provides data for Canada, the United Kingdom, Germany, Iceland, Norway, and Sweden for years between 1758 and 1910, based on census microdata from those countries.
 
-## Working with data frames of names
-
-Most often you have a dataset and you want to predict gender for multiple names. Consider this sample dataset.
-
-```{r}
-library(dplyr)
-
-demo_names <- c("Susan", "Susan", "Madison", "Madison",
-                "Hillary", "Hillary", "Hillary")
-demo_years <- c(rep(c(1930, 2000), 3), 1930)
-demo_df <- tibble(first_names = demo_names,
-                      last_names = LETTERS[1:7],
-                      years = demo_years,
-                      min_years = demo_years - 3,
-                      max_years = demo_years + 3)
-
-demo_df
-```
-
-Here we have a dataset with first names connected to years. It is important to emphasize that these years should be the years of birth. If you have years representing something else, you will have to estimate the years of birth. For this demo dataset, we have included a single birth year for each person. But since historians may only have a guess at the birth year of people, we have also included columns for the minimum and maximum years in an possible age range.
-
-We can pass this data frame to the `gender_df()` function, specifying the method that we wish to use and the names of the columns that contain the names and the birth years. The result is a data frame of predictions.
-
-```{r}
-results <- gender_df(demo_df, name_col = "first_names", year_col = "years",
-                     method = "demo")
-results
-```
-
-Notice that in our original data frame there were two Hillarys (`Hillary E` and `Hillary G`) born in 1930, but our resulting data frame only contains one. That is because the `gender_df()` function is efficient, calculating genders only for unique combinations of first names and years. In a dataset of any appreciable size, this saves quite a bit of computation time. The resulting data frame can be merged back into the original dataset.
-
-```{r}
-demo_df %>% 
-  left_join(results, by = c("first_names" = "name", "years" = "year_min"))
-```
-
-We can also use `gender_df()` to predict gender a range of years by passing it the names of columns with minimum and maximum years of the range to be used for each person. As in the previous example, only unique combinations of first names and ranges of years will be calculated.
-
-```{r}
-gender_df(demo_df, name_col = "first_names",
-          year_col = c("min_years", "max_years"), method = "demo")
-```
-
 ## Working with dplyr
 
 The `gender_df()` function is simply a wrapper around a [dplyr](https://cran.r-project.org/package=dplyr) data manipulation chain. Should you wish, you can  use dplyr's `do()` function to run the `gender()` function on each name and birth year (i.e., each row). This will result in a dataframe containing a column of dataframes. Another call to `do()` and `bind_rows()` will create a the single data frame that we expect.
