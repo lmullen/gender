@@ -94,6 +94,21 @@ The [North Atlantic Population Project](https://www.nappdata.org/napp/) provides
 
 ## Working with dplyr
 
+Most often you have a dataset and you want to predict gender for multiple names. Consider this sample dataset.
+
+```{r}
+library(dplyr)
+demo_names <- c("Susan", "Susan", "Madison", "Madison",
+                "Hillary", "Hillary", "Hillary")
+demo_years <- c(rep(c(1930, 2000), 3), 1930)
+demo_df <- tibble(first_names = demo_names,
+                      last_names = LETTERS[1:7],
+                      years = demo_years,
+                      min_years = demo_years - 3,
+                      max_years = demo_years + 3)
+demo_df
+```
+
 The `gender_df()` function is simply a wrapper around a [dplyr](https://cran.r-project.org/package=dplyr) data manipulation chain. Should you wish, you can  use dplyr's `do()` function to run the `gender()` function on each name and birth year (i.e., each row). This will result in a dataframe containing a column of dataframes. Another call to `do()` and `bind_rows()` will create a the single data frame that we expect.
 
 ```{r}
