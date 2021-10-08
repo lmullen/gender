@@ -1,8 +1,8 @@
 Package: gender
 Type: Package
 Title: Predict Gender from Names Using Historical Data
-Version: 0.5.4.1000
-Date: 2021-03-20
+Version: 0.6.0
+Date: 2021-10-08
 Authors@R: c(person("Lincoln", "Mullen", role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com",
     comment = c(ORCID = "0000-0001-5103-6917")),
@@ -15,9 +15,9 @@ Description: Infers state-recorded gender categories from first names and dates 
     This method must be used cautiously and responsibly. Please be sure to see the
     guidelines and warnings about usage in the 'README' or the package documentation.
     See Blevins and Mullen (2015) <http://www.digitalhumanities.org/dhq/vol/9/3/000223/000223.html>.
-URL: https://docs.ropensci.org/gender/, https://github.com/ropensci/gender
+URL: https://github.com/lmullen/gender
 Depends:
-    R (>= 3.0.0),
+    R (>= 4.0.0),
     utils,
     stats
 Imports:
@@ -26,16 +26,15 @@ Imports:
     jsonlite (>= 1.6.1),
     remotes(>= 2.2.0)
 Suggests:
-    genderdata (>= 0.5.0),
+    genderdata (>= 0.6.0),
     ggplot2 (>= 3.3.0),
     knitr (>= 1.28),
     testthat (>= 2.3.2),
     rmarkdown (>= 2.1),
     covr
-Additional_repositories: http://packages.ropensci.org
 LazyData: yes
 License: MIT + file LICENSE
 VignetteBuilder: knitr
-BugReports: https://github.com/ropensci/gender/issues
-RoxygenNote: 7.1.1
+BugReports: https://github.com/lmullen/gender/issues
+RoxygenNote: 7.1.2
 Encoding: UTF-8

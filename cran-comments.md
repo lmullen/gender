@@ -1,16 +1,14 @@
-This is a patch release to make this package compatible with the upcoming 1.0.0 release of dplyr.
-
-This resubmission fixes a problem with a URL in `inst/CITATION`.
+This is a patch release to fix problems with installing supplemental data.
 
 ## Testing environments
 
 Mac OS X 10.15.4:
 - R version 4.0.0
 
-Windows via R-Hub:
+Windows via winbuilder:
 - R-devel 
 
-Ubuntu via Travis CI:
+Ubuntu via GitHub Actions:
 - R-oldrel
 - R-release
 - R-devel

@@ -1,3 +1,8 @@
+# gender 0.6.0
+
+- Fixes installation problems with the move away from rOpenSci
+- Removes the `gender_df()` function, which did not work properly.
+
 # gender 0.5.4
 
 - update dependencies, and fix for dplyr 1.0.0
