@@ -32,7 +32,7 @@
 #'   The
 #'   \code{"kantrowitz"} method uses the Kantrowitz corpus of male and female
 #'   names. The \code{"genderize"} method uses the Genderize.io
-#'   <\url{http://genderize.io/}> API, which is based on "user profiles across
+#'   <\url{https://genderize.io/}> API, which is based on "user profiles across
 #'   major social networks." The \code{"demo"} method is uses the top 100 names
 #'   in the SSA method; it is provided only for demonstration purposes when the
 #'   \code{genderdata} package is not installed and it is not suitable for

@@ -20,12 +20,13 @@ There were no WARNINGS or ERRORS.
 There were two NOTES.
 
     * checking CRAN incoming feasibility ... NOTE
+
     Suggests or Enhances not in mainstream repositories:
       genderdata
-    
     Availability using Additional_repositories specification:
-      genderdata   yes   http://packages.ropensci.org
-    * checking package dependencies ... NOTE
+      genderdata   no   ?                           
+      ?             ?   http://packages.ropensci.org
+
     Package suggested but not available for checking: 'genderdata'
 
 The 'genderdata' package provides additional datasets which cannot go on CRAN 
