@@ -32,7 +32,6 @@ Suggests:
     testthat (>= 2.3.2),
     rmarkdown (>= 2.1),
     covr
-LazyData: yes
 License: MIT + file LICENSE
 VignetteBuilder: knitr
 BugReports: https://github.com/lmullen/gender/issues
